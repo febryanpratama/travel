@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
 					<div class="btc_tittle_left_heading">
-						<h1>Dakota Avant</h1>
+						<h1>{{ $data->nama_mobil }}</h1>
 					</div>
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
@@ -17,9 +17,9 @@
 							<ul>
 								<li><a href="#">Home</a> <i class="fa fa-angle-right"></i>
 								</li>
-								<li><a href="#">Cars</a> <i class="fa fa-angle-right"></i>
+								<li><a href="#">Mobil</a> <i class="fa fa-angle-right"></i>
 								</li>
-								<li>Dakota Avant</li>
+								<li>{{ $data->nama_mobil }}</li>
 							</ul>
 						</div>
 					</div>
@@ -33,27 +33,27 @@
 		<div class="container">
 			<div class="x_title_inner_num_wrapper float_left">
 				<div class="x_title_num_heading">
-					<h3>Choose a car</h3>
-					<p>Complete Your Step</p>
+					<h3>Pilih Mobil</h3>
+					<p>Selesaikan Langkah Anda</p>
 				</div>
 				<div class="x_title_num_heading_cont">
 					<div class="x_title_num_main_box_wrapper">
 						<div class="x_icon_num">
 							<p>1</p>
 						</div>
-						<h5>Time & place</h5>
+						<h5>Waktu & Tempat</h5>
 					</div>
 					<div class="x_title_num_main_box_wrapper x_title_num_main_box_wrapper2">
 						<div class="x_icon_num x_icon_num2">
 							<p>2</p>
 						</div>
-						<h5>Car</h5>
+						<h5>Mobil</h5>
 					</div>
 					<div class="x_title_num_main_box_wrapper x_title_num_main_box_wrapper3">
 						<div class="x_icon_num x_icon_num3">
 							<p>3</p>
 						</div>
-						<h5>detail</h5>
+						<h5>Detail</h5>
 					</div>
 					<div class="x_title_num_main_box_wrapper x_title_num_main_box_wrapper3">
 						<div class="x_icon_num x_icon_num3">
@@ -66,7 +66,7 @@
 						<div class="x_icon_num x_icon_num3">
 							<p>5</p>
 						</div>
-						<h5>done!</h5>
+						<h5>Sukses!</h5>
 					</div>
 				</div>
 			</div>
@@ -94,12 +94,8 @@
 								<div class="x_car_detail_slider_bottom_cont float_left">
 									<div class="x_car_detail_slider_bottom_cont_left">
 										<h3>{{ $data->nama_mobil }}</h3>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-										<i class="fa fa-star-o"></i>
-										<span>251 Reviews / <span id="rev"></span></span>
+										
+										<span>Jarak / Waktu : </span><span id="rev"></span>
 									</div>
 									<div class="x_car_detail_slider_bottom_cont_right">
 										<h3>Rp. {{ App\Helpers\format::formatRupiah($data->harga_sewa_mobil) }}</h3>
@@ -121,11 +117,11 @@
 									<div
 										class="x_car_offer_heading x_car_offer_heading_listing float_left x_car_offer_heading_inner_car_names x_car_offer_heading_inner_car_names2">
 										<ul class="">
-											<li> <a href="#"><i class="fa fa-users"></i> &nbsp;{{ $data->kapasitas_mobil }} Seats</a>
+											<li> <a href="#"><i class="fa fa-users"></i> &nbsp;{{ $data->kapasitas_mobil }} Kursi</a>
 											</li>
 											<li> <a href="#"><i class="fa fa-code-fork"></i> &nbsp;{{ $data->transmisi_mobil }} Transmisi</a>
 											</li>
-											<li> <a href="#"><i class="fa fa-snowflake-o"></i>&nbsp;2 Air: Yes</a>
+											<li> <a href="#"><i class="fa fa-snowflake-o"></i>&nbsp;2 AC: Yes</a>
 											</li>
 										</ul>
 									</div>
@@ -145,100 +141,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="blog_single_comment_wrapper">
-										<div class="blog_comment3_wrapper">
-											<div class="blog_comment1_img">
-												<img src="{{ asset('') }}assets/front/images/comment_img3.jpg" alt="comment_img"
-													class="img-responsive img-circle" />
-											</div>
-											<div class="blog_comment1_cont">
-												<h3>Jhon Doe <i class="fa fa-circle"></i> <span>July 1, 2016</span>
-													&nbsp;&nbsp;<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star-o oo"></i>
-													<i class="fa fa-star-o oo"></i>
-												</h3>
-												<p>Integer porttitor fringilla vestibulum. Phasellus curs our tinnt
-													nulla, ut mattis augue finibus ac. Vivamus elementum enim ac enim
-													ultrices rhoncus.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="blog_single_comment_wrapper">
-										<div class="blog_comment3_wrapper">
-											<div class="blog_comment1_img">
-												<img src="{{ asset('') }}assets/front/images/comment_img4.jpg" alt="comment_img"
-													class="img-responsive img-circle" />
-											</div>
-											<div class="blog_comment1_cont">
-												<h3>Jhon Doe <i class="fa fa-circle"></i> <span>July 1, 2016 </span>
-													&nbsp;&nbsp;<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star-o oo"></i>
-													<i class="fa fa-star-o oo"></i>
-												</h3>
-												<p>Integer porttitor fringilla vestibulum. Phasellus curs our tinnt
-													nulla, ut mattis augue finibus ac. Vivamus elementum enim ac enim
-													ultrices rhoncus.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="blog_single_comment_wrapper">
-										<div class="blog_comment3_wrapper">
-											<div class="blog_comment1_img">
-												<img src="{{ asset('') }}assets/front/images/comment_img2.jpg" alt="comment_img"
-													class="img-responsive img-circle" />
-											</div>
-											<div class="blog_comment1_cont">
-												<h3>Jhon Doe <i class="fa fa-circle"></i> <span>July 1, 2016 </span>
-													&nbsp;&nbsp;<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star-o oo"></i>
-													<i class="fa fa-star-o oo"></i>
-												</h3>
-												<p>Integer porttitor fringilla vestibulum. Phasellus curs our tinnt
-													nulla, ut mattis augue finibus ac. Vivamus elementum enim ac enim
-													ultrices rhoncus.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-                                {{-- {{ dd($data->rental) }} --}}
-
-								<div class="col-md-12">
-									<div class="blog_single_comment_wrapper">
-										<div class="blog_comment3_wrapper">
-											<div class="blog_comment1_img">
-												<img src="images/comment_img1.jpg" alt="comment_img"
-													class="img-responsive img-circle" />
-											</div>
-											<div class="blog_comment1_cont">
-												<h3>Jhon Doe <i class="fa fa-circle"></i> <span>July 1, 2016 </span>
-													&nbsp;&nbsp;<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star oo"></i>
-													<i class="fa fa-star-o oo"></i>
-													<i class="fa fa-star-o oo"></i>
-												</h3>
-												<p>Integer porttitor fringilla vestibulum. Phasellus curs our tinnt
-													nulla, ut mattis augue finibus ac. Vivamus elementum enim ac enim
-													ultrices rhoncus.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 				<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">

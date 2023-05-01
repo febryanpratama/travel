@@ -68,7 +68,7 @@ Version: 1.0.0
 			<div class="row">
 				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper float_left">
-						<h3>About Us</h3>
+						<h3>Tentang Kami</h3>
 						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 							aliqua.</p> <span><a href="#">Read More &nbsp;<i
 									class="fa fa-angle-double-right"></i></a></span>
@@ -84,48 +84,40 @@ Version: 1.0.0
 				</div>
 				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_second float_left">
-						<h3>Information</h3>
+						<h3>Informasi</h3>
 						<ul>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; About</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Tentang</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Service</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Layanan</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Terms and Conditions</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Syarat & Ketentuan</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Become a Driver</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Cari Driver</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Best Price Guarantee</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Privacy & Cookies Policy</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Garansi Termurah</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_second float_left">
-						<h3>Customer Support</h3>
+						<h3>Layanan Pelanggan</h3>
 						<ul>
 							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; FAQ</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Payment Option</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Booking Tips</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; How it words ?</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Contact Us</a>
+							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Opsi Pembayaran</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_third float_left">
-						<h3>Have Questions?</h3>
+						<h3>Punya Pertanyaan?</h3>
 						<div class="x_footer_bottom_icon_section float_left">
 							<div class="x_footer_bottom_icon"> <i class="flaticon-phone-call"></i>
 							</div>
 							<div class="x_footer_bottom_icon_cont">
-								<h4>Toll Free caling in world</h4>
+								<h4>Gratis Biaya Telpon</h4>
 								<p>808 - 111 - 9999</p>
 							</div>
 						</div>
@@ -133,7 +125,7 @@ Version: 1.0.0
 							<div class="x_footer_bottom_icon x_footer_bottom_icon2"> <i class="flaticon-mail-send"></i>
 							</div>
 							<div class="x_footer_bottom_icon_cont">
-								<h4>Email Us</h4>
+								<h4>Email Kami</h4>
 								<p><a href="#">listing@example.com</a>
 								</p>
 							</div>
@@ -153,7 +145,7 @@ Version: 1.0.0
 	<div class="x_copyr_main_wrapper float_left">
 		<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
 		<div class="container">
-			<p>Copyright © 2018 Expedia. All rights reserved.</p>
+			<p>Copyright © 2018 StarlabSys. All rights reserved.</p>
 		</div>
 	</div>
 	<script src="{{ asset('') }}assets/front/js/jquery-3.3.1.min.js"></script>

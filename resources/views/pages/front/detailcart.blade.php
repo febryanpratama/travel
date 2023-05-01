@@ -15,10 +15,10 @@
                <div class="btc_tittle_right_cont_wrapper">
                   <ul>
                      <li>
-                        <a href="#">Home</a> <i class="fa fa-angle-right"></i>
+                        <a href="#">Beranda</a> <i class="fa fa-angle-right"></i>
                      </li>
                      <li>
-                        <a href="#">Cars</a> <i class="fa fa-angle-right"></i>
+                        <a href="#">Mobil</a> <i class="fa fa-angle-right"></i>
                      </li>
                      <li>Checkout</li>
                   </ul>
@@ -34,15 +34,15 @@
    <div class="container">
       <div class="x_title_inner_num_wrapper float_left">
          <div class="x_title_num_heading">
-            <h3>Choose a car</h3>
-            <p>Complete Your Step</p>
+            <h3>Pilih Mobil</h3>
+            <p>Selesaikan Langkah Anda</p>
          </div>
          <div class="x_title_num_heading_cont">
             <div class="x_title_num_main_box_wrapper">
                <div class="x_icon_num">
                   <p>1</p>
                </div>
-               <h5>Time & place</h5>
+               <h5>Waktu & Tempat</h5>
             </div>
             <div class="x_title_num_main_box_wrapper">
                <div class="x_icon_num">
@@ -70,7 +70,7 @@
                <div class="x_icon_num x_icon_num3">
                   <p>5</p>
                </div>
-               <h5>done!</h5>
+               <h5>Sukses!</h5>
             </div>
          </div>
       </div>
@@ -87,7 +87,7 @@
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                      <!-- Filter Results -->
                      <div class="car-filter accordion x_inner_car_acc_accor">
-                        <h3>Order Details</h3>
+                        <h3>Detail Order</h3>
                         <hr>
                         <!-- Resources -->
                         <div class="x_car_access_filer_top_img">
@@ -126,7 +126,7 @@
                         <div class="panel panel-default x_car_inner_acc_acordion_padding x_car_inner_acc_acordion_padding_last">
                            <div class="panel-heading car_checkout_caret">
                               <h5 class="panel-title">
-                                 <a href="#"> Pick-up Date &amp; place</a>
+                                 <a href="#"> Waktu Mulai &amp;</a>
                               </h5>
                            </div>
                            <div class="collapse show">
@@ -134,7 +134,7 @@
                                  <div class="x_car_acc_filter_date">
                                     <ul>
                                        <li>{{ Carbon\Carbon::parse($data->tanggal_mulai)->format('d M Y') }} @ {{ Carbon\Carbon::parse($data->tanggal_mulai)->format('H:i') }}</li>
-                                       <li>Place </li>
+                                       {{-- <li>Place </li> --}}
                                     </ul>
                                  </div>
                               </div>
@@ -144,7 +144,7 @@
                         <div class="panel panel-default x_car_inner_acc_acordion_padding x_car_inner_acc_acordion_padding_last">
                            <div class="panel-heading car_checkout_caret">
                               <h5 class="panel-title">
-                                 <a href="#"> Drop-Off Date &amp; place</a>
+                                 <a href="#"> Waktu Selesai &amp;</a>
                               </h5>
                            </div>
                            <div class="collapse show">
@@ -152,7 +152,7 @@
                                  <div class="x_car_acc_filter_date">
                                     <ul>
                                        <li>{{ Carbon\Carbon::parse($data->tanggal_selesai)->format('d M Y') }} @ {{ Carbon\Carbon::parse($data->tanggal_selesai)->format('H:i') }}</li>
-                                       <li>Place </li>
+                                       {{-- <li>Place </li> --}}
                                     </ul>
                                  </div>
                               </div>
@@ -208,7 +208,7 @@
                         </div> --}}
                         <div class="x_car_acc_filter_bottom_total">
                            <ul>
-                              <li>Name <span id="name"> </span></li>
+                              <li>Nama <span id="name"> </span></li>
                            </ul>
                            <ul class="mt-2">
                               <li>total <span id="total"> Rp. {{ number_format($data->mobil->harga_sewa_mobil*App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai),'0') }}</span></li>
@@ -226,7 +226,7 @@
                      <div class="x_car_checkout_right_main_box_wrapper float_left">
                         <div class="car-filter order-billing margin-top-0">
                            <div class="heading-block text-left margin-bottom-0">
-                              <h4>Spesification Details</h4>
+                              <h4>Detail Spesifikasi</h4>
                               {{-- <div class="pull-right checkout_login_btn">
                                  <ul>
                                     <li>
@@ -309,7 +309,7 @@
                               <hr>
                               <div class="checkbox car_checkout_chekbox">
                                  <input type="checkbox" id="c3" name="cb">
-                                 <label for="c3">I have Read and Accept Terms &amp; Conditions *</label>
+                                 <label for="c3">Saya telah Membaca dan Menerima Persyaratan &amp; Ketentuan *</label>
                               </div>
                            </form>
                         </div>

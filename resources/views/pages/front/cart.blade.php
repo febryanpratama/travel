@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
 					<div class="btc_tittle_left_heading">
-						<h1>Booking Accessories</h1>
+						<h1>Booking</h1>
 					</div>
 				</div>
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
@@ -17,9 +17,9 @@
 							<ul>
 								<li><a href="#">Home</a> <i class="fa fa-angle-right"></i>
 								</li>
-								<li><a href="#">Cars</a> <i class="fa fa-angle-right"></i>
+								<li><a href="#">Mobil</a> <i class="fa fa-angle-right"></i>
 								</li>
-								<li>Details</li>
+								<li>Detail</li>
 							</ul>
 						</div>
 					</div>
@@ -33,15 +33,15 @@
 		<div class="container">
 			<div class="x_title_inner_num_wrapper float_left">
 				<div class="x_title_num_heading">
-					<h3>Choose a car</h3>
-					<p>Complete Your Step</p>
+					<h3>Pilih Mobil</h3>
+					<p>Selesaikan Langkah Anda</p>
 				</div>
 				<div class="x_title_num_heading_cont">
 					<div class="x_title_num_main_box_wrapper">
 						<div class="x_icon_num">
 							<p>1</p>
 						</div>
-						<h5>Time & place</h5>
+						<h5>Waktu & Tempat</h5>
 					</div>
 					<div class="x_title_num_main_box_wrapper">
 						<div class="x_icon_num ">
@@ -66,7 +66,7 @@
 						<div class="x_icon_num x_icon_num3">
 							<p>5</p>
 						</div>
-						<h5>done!</h5>
+						<h5>Sukses!</h5>
 					</div>
 				</div>
 			</div>
@@ -100,7 +100,7 @@
                                                 <p>/ {{ App\Helpers\Format::days($item->tanggal_mulai, $item->tanggal_selesai) }} days</p>
                                             </div>
                                             <div class="x_car_acc_price_dollar_count_wrapper">
-                                                <a href="{{ url('cart/'.$item->id) }}" class="btn btn-primary mt-3">Choose</a>
+                                                <a href="{{ url('cart/'.$item->id) }}" class="btn btn-primary mt-3">Pilih</a>
                                                 {{-- <div class="quantity">
                                                 </div> --}}
                                             </div>
@@ -108,16 +108,6 @@
                                     </div>
                                 </div>
                             @endforeach
-							{{-- <div class="col-md-12">
-								<div class="x_car_acc_bottom_button float_left">
-									<p><i class="fa fa-info-circle"></i> &nbsp;Phasellus ornare, ante vitae consectetuer
-										consequat, purus sapien ultricies dolor.</p>
-									<ul>
-										<li><a href="#">Proceed to checkout <i class="fa fa-arrow-right"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div> --}}
 						</div>
 					</div>
 				</div>
