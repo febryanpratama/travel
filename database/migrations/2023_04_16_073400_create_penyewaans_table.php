@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('total_hari');
             $table->integer('harga');
             $table->integer('total_harga');
-            $table->enum('is_status', ['Keranjang',  'Dalam Persiapan', 'Sedang Digunakan', 'Sudah Dikembalikan'])->default('Keranjang');
+            $table->enum('is_status', ['Keranjang',  'Dalam Persiapan', 'Dalam Pengantaran', 'Sedang Digunakan', 'Selesai Digunakan', 'Sudah Dikembalikan'])->default('Keranjang');
             // $table->enum('is_status', )
 
             $table->timestamps();
