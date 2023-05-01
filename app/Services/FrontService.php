@@ -60,6 +60,14 @@ class FrontService
 
         // dd($data);
 
+        if ($data->isEmpty()) {
+            return [
+                'status' => false,
+                'message' => 'Tidak ada rental yang tersedia',
+                'data' => null
+            ];
+        }
+
         if ($data[0]->mobil == null) {
             return [
                 'status' => false,
