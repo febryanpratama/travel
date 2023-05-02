@@ -6,6 +6,7 @@ use App\Models\Kontrak;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use App\Models\Persyaratan;
+use App\Models\Supir;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -177,6 +178,43 @@ class MobilService
             'status' => true,
             'message' => 'Data Order berhasil diambil',
             'data' => $order,
+        ];
+    }
+
+    static function storeSupir($data)
+    {
+        $validator = Validator::make($data, [
+            'nama_supir' => 'required',
+            'foto' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return [
+                'status' => false,
+                'message' => $validator->errors()->first(),
+            ];
+        }
+
+        if ($data['foto']) {
+            $foto = $data['foto'];
+            $foto_name = time() . $foto->getClientOriginalName();
+            $foto->move('images/supir', $foto_name);
+            $data['foto'] = $foto_name;
+        }
+
+        Supir::create([
+            'rental_id' => Auth::user()->rental->id,
+            'nama_supir' => $data['nama_supir'],
+            'foto' => $data['foto'],
+            'no_hp' => $data['no_hp'],
+            'alamat' => $data['alamat'],
+        ]);
+
+        return [
+            'status' => true,
+            'message' => 'Data Supir berhasil ditambahkan',
         ];
     }
 }

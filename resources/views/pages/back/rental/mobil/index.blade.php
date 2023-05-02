@@ -88,7 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="course-share d-flex align-items-center justify-content-center">
-                                    <a href="#rate"><i class="fa-regular fa-heart"></i></a>
+                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">Pengemudi</button>
+                                    {{-- <a href="#rate"><i class="fa-regular fa-heart"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -187,6 +188,37 @@
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Keterangan</label>
                                 <input type="text" name="keterangan_mobil" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tambahPengemudi{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Form Tambah Pengemudi Mobil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ url('rental/mobil/'.$item->id.'/supir') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 mt-1">
+                                <label for="" class="control-label">Nama Pengemudi</label>
+                                <select name="supir_id" class="form-control" id="" required>
+                                    <option value="" selected disabled>Pilih Nama Pengemudi</option>
+                                    @foreach ($driver as $d)
+                                        <option value="{{ $d->id }}">{{ $d->nama_supir }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

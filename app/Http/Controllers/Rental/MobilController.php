@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Rental;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kontrak;
+use App\Models\Mobil;
 use App\Models\Pengantaran;
 use App\Models\Pengembalian;
 use App\Models\Penyewaan;
 use App\Models\Persyaratan;
+use App\Models\Supir;
 use App\Services\Rental\MobilService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class MobilController extends Controller
 {
@@ -29,8 +32,11 @@ class MobilController extends Controller
     public function index()
     {
         $response = $this->mobilService->getMobil();
+
+        $driver = Supir::where('rental_id', Auth::user()->rental->id)->get();
         return view('pages.back.rental.mobil.index', [
-            'data' => $response['data']
+            'data' => $response['data'],
+            'driver' => $driver
         ]);
     }
 
@@ -217,5 +223,48 @@ class MobilController extends Controller
                 return back()->withErrors($e->getMessage());
             }
         }
+    }
+
+
+    public function indexSupir()
+    {
+        $data = Supir::where('rental_id', Auth::user()->rental->id)->get();
+
+        // dd($data);
+        return view('pages.back.rental.supir.index', [
+            'data' => $data
+        ]);
+    }
+
+    public function storeSupir(Request $request)
+    {
+        // dd($request->all());
+        $response = $this->mobilService->storeSupir($request->all());
+
+        if (!$response['status']) {
+            # code...
+            return redirect()->back()->withErrors($response['message']);
+        } else {
+            return redirect()->back()->withSuccess($response['message']);
+        }
+    }
+
+    public function addSupir(Request $request, $mobil_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'supir_id' => 'required|exists:supirs,id',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $data = Mobil::where('id', $mobil_id)->first();
+
+        $data->update([
+            'supir_id' => $request->supir_id
+        ]);
+
+        return back()->withSuccess('Berhasil menambahkan supir');
     }
 }

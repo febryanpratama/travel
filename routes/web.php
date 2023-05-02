@@ -109,6 +109,15 @@ Route::group([
     ], function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
+        Route::post('/{id}/supir', 'addSupir');
+    });
+
+    Route::group([
+        'prefix' => 'supir',
+        'controller' => MobilController::class,
+    ], function () {
+        Route::get('/', 'indexSupir');
+        Route::post('/', 'storeSupir');
     });
 
     Route::group([

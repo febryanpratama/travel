@@ -47,6 +47,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="" href="{{ url('rental/driver') }}" class="nav-link">
+                        <i class="feather-shopping-bag"></i> Supir
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="" href="{{ url('rental/orders') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Orders
                     </a>

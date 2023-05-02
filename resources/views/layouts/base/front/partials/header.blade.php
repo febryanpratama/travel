@@ -32,6 +32,11 @@
 								<option>CAD</option>
 							</select> <i class="fa fa-money"></i>
 						</li> --}}
+						@if (Auth::user())
+						<li class="login"> <a href="{{ url('dashboard') }}"><i class="fa fa-power-off"></i> &nbsp;&nbsp;Dashboard</a>
+						</li>
+							
+						@else
 						<li class="login"> <a href="{{ url('login') }}"><i class="fa fa-power-off"></i> &nbsp;&nbsp;login</a>
 						</li>
 						<li>
@@ -44,7 +49,7 @@
 								</div>
 							</div>
 						</li>
-						
+						@endif
 					</ul>
 				</div>
 			</div>
