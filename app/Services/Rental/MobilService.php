@@ -81,6 +81,65 @@ class MobilService
         ];
     }
 
+
+    static function getMobilById($data)
+    {
+        // dd($data);
+        $validator = Validator::make($data, [
+            'mobil_id' => 'required|exists:mobils,id',
+            'tipe_mobil' => 'required',
+            'merk_mobil' => 'required',
+            'nama_mobil' => 'required',
+            'transmisi_mobil' => 'required',
+            'kapasitas_mobil' => 'required',
+            'warna_mobil' => 'required',
+            'jenis_bbm' => 'required',
+            'fasilitas_mobil' => 'required',
+            'plat_mobil' => 'required',
+            'harga_sewa_mobil' => 'required|numeric',
+            'foto_mobil' => 'required',
+            'keterangan_mobil' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return [
+                'status' => false,
+                'message' => $validator->errors()->first(),
+            ];
+        }
+
+
+        if ($data['foto_mobil']) {
+            # code...
+            $foto_mobil = $data['foto_mobil'];
+            $foto_mobil_name = time() . $foto_mobil->getClientOriginalName();
+            $foto_mobil->move('images/mobil', $foto_mobil_name);
+            $data['foto_mobil'] = $foto_mobil_name;
+        }
+
+        $mobil = Mobil::where('id', $data['mobil_id'])->update([
+            'rental_id' => Auth::user()->rental->id,
+            'tipe_mobil' => $data['tipe_mobil'],
+            'merk_mobil' => $data['merk_mobil'],
+            'nama_mobil' => $data['nama_mobil'],
+            'transmisi_mobil' => $data['transmisi_mobil'],
+            'kapasitas_mobil' => $data['kapasitas_mobil'],
+            'warna_mobil' => $data['warna_mobil'],
+            'jenis_bbm' => $data['jenis_bbm'],
+            'fasilitas_mobil' => $data['fasilitas_mobil'],
+            'plat_mobil' => $data['plat_mobil'],
+            'harga_sewa_mobil' => $data['harga_sewa_mobil'],
+            'foto_mobil' => $data['foto_mobil'],
+            'keterangan_mobil' => $data['keterangan_mobil'],
+            'status_mobil' => 'tersedia',
+        ]);
+
+        return [
+            'status' => true,
+            'message' => 'Mobil berhasil ditambahkan',
+        ];
+    }
+
     static function storeKontrak($data)
     {
         $validator = Validator::make($data, [

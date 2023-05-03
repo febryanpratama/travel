@@ -109,6 +109,7 @@ Route::group([
     ], function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
+        Route::post('/edit', 'editMobil');
         Route::post('/{id}/supir', 'addSupir');
     });
 

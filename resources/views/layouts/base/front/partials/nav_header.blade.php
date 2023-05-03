@@ -12,7 +12,7 @@
 					<div class="hs_navi_cart_wrapper  d-none d-sm-none d-xs-none d-md-block d-lg-block d-xl-block">
 						<div class="dropdown-wrapper menu-button menu_button_end"> <a class="menu-button" href="{{ url('cart') }}"><i
 									class="flaticon-shopping-cart"></i><span>3</span></a>
-							<div class="drop-menu">
+							{{-- <div class="drop-menu">
 								<div class="cc_cart_wrapper1">
 									<div class="cc_cart_img_wrapper">
 										<img src="images/cart_img.jpg" alt="cart_img" />
@@ -48,7 +48,7 @@
 									<div class="checkout_btn_resto"> <a href="car_checkout.html">Checkout</a>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 					<nav class="hs_main_menu d-none d-sm-none d-xs-none d-md-block">

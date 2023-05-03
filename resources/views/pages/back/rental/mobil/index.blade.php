@@ -108,8 +108,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Form Edit Mobil</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ url('rental/mobil') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('rental/mobil/edit') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="mobil_id" value="{{ $item->id }}" id="">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6 mt-1">

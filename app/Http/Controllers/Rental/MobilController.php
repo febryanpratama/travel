@@ -54,6 +54,14 @@ class MobilController extends Controller
         }
     }
 
+    public function editMobil(Request $request)
+    {
+
+        // dd($request->all());
+        $response = $this->mobilService->getMobilById($request->all());
+
+        return back()->withSuccess($response['message']);
+    }
     public function indexKontrak()
     {
         // $response = $this->mobilService->getMobilById($id);
