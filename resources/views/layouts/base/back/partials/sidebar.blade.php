@@ -83,12 +83,7 @@
                         <i class="feather-dollar-sign"></i> My Order
                     </a>
                 </li>
-                @endrole
-                <li class="nav-item">
-                    <a class="" href="instructor-tickets.html" class="nav-link">
-                        <i class="feather-server"></i> Support Tickets
-                    </a>
-                </li>
+                @endrole                
             </ul>
             <div class="instructor-title">
                 <h3>ACCOUNT SETTINGS</h3>

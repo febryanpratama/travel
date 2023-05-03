@@ -23,7 +23,7 @@
                                     <i class="fas fa-times"></i>
                                 </a>
                             </div>
-                            <ul class="main-nav">
+                            {{-- <ul class="main-nav">
                                 <li class="">
                                     <a href="index.html">Home</a>
                                 </li>
@@ -129,7 +129,7 @@
                                 <li class="login-link">
                                     <a href="login.html">Login / Signup</a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                         <ul class="nav header-navbar-rht">
                             <li class="nav-item">

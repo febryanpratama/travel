@@ -53,30 +53,7 @@
 					</div>
 					<nav class="hs_main_menu d-none d-sm-none d-xs-none d-md-block">
 						<ul>
-							<li>
-								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Home</a>
-									<div class="drop-menu"> <a class="menu-button" href="index-2.html">Home-I</a>
-										<a class="menu-button" href="index_II.html">Home-II</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Car</a>
-									<div class="drop-menu"> <a class="menu-button"
-											href="car_accessories.html">Car-Accessories</a>
-										<a class="menu-button" href="car_booking.html">Car-Booking</a>
-										<a class="menu-button" href="car_booking_done.html">Car-Booking-Done</a>
-										<a class="menu-button" href="car_checkout.html">Car-Checkout</a>
-										<a class="menu-button" href="car_detail_left.html"> Car-Detail-Left</a>
-										<a class="menu-button" href="car_detail_right.html"> Car-Detail-Right</a>
-									</div>
-								</div>
-							</li>
-							<li> <a class="menu-button single_menu" href="about.html">About</a>
-							</li>
-							<li> <a class="menu-button single_menu" href="team.html">Out Team </a>
-							</li>
-							<li> <a class="menu-button single_menu" href="services.html">services </a>
+							<li> <a class="menu-button single_menu" href="about.html">Beranda</a>
 							</li>
 							<li>
 								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Blog</a>
@@ -86,7 +63,7 @@
 									</div>
 								</div>
 							</li>
-							<li> <a class="menu-button single_menu" href="contact.html">Contact </a>
+							<li> <a class="menu-button single_menu" href="contact.html">Kontak </a>
 							</li>
 						</ul>
 					</nav>
