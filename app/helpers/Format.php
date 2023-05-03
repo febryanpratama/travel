@@ -28,8 +28,6 @@ class Format
 
         $days = $to->diffInDays($from);
 
-        // dd($days);
-
         return $days;
     }
 }
