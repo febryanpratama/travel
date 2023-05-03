@@ -258,7 +258,7 @@
                                             <div class="x_car_offer_price float_left">
                                                 <div class="x_car_offer_price_inner">
                                                     {{-- <h6><i class="fa fa-tag"></i> &nbsp;15% off Deal</h6> --}}
-                                                    <h3 style="font-size: 20px">Rp. {{ App\Helpers\Format::formatRupiah($item->harga_sewa_mobil) }}</h3>
+                                                    <h3 style="font-size: 20px">Rp. {{ App\helpers\Format::formatRupiah($item->harga_sewa_mobil) }}</h3>
                                                     <p><span>K</span>
                                                         <br>/ hari
                                                     </p>
