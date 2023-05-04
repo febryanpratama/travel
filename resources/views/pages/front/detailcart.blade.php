@@ -282,7 +282,7 @@
                               <hr>
                               <div class="payment-option">
                                  <div class="heading-block text-left margin-bottom-30">
-                                    <h4>Payment</h4>
+                                    <h4>Pembayaran</h4>
                                  </div>
                                  <div class="radio">
                                     <input type="radio" name="channel_pembayaran" class="check" id="PembayaranAwal" value="Pembayaran Awal" checked>
@@ -307,9 +307,10 @@
                                 </div> --}}
                               </div>
                               <hr>
+                              {{-- {{ dd($data) }} --}}
                               <div class="checkbox car_checkout_chekbox">
-                                 <input type="checkbox" id="c3" name="cb">
-                                 <label for="c3">Saya telah Membaca dan Menerima Persyaratan &amp; Ketentuan *</label>
+                                 <input type="checkbox" id="c3" name="cb" required>
+                                 <label for="c3">Saya telah Membaca dan Menerima <a href="{{ url('syarat-ketentuan/'.$data->rental->id) }}" style="color: blue">Persyaratan &amp; Ketentuan *</a></label>
                               </div>
                            </form>
                         </div>
@@ -320,7 +321,7 @@
                         <div class="col-md-12 mt-1">
                            <ul>
                               <li>
-                                 <button type="submit" form="myForm" class="btn btn-primary">Place An Order <i class="fa fa-arrow-right"></i></button>
+                                 <button type="submit" form="myForm" class="btn btn-primary">Selesaikan Sekarang <i class="fa fa-arrow-right"></i></button>
                               </li>
                            </ul>
                         </div>

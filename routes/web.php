@@ -49,6 +49,8 @@ Route::group([
 
     Route::get('auth/register-customer', 'registerCust');
     Route::post("auth/register-customer", 'registerPostCust');
+
+    Route::get('syarat-ketentuan/{rental_id}', 'syaratKetentuan');
     // Route::group([])
 });
 // Route::get('/dashboard', function () {

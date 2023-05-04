@@ -21,4 +21,14 @@ class Rental extends Model
     {
         return $this->hasMany(Mobil::class, 'rental_id', 'id')->withTrashed();
     }
+
+    public function syarat()
+    {
+        return $this->hasMany(Persyaratan::class, 'rental_id', 'id')->withTrashed();
+    }
+
+    public function kontrak()
+    {
+        return $this->hasMany(Kontrak::class, 'rental_id', 'id')->withTrashed();
+    }
 }

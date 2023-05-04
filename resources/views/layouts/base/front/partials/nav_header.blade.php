@@ -4,7 +4,8 @@
 				<div class=" col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
 					<div class="hs_logo_wrapper d-none d-sm-none d-xs-none d-md-block">
 						<a href="index-2.html">
-							<img src="images/logo.png" class="img-responsive" alt="logo" title="Logo" />
+							<h5><b>Express Rental <br> Mobil</b></h5>
+							{{-- <img src="{{ asset('') }}assets/front/images/logo.png" class="img-responsive" alt="logo" title="Logo" /> --}}
 						</a>
 					</div>
 				</div>
@@ -53,7 +54,7 @@
 					</div>
 					<nav class="hs_main_menu d-flex d-sm-none d-xs-none d-md-block">
 						<ul class="justify-content-center">
-							<li class="justify-content-center"> <a class="menu-button single_menu" href="about.html">Beranda</a>
+							<li class="justify-content-center"> <a class="menu-button single_menu" href="{{ url('/') }}">Beranda</a>
 							</li>
 							{{-- <li>
 								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Blog</a>

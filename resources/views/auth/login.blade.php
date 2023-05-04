@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="{{ asset('') }}assets/back/css/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('') }}assets/back/css/owl.theme.default.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{{ asset('') }}assets/back/plugins/slick/slick.css">
     <link rel="stylesheet" href="{{ asset('') }}assets/back/plugins/slick/slick-theme.css">
@@ -86,10 +88,10 @@
                             <div class="img-logo">
                                 <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo">
                                 <div class="back-home">
-                                    <a href="index.html">Back to Home</a>
+                                    <a href="{{ url('/') }}">Kembali ke Halaman Utama</a>
                                 </div>
                             </div>
-                            <h1>Sign into Your Account</h1>
+                            <h1>Login ke Akun Anda</h1>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
@@ -160,8 +162,31 @@
     <script src="{{ asset('') }}assets/back/js/validation.js"></script>
 
     <script src="{{ asset('') }}assets/back/plugins/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script src="{{ asset('') }}assets/back/js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            @if (session('success'))
+            Swal.fire(
+                'Great !',
+                '{{ session("success") }}',
+                'success'
+            )
+            // swal("Great !", "{{ session('success') }}", "success");
+            @endif ()
+            
+            @if (session('errors'))
+            Swal.fire(
+                'Oh No !',
+                '{{ session("errors") }}',
+                'error'
+            )
+            // swal("Oh No !", "{{ session('errors') }}", "errors");
+            @endif ()
+        })
+    </script>
 </body>
 
 <!-- Mirrored from dreamslms.dreamguystech.com/laravel/public/login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 17:00:43 GMT -->

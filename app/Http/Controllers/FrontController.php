@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penyewaan;
+use App\Models\Rental;
 use App\Services\FrontService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -143,5 +144,23 @@ class FrontController extends Controller
         } else {
             return redirect('/')->withSuccess($response['message']);
         }
+    }
+
+
+    public function syaratKetentuan($rental_id)
+    {
+        $data = Rental::with('syarat', 'kontrak')->where('id', $rental_id)->first();
+
+        // dd($data);
+
+        if (!$data) {
+            return back()->withErrors('Data Tidak Ditemukan');
+        }
+
+        // dd($data);
+
+        return view('pages.front.syaratketentuan', [
+            'data' => $data
+        ]);
     }
 }
