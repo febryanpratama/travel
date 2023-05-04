@@ -2,6 +2,9 @@
 
 namespace App\helpers;
 
+use App\Models\Penyewaan;
+use Illuminate\Support\Facades\Auth;
+
 class Format
 {
     static function formatRupiah($angka)
@@ -29,5 +32,13 @@ class Format
         $days = $to->diffInDays($from);
 
         return $days;
+    }
+
+    static function CartCount()
+    {
+        dd(Auth::user());
+        $data = Penyewaan::where('customer_id', Auth::user())->where('is_status', 'Keranjang')->count();
+
+        return $data;
     }
 }

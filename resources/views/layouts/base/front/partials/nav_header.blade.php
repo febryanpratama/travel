@@ -12,7 +12,11 @@
 				<div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
 					<div class="hs_navi_cart_wrapper  d-none d-sm-none d-xs-none d-md-block d-lg-block d-xl-block">
 						<div class="dropdown-wrapper menu-button menu_button_end"> <a class="menu-button" href="{{ url('cart') }}"><i
-									class="flaticon-shopping-cart"></i><span>3</span></a>
+									class="flaticon-shopping-cart"></i><span>@if (!Auth::user())
+										0
+									@else
+										{{ App\helpers\Format::CartCount() }}
+									@endif</span></a>
 							{{-- <div class="drop-menu">
 								<div class="cc_cart_wrapper1">
 									<div class="cc_cart_img_wrapper">

@@ -7,6 +7,7 @@ use App\Models\Pengantaran;
 use App\Models\Penyewaan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -15,7 +16,8 @@ class UserController extends Controller
 
     public function indexOrders()
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->get();
+
+        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->get();
 
         // dd($data);
         return view('pages.back.user.order', [
@@ -25,7 +27,7 @@ class UserController extends Controller
 
     public function detailOrders($id)
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
+        $data = Penyewaan::with('mobil', 'rental', 'customer', 'pengantaran', 'pengembalian')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
 
         if (!$data) {
             # code...
@@ -39,7 +41,7 @@ class UserController extends Controller
 
     public function  detailOrderDigunakan($id)
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('id', $id)->first();
+        $data = Penyewaan::with('mobil', 'rental', 'customer', 'pengantaran', 'pengembalian')->where('id', $id)->first();
 
         if (!$data) {
             # code...
