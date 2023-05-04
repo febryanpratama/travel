@@ -100,6 +100,12 @@
                         <input type="text" class="form-control" value="{{ number_format($data->total_harga, 0) }}" readonly>
                      </div>
                   </div>
+               <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Plat Nomor</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->plat_mobil }}" readonly>
+                     </div>
+                  </div>
                   {{-- <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Status</label>
