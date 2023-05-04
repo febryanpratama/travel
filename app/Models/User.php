@@ -49,7 +49,7 @@ class User extends Authenticatable
         return $this->hasOne(Rental::class);
     }
 
-    public function pelanggan()
+    public function Pelanggan()
     {
         return $this->hasOne(Pelanggan::class);
     }
