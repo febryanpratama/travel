@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function indexOrders()
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->get();
+        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->get();
 
         // dd($data);
         return view('pages.back.user.order', [
@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function detailOrders($id)
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
+        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', auth()->user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
 
         if (!$data) {
             # code...
