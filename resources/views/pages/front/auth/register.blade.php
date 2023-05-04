@@ -39,6 +39,11 @@
     <link rel="stylesheet" href="{{ asset('') }}assets/back/plugins/aos/aos.css">
 
     <link rel="stylesheet" href="{{ asset('') }}assets/back/css/style.css">
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,7 +93,7 @@
                         <div class="img-logo">
                             <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo">
                             <div class="back-home">
-                                <a href="{{ url('login') }}">Back to Home</a>
+                                <a href="{{ url('/') }}">Back to Home</a>
                             </div>
                         </div>
                         <h1>Daftar Sebagai Rental</h1>
@@ -97,6 +102,18 @@
                             <input type="hidden" name="latitude" id="latitude">
                             <input type="hidden" name="longitude" id="longitude">
                             <div class="row">
+                                <div class="col-md-12" >
+                                    <div class="form-group">
+                                        <label class="form-control-label">Daftar Sebagai  </label>
+                                        <select name="" class="form-control daftar">
+                                            <option value="" selected disabled>Pilih</option>
+                                            <option value="Rental">Rental</option>
+                                            <option value="Pengguna">Pengguna</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="rental">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Nama Rental</label>
@@ -118,6 +135,64 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Alamat Rental</label>
+                                        <input type="text" class="form-control" name="alamat_rental" placeholder="Alamat Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Foto Rental</label>
+                                        <input type="file" class="form-control" name="foto_rental" placeholder="Alamat Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Password</label>
+                                        <div class="pass-group" id="passwordInput">
+                                            <input type="password" class="form-control pass-input" name="password"
+                                                placeholder="Enter your password">
+                                            <span class="toggle-password feather-eye"></span>
+                                            <span class="pass-checked"><i class="feather-check"></i></span>
+                                        </div>
+                                        <div class="password-strength" id="passwordStrength">
+                                            <span id="poor"></span>
+                                            <span id="weak"></span>
+                                            <span id="strong"></span>
+                                            <span id="heavy"></span>
+                                        </div>
+                                        <div id="passwordInfo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row hide" id="perorangan">
+                                {{-- <hr> --}}
+                               
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Rental Perorangan</label>
+                                        <input type="text" class="form-control" name="nama_rental" placeholder="Nama Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Pemilik Rental Perorangan</label>
+                                        <input type="text" class="form-control" name="nama_pemilik" placeholder="Nama Pemilik Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nomor BPKB</label>
+                                        <input type="text" class="form-control" name="no_ijin_usaha" placeholder="Nomor Ijin Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Alamat Rental Perorangan</label>
                                         <input type="text" class="form-control" name="alamat_rental" placeholder="Alamat Rental ..">
                                     </div>
                                 </div>
@@ -280,6 +355,21 @@
 
     <script>
         $(document).ready(function() {
+
+            $('.daftar').on('change', function(){
+                // let daftar = $(this).val();
+                var daftar = $('.daftar :selected').val();
+
+                if(daftar == 'Rental'){
+                    $('#rental').removeClass('hide');
+                    $('#perorangan').addClass('hide');
+                }else{
+                    // console.log(daftar)
+                    $('#rental').addClass('hide');
+                    $('#perorangan').removeClass('hide');
+                }
+
+            })
         // $('#example').DataTable();
 
         @if (session('success'))

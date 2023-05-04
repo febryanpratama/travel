@@ -51,11 +51,11 @@
 							</div> --}}
 						</div>
 					</div>
-					<nav class="hs_main_menu d-none d-sm-none d-xs-none d-md-block">
-						<ul>
-							<li> <a class="menu-button single_menu" href="about.html">Beranda</a>
+					<nav class="hs_main_menu d-flex d-sm-none d-xs-none d-md-block">
+						<ul class="justify-content-center">
+							<li class="justify-content-center"> <a class="menu-button single_menu" href="about.html">Beranda</a>
 							</li>
-							<li>
+							{{-- <li>
 								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Blog</a>
 									<div class="drop-menu"> <a class="menu-button"
 											href="blog_category.html">Blog-Categories</a>
@@ -64,7 +64,7 @@
 								</div>
 							</li>
 							<li> <a class="menu-button single_menu" href="contact.html">Kontak </a>
-							</li>
+							</li> --}}
 						</ul>
 					</nav>
 					<header class="mobail_menu d-none d-block d-xs-block d-sm-block d-md-none d-lg-none d-xl-none">

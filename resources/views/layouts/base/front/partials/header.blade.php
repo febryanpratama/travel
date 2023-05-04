@@ -44,7 +44,8 @@
 								<a class="menu-button" href="#">Daftar</a>
 								<div class="drop-menu"> 
 									
-									<a class="menu-button" style="padding: 5px; text-align: center; color: black;font-size: 1rem" href="{{ url('auth/register') }}">Daftar Rental</a>
+									<a class="menu-button" style="padding: 5px; text-align: center; color: black;font-size: 1rem" href="{{ url('auth/register') }}">Daftar Rental CV</a>
+									{{-- <a class="menu-button" style="padding: 5px; text-align: center; color: black;font-size: 1rem" href="{{ url('auth/register') }}">Daftar Rental Perorangan</a> --}}
 									<a class="menu-button" style="padding: 5px; text-align: center; color: black;font-size: 1rem" href="{{ url('auth/register-customer') }}">Daftar Penyewa</a>
 								</div>
 							</div>
