@@ -224,7 +224,7 @@ class MobilService
 
     static function getDetailOrders($order_id)
     {
-        $order = Penyewaan::with('mobil', 'rental', 'customer')->where('rental_id', Auth::user()->rental->id)->where('id', $order_id)->first();
+        $order = Penyewaan::with('mobil', 'rental', 'customer', 'pengantaran', 'pengembalian')->where('rental_id', Auth::user()->rental->id)->where('id', $order_id)->first();
 
         if (!$order) {
             # code...
@@ -233,6 +233,8 @@ class MobilService
                 'message' => 'Data Order tidak ditemukan',
             ];
         }
+
+        // dd($order);
         return [
             'status' => true,
             'message' => 'Data Order berhasil diambil',

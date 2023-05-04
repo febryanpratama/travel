@@ -108,11 +108,11 @@
       <div class="card-body">
          <div class="col-md-12 mt-2">
             <label for="">Waktu Pengantaran</label>
-            <input type="text" class="form-control" value="{{ @Carbon\Carbon::parse($data->pengantaran->created_at)->format('d M Y H:i') }}">
+            <input type="text" class="form-control" value="{{ $data->pengantaran == null ? 'Belum ada Histori Pengembalian' : @Carbon\Carbon::parse($data->pengantaran->created_at)->format('d M Y H:i') }}">
          </div>
          <div class="col-md-12 mt-2">
             <label for="">Keterangan</label>
-            <input type="text" class="form-control" value="{{ @$data->pengantaran->keterangan == null ? "Tidak Ada Keterangan" : @$data->pengantaran->keterangan }}">
+            <input type="text" class="form-control" value="{{ $data->pengantaran == null ? "Tidak Ada Keterangan" : @$data->pengantaran->keterangan }}">
          </div>
       </div>
    </div>
@@ -125,11 +125,11 @@
       <div class="card-body">
          <div class="col-md-12 mt-2">
             <label for="">Waktu Pengembalian</label>
-            <input type="text" class="form-control" value="{{ @Carbon\Carbon::parse($data->pengembalian->created_at)->format('d M Y H:i') }}">
+            <input type="text" class="form-control" value="{{ $data->pengembalian == null ? 'Belum ada Histori Pengembalian' : @Carbon\Carbon::parse($data->pengembalian->created_at)->format('d M Y H:i') }}">
          </div>
          <div class="col-md-12 mt-2">
             <label for="">Keterangan</label>
-            <input type="text" class="form-control" value="{{ @$data->pengembalian->keterangan == null ? "Tidak Ada Keterangan" : @$data->pengembalian->keterangan }}">
+            <input type="text" class="form-control" value="{{ @$data->pengembalian == null ? "Tidak Ada Keterangan" : @$data->pengembalian->keterangan }}">
          </div>
       </div>
    </div>

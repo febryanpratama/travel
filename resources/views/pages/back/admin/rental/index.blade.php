@@ -31,6 +31,7 @@
                                  <th>Nama Pemilik</th>
                                  <th>No Ijin Usaha</th>
                                  <th>Tanggal Pendaftaran</th>
+                                 <th>Tipe</th>
                                  <th>Status</th>
                                  <th>Aksi</th>
                               </tr>
@@ -43,6 +44,7 @@
                                         <td>{{ @$item->rental->nama_pemilik }}</td>
                                         <td>{{ @$item->rental->no_ijin_usaha }}</td>
                                         <td>{{ @$item->rental->created_at }}</td>
+                                        <td>{{ @$item->rental->tipe }}</td>
                                         <td>
                                             @switch($item->is_active)
                                                 @case(0)

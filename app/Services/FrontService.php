@@ -98,6 +98,7 @@ class FrontService
 
         // dd($data);
         $validator = Validator::make($data, [
+            'tipe' => 'required|in:rental,perorangan',
             'latitude' => 'required',
             'longitude' => 'required',
             'nama_rental' => 'required',
@@ -143,6 +144,7 @@ class FrontService
                 'user_id' => $user->id,
                 'nama_pemilik' => $data['nama_pemilik'],
                 'nama_rental' => $data['nama_rental'],
+                'tipe' => $data['tipe'],
                 'no_ijin_usaha' => $data['no_ijin_usaha'],
                 'alamat' => $data['alamat_rental'],
                 'latitude' => $data['latitude'],

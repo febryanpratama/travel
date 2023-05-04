@@ -60,7 +60,7 @@
 
                 @role('admin')
                 <li class="nav-item">
-                    <a class="" href="instructor-orders.html" class="nav-link">
+                    <a class="" href="{{ url('admin/orders') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Orders
                     </a>
                 </li>
@@ -71,7 +71,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/rental') }}" class="nav-link">
+                    <a class="" href="{{ url('admin/mobil') }}" class="nav-link">
+                        <i class="feather-users"></i> Data Mobil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="{{ url('admin/customer') }}" class="nav-link">
                         <i class="feather-users"></i> Data Customer
                     </a>
                 </li>

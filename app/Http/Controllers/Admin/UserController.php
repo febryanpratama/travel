@@ -26,5 +26,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function indexAdmin()
+    {
+        $response = $this->userService->indexAdmin();
+
+        return view('pages.back.admin.customer', [
+            'data' => $response['data']
+        ]);
+    }
+
     // public function store
 }

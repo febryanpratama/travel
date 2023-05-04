@@ -105,10 +105,10 @@
                                 <div class="col-md-12" >
                                     <div class="form-group">
                                         <label class="form-control-label">Daftar Sebagai  </label>
-                                        <select name="" class="form-control daftar">
+                                        <select name="tipe" class="form-control daftar">
                                             <option value="" selected disabled>Pilih</option>
-                                            <option value="Rental">Rental</option>
-                                            <option value="Pengguna">Pengguna</option>
+                                            <option value="rental">Rental</option>
+                                            <option value="perorangan">Perorangan</option>
                                         </select>
                                     </div>
                                 </div>

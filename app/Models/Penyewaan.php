@@ -25,4 +25,14 @@ class Penyewaan extends Model
     {
         return $this->belongsTo(Pelanggan::class);
     }
+
+    public function pengantaran()
+    {
+        return $this->hasOne(Pengantaran::class);
+    }
+
+    public function pengembalian()
+    {
+        return $this->hasOne(Pengembalian::class);
+    }
 }

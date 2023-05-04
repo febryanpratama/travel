@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\RentalController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
@@ -90,13 +91,30 @@ Route::group([
 
         // Route::get('/kontrak', 'indexKontrak');
     });
-    // Route::group([
-    //     'prefix' => 'mobil',
-    //     'controller' => MobilController::class,
-    // ], function () {
-    //     Route::get('/', 'index');
-    //     Route::post('/', 'store');
-    // });
+
+    Route::group([
+        'prefix' => 'mobil',
+        'controller' => AdminController::class,
+    ], function () {
+        Route::get('/', 'indexMobil');
+    });
+
+
+    Route::group([
+        'prefix' => 'orders',
+        'controller' => AdminController::class,
+    ], function () {
+        Route::get('/', 'indexOrder');
+        Route::get('/{order_id}', 'detailOrder');
+    });
+
+
+    Route::group([
+        'prefix' => 'customer',
+        'controller' => UserController::class,
+    ], function () {
+        Route::get('/', 'indexAdmin');
+    });
 });
 
 
