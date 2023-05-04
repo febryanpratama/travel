@@ -6,14 +6,14 @@
 			<div class="x_top_header_right_side_wrapper float_left">
 				<div class="x_top_header_social_icon_wrapper">
 					<ul>
-						<li><a href="#"><i class="fa fa-facebook-square"></i></a>
+						{{-- <li><a href="#"><i class="fa fa-facebook-square"></i></a>
 						</li>
 						<li><a href="#"><i class="fa fa-twitter-square"></i></a>
 						</li>
 						<li><a href="#"><i class="fa fa-instagram"></i></a>
 						</li>
 						<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-						</li>
+						</li> --}}
 					</ul>
 				</div>
 				<div class="x_top_header_all_select_box_wrapper">
