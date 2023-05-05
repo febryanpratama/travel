@@ -132,7 +132,7 @@
                             </ul> --}}
                         </div>
                         <ul class="nav header-navbar-rht">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="instructor-chat.html"><img src="{{ asset('') }}assets/back/img/icon/messages.svg" alt="img"></a>
                             </li>
                             <li class="nav-item cart-nav">
@@ -372,7 +372,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item user-nav">
                                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <span class="user-img">
@@ -387,22 +387,28 @@
                                                 class="avatar-img rounded-circle">
                                         </div>
                                         <div class="user-text">
-                                            <h6>Jenny Wilson</h6>
-                                            <p class="text-muted mb-0">Instructor</p>
+                                            <h6>{{ Auth::user()->name }}</h6>
+                                            {{-- <p class="text-muted mb-0">Instructor</p> --}}
                                         </div>
                                     </div>
-                                    <a class="dropdown-item" href="instructor-dashboard.html"><i
+                                    <a class="dropdown-item" href="{{ url('dashboard') }}"><i
                                             class="feather-home me-1"></i> Dashboard</a>
                                     <a class="dropdown-item" href="instructor-edit-profile.html"><i
                                             class="feather-star me-1"></i> Edit Profile</a>
-                                    <div class="dropdown-item night-mode">
+                                    {{-- <div class="dropdown-item night-mode">
                                         <span><i class="feather-moon me-1"></i> Night Mode </span>
                                         <div class="form-check form-switch check-on m-0">
                                             <input class="form-check-input" type="checkbox" id="night-mode">
                                         </div>
-                                    </div>
-                                    <a class="dropdown-item" href="index.html"><i class="feather-log-out me-1"></i>
-                                        Logout</a>
+                                    </div> --}}
+                                    <form action="{{ route('logout') }}" method="POST" id="myform">
+                                        @csrf
+                                        <a href="#" class="dropdown-item" onclick="document.getElementById('myform').submit()">
+                                            <i class="feather-power"></i> Sign Out
+                                        </a>
+                                    </form>
+                                    {{-- <a class="dropdown-item" href="index.html"><i class="feather-log-out me-1"></i>
+                                        Logout</a> --}}
                                 </div>
                             </li>
                         </ul>

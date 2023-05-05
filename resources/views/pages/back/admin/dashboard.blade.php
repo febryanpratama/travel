@@ -7,7 +7,7 @@
             <div class="card instructor-card w-100">
                 <div class="card-body">
                     <div class="instructor-inner">
-                        <h6>REVENUE</h6>
+                        <h6>Jumlah Rental</h6>
                         <h4 class="instructor-text-success">$467.34</h4>
                         <p>Earning this month</p>
                     </div>

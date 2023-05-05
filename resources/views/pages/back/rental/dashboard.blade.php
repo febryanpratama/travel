@@ -3,34 +3,45 @@
 @section('content')
 <div class="col-xl-9 col-lg-8 col-md-12">
     <div class="row">
-        <div class="col-md-4 d-flex">
+        <div class="col-md-3 d-flex">
             <div class="card instructor-card w-100">
                 <div class="card-body">
                     <div class="instructor-inner">
-                        <h6>REVENUE</h6>
-                        <h4 class="instructor-text-success">$467.34</h4>
-                        <p>Earning this month</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 d-flex">
-            <div class="card instructor-card w-100">
-                <div class="card-body">
-                    <div class="instructor-inner">
-                        <h6>STUDENTS ENROLLMENTS</h6>
-                        <h4 class="instructor-text-info">12,000</h4>
+                        <h6>Jumlah Mobil</h6>
+                        <h4 class="instructor-text-info">{{ $mobil }}</h4>
                         <p>New this month</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 d-flex">
+        <div class="col-md-3 d-flex">
             <div class="card instructor-card w-100">
                 <div class="card-body">
                     <div class="instructor-inner">
-                        <h6>COURSES RATING</h6>
-                        <h4 class="instructor-text-warning">4.80</h4>
+                        <h6>Jumlah Order</h6>
+                        <h4 class="instructor-text-warning">{{ $ordertotal }}</h4>
+                        <p>Rating this month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex">
+            <div class="card instructor-card w-100">
+                <div class="card-body">
+                    <div class="instructor-inner">
+                        <h6>Jumlah Order Berjalan</h6>
+                        <h4 class="instructor-text-success">{{ $orderberjalan }}</h4>
+                        <p>Rating this month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 d-flex">
+            <div class="card instructor-card w-100">
+                <div class="card-body">
+                    <div class="instructor-inner">
+                        <h6>Jumlah Order Selesai</h6>
+                        <h4 class="instructor-text-success">{{ $orderselesai }}</h4>
                         <p>Rating this month</p>
                     </div>
                 </div>
