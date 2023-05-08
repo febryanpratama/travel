@@ -9,6 +9,7 @@ use App\Models\Pengantaran;
 use App\Models\Pengembalian;
 use App\Models\Penyewaan;
 use App\Models\Persyaratan;
+use App\Models\Rental;
 use App\Models\Supir;
 use App\Services\Rental\MobilService;
 use Carbon\Carbon;
@@ -29,6 +30,16 @@ class MobilController extends Controller
         $this->mobilService = $mobilService;
     }
 
+    public function getRent()
+    {
+        $response = Rental::with('auth')->whereRelation('auth', 'is_active', '1')->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data rental berhasil diambil',
+            'data' => $response
+        ]);
+    }
     public function index()
     {
         $response = $this->mobilService->getMobil();
