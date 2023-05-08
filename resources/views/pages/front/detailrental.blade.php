@@ -100,7 +100,7 @@
                                                 <p>/ {{ App\Helpers\Format::days($item->tanggal_mulai, $item->tanggal_selesai) }} days</p>
                                             </div> --}}
                                             <div class="x_car_acc_price_dollar_count_wrapper">
-                                                <a href="{{ url('cart/'.$item->id) }}" class="btn btn-primary mt-3">Pilih</a>
+                                                <a href="{{ url($item->id.'/detail') }}" class="btn btn-primary mt-3">Pilih</a>
                                                 {{-- <div class="quantity">
                                                 </div> --}}
                                             </div>
