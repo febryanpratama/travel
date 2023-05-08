@@ -313,12 +313,146 @@
 			</div>
 		</div>
 	</div>
+<hr>
+    <div class="x_offer_car_main_wrapper float_left padding_tb_100">
+        <div class="container">
+            <div class="row" id="mapCanvas" style="width: 100%;height: 100%">
+            </div>
+        </div>
+    </div>
 	<!-- xs offer car tabs End -->
 @endsection
 
 @section('script')
 <script src="https://cdn.jsdelivr.net/gh/tomickigrzegorz/autocomplete@1.8.3/dist/js/autocomplete.min.js"></script>
+{{-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap" type="text/javascript"></script>  --}}
+{{-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script> --}}
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc" defer></script>
+{{-- <script type="text/javascript"> 
+    /*
+ * declare map as a global variable
+ */
+    var map;
+    var myMarkers = [];
+    /*
+    * create a initialize function
+    */
+    function initialize() {
+        var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
+        var mapOptions = {
+            center: myCenter,
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+        };
+        
+        map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+        SetMarkers();
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
 
+
+    function SetMarkers() {
+        var geocoder = new google.maps.Geocoder();
+        var myData = [];
+        
+        // here you can change this JSON for a call to your database 
+        myData = [
+            {lat: "-0.0372848" , lng: "109.3142381", name: "London",  address: "London, Reino Unido"},
+            {lat: "-0.0372854" , lng: "109.3142581", name: "Oxford",  address: "Oxford, Reino Unido"},
+            {lat: "52.137237" , lng: "-0.456837", name: "Bedford", address: "Bedford, Reino Unido"},
+        ];
+        
+        for(i = 0; i < myData.length; i++) {
+            geocoder.geocode({ 'address': myData[i].address }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {                
+                    myMarkers[i] = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map
+                    });
+                } else {
+                    console.log("We can't found the address, GoogleMaps say..." + status);
+                }
+            });
+        }
+    }
+
+
+</script>  --}}
+
+<script>
+// Initialize and add the map
+function initMap() {
+    var map;
+    var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        center: myCenter,
+        zoom: 14,
+        mapTypeId: 'roadmap'
+    };
+                    
+    // Display a map on the web page
+    map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+    // map.setTilt(50);
+        
+    // Multiple markers location, latitude, and longitude
+    var markers = [
+        ['Brooklyn Museum, NY', -0.0372848, 109.3142381],
+        ['Pontianak', -0.0362484, 109.4142181],
+        // ['Prospect Park Zoo, NY', 40.66427511834109, -73.96512605857858],
+        // ['Barclays Center, Brooklyn, NY', 40.68268267107631, -73.97546296241961]
+    ];
+                        
+    // Info window content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h2>Brooklyn Museum</h2>' +
+        '<h3>200 Eastern Pkwy, Brooklyn, NY 11238</h3>' +
+        '<p>The Brooklyn Museum is an art museum located in the New York City borough of Brooklyn.</p>' + 
+        '</div>'],
+        ['<div class="info_content">' +
+        '<h2>Central Library</h2>' +
+        '<h3>10 Grand Army Plaza, Brooklyn, NY 11238</h3>' +
+        '<p>The Central Library is the main branch of the Brooklyn Public Library, located at Flatbush Avenue.</p>' +
+        '</div>']
+       
+    ];
+        
+    // Add multiple markers to map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+    
+    // Place each marker on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+        
+        // Add info window to marker    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Center the map to fit all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // Set zoom level
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setCenter(myCenter);
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+}
+
+window.initMap = initMap;
+</script>
 <script>
         $(document).ready(function(){
 
@@ -448,5 +582,7 @@
             });
 
         })
-    </script>
+</script>
+
+
 @endsection
