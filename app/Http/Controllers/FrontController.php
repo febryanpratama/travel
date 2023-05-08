@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mobil;
 use App\Models\Penyewaan;
 use App\Models\Rental;
 use App\Services\FrontService;
@@ -105,6 +106,19 @@ class FrontController extends Controller
         }
     }
 
+    public function detailRental($rental_id)
+    {
+        // dd($rental_id);
+
+        $response = Mobil::with('rental')->where('rental_id', $rental_id)->get();
+
+        if ($response->isEmpty()) {
+            return back()->withErrors('Data Tidak Ditemukan');
+        }
+        return view('pages.front.detailrental', [
+            'data' => $response
+        ]);
+    }
     public function indexCart()
     {
         // dd(Auth::user());

@@ -438,8 +438,9 @@ function initMap() {
                 let content = [
                      '<div class="info_content">' +
                     '<h2>'+value.nama_rental+'</h2>' +
-                    '<h3>'+value.tipe+'' +
-                    '<p>'+value.alamat+'' + 
+                    '<h4>'+value.tipe+'</h4>'+
+                    '<p>'+value.alamat+'</p>' +
+                    '<a href="{{ url('rental/detail') }}/'+value.id+'">Detail</a>'+
                     '</div>',
                 ]
                 infoWindowContent.push(content);

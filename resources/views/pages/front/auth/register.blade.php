@@ -168,6 +168,12 @@
                                         <div id="passwordInfo"></div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="" class="form-control-label">Get Lat Long</label>
+                                        <button class="btn btn-outline-primary latlng form-control" type="button">Sesuaikan Posisi Anda</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row hide" id="perorangan">
                                 {{-- <hr> --}}
@@ -226,6 +232,19 @@
                                         <div id="passwordInfo"></div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="" class="form-control-label">Get Lat Long</label>
+                                        <button class="btn btn-outline-primary latlng form-control" type="button">Sesuaikan Posisi Anda</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="map" style="width: 100%;height: 300px"></div>
+                                    {{-- <div class="form-group"> --}}
+                                    {{-- </div> --}}
+                                </div>
                             </div>
                             <div class="d-grid">
                                 <button class="btn btn-primary btn-start" type="submit">Buat Akun</button>
@@ -276,56 +295,89 @@
 
 
     <script src="{{ asset('') }}assets/back/js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap" async></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk"></script> --}}
+
 
     <script>
-        MIN_ACCEPTABLE_ACCURACY = 20; // Minimum accuracy in metres that is acceptable as an "accurate" position
 
-        if (!navigator.geolocation) {
-            console.warn("Geolocation not supported by the browser");
+        $(document).ready(function(){
+            $('.latlng').on('click', function(){
+                // Swal.fire({
+                //     title: 'Error!',
+                //     text: 'Do you want to continue',
+                //     icon: 'error',
+                //     confirmButtonText: 'Cool'
+                // })
+                getLocation()
+                initialize()
+            })
+
+        })
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(localStorage.getItem('latitude'), localStorage.getItem('longitude'));
+
+            var myOptions = {
+                zoom: 14,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+            var marker = new google.maps.Marker({
+                draggable: true,
+                position: myLatlng,
+                map: map,
+                title: "Your location"
+            });
+        }
+        window.addDomListener("load", initialize());
+
+        function getLocation(){
+            MIN_ACCEPTABLE_ACCURACY = 20; // Minimum accuracy in metres that is acceptable as an "accurate" position
+    
+            if (!navigator.geolocation) {
+                console.warn("Geolocation not supported by the browser");
+            }
+    
+            navigator.geolocation.watchPosition(function(position) {
+    
+                if (position.accuracy > MIN_ACCEPTABLE_ACCURACY) {
+                    console.warn("Position is too inaccurate; accuracy=" + position.accuracy);
+                } else {
+                    // Do something with the position
+    
+                    // This is the current position of your user
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+    
+                    // console.log("Latitude: " + latitude + " Longitude: " + longitude)
+                    localStorage.setItem("latitude", latitude);
+                    localStorage.setItem("longitude", longitude);
+                }
+    
+            }, function(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        console.error("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        console.error("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        console.error("The request to get user location timed out.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        console.error("An unknown error occurred.");
+                        break;
+                }
+            }, {
+                timeout: 30000, // Report error if no position update within 30 seconds
+                maximumAge: 30000, // Use a cached position up to 30 seconds old
+                enableHighAccuracy: true // Enabling high accuracy tells it to use GPS if it's available  
+            });
         }
 
-        navigator.geolocation.watchPosition(function(position) {
-
-            if (position.accuracy > MIN_ACCEPTABLE_ACCURACY) {
-                console.warn("Position is too inaccurate; accuracy=" + position.accuracy);
-            } else {
-                // Do something with the position
-
-                // This is the current position of your user
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                // console.log("Latitude: " + latitude + " Longitude: " + longitude)
-                localStorage.setItem("latitude", latitude);
-                localStorage.setItem("longitude", longitude);
-            }
-
-        }, function(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    console.error("User denied the request for Geolocation.");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    console.error("Location information is unavailable.");
-                    break;
-                case error.TIMEOUT:
-                    console.error("The request to get user location timed out.");
-                    break;
-                case error.UNKNOWN_ERROR:
-                    console.error("An unknown error occurred.");
-                    break;
-            }
-        }, {
-            timeout: 30000, // Report error if no position update within 30 seconds
-            maximumAge: 30000, // Use a cached position up to 30 seconds old
-            enableHighAccuracy: true // Enabling high accuracy tells it to use GPS if it's available  
-        });
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(function(position){
-        //         localStorage.setItem("latitude", position.coords.latitude);
-        //         localStorage.setItem("longitude", position.coords.longitude);
-        //     });
-        // }
     </script>
     <script>
 

@@ -29,6 +29,8 @@ Route::group([
     Route::get('/{id}/detail', 'detail');
     Route::post('/getCar', 'getCar');
 
+    Route::get('/rental/detail/{rental_id}', 'detailRental');
+
     Route::post('/{id}/detail', 'detailPost');
 
 
@@ -54,15 +56,6 @@ Route::group([
     Route::get('syarat-ketentuan/{rental_id}', 'syaratKetentuan');
     // Route::group([])
 });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 
 Route::group([
