@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\Admin\UserService;
 use Illuminate\Http\Request;
 
@@ -35,5 +36,36 @@ class UserController extends Controller
         ]);
     }
 
-    // public function store
+    public function detailAdmin()
+    {
+    }
+    public function terimaAdmin($user_id)
+    {
+        $rental = User::where('id', $user_id)->first();
+
+        if (!$rental) {
+            return redirect()->back()->withErrors('Data rental tidak ditemukan');
+        }
+
+        $rental->update([
+            'is_active' => "1"
+        ]);
+
+        return redirect()->back()->withSuccess('Data rental berhasil Diterima');
+    }
+    public function tolakAdmin($user_id)
+    {
+        $rental = User::where('id', $user_id)->first();
+
+        if (!$rental) {
+            return redirect()->back()->withErrors('Data rental tidak ditemukan');
+        }
+
+        $rental->update([
+            'is_active' => "0"
+        ]);
+
+
+        return redirect()->back()->withSuccess('Data rental berhasil ditolak');
+    }
 }

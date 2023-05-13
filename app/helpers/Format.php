@@ -37,8 +37,14 @@ class Format
     static function CartCount()
     {
         // dd(Auth::user());
-        $data = Penyewaan::where('customer_id', Auth::user()->Pelanggan->id)->where('is_status', 'Keranjang')->count();
+        $role = Auth::user()->roles->pluck('name');
 
-        return $data;
+        if ($role == 'user') {
+            $data = Penyewaan::where('customer_id', Auth::user()->Pelanggan->id)->where('is_status', 'Keranjang')->count();
+
+            return $data;
+        }
+
+        return 0;
     }
 }

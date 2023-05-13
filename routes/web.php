@@ -107,6 +107,9 @@ Route::group([
         'controller' => UserController::class,
     ], function () {
         Route::get('/', 'indexAdmin');
+        Route::get('/{id}/detail', 'detailAdmin');
+        Route::get('/{id}/terima', 'terimaAdmin');
+        Route::get('/{id}/tolak', 'tolakAdmin');
     });
 });
 
@@ -147,6 +150,13 @@ Route::group([
     ], function () {
         Route::get('/', 'indexPersyaratan');
         Route::post('/', 'storePersyaratan');
+    });
+    Route::group([
+        'prefix' => 'profil',
+        'controller' => MobilController::class,
+    ], function () {
+        Route::get('/', 'indexProfile');
+        Route::post('/', 'storeProfile');
     });
 
     Route::group([

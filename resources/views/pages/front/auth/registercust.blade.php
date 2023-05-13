@@ -129,6 +129,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label class="form-control-label">Foto Selfie KTP</label>
+                                        <input type="file" class="form-control" name="ktp" placeholder="Foto Selfie Ktp ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label class="form-control-label">Email</label>
                                         <input type="email" class="form-control" name="email" placeholder="Enter your email address">
                                     </div>

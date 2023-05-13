@@ -286,4 +286,30 @@ class MobilController extends Controller
 
         return back()->withSuccess('Berhasil menambahkan supir');
     }
+
+    public function indexProfile()
+    {
+        // dd('asd');
+
+        $data = Rental::with('auth')->where('id', Auth::user()->rental->id)->first();
+
+        // dd($data);
+        return view('pages.back.rental.profil', [
+            'data' => $data
+        ]);
+    }
+
+    public function storeProfile(Request $request)
+    {
+        // dd($request->all());
+
+        $response = $this->mobilService->storeProfile($request->all());
+
+        if (!$response['status']) {
+            # code...
+            return redirect()->back()->withErrors($response['message']);
+        } else {
+            return redirect()->back()->withSuccess($response['message']);
+        }
+    }
 }

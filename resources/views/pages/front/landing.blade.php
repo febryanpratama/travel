@@ -437,6 +437,7 @@ function initMap() {
 
                 let content = [
                      '<div class="info_content">' +
+                        '<img src="http://127.0.0.1:8000/images/rental/'+value.foto_rental+'" style="widht: 200px;height:100px" alt="">' +
                     '<h2>'+value.nama_rental+'</h2>' +
                     '<h4>'+value.tipe+'</h4>'+
                     '<p>'+value.alamat+'</p>' +

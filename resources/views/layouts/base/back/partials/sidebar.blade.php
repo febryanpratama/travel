@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/driver') }}" class="nav-link">
+                    <a class="" href="{{ url('rental/supir') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Supir
                     </a>
                 </li>
@@ -95,8 +95,8 @@
             </div>
             <ul>
                 <li class="nav-item">
-                    <a class="" href="instructor-edit-profile.html" class="nav-link ">
-                        <i class="feather-settings"></i> Edit Profile
+                    <a class="" href="{{ url('rental/profil') }}" class="nav-link ">
+                        <i class="feather-settings"></i>Profil
                     </a>
                 </li>
                 <li class="nav-item">

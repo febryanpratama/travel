@@ -180,6 +180,7 @@ class FrontService
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -201,12 +202,19 @@ class FrontService
                 $image->move($destinationPath, $name);
                 $data['foto'] = $name;
             }
+            if ($data['ktp']) {
+                $image = $data['ktp'];
+                $name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/pelanggan/ktp');
+                $image->move($destinationPath, $name);
+                $data['ktp'] = $name;
+            }
 
             $user = User::create([
                 'name' => $data['nama_lengkap'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                // 'is_active' => '0'
+                'is_active' => '1'
             ]);
 
             $user->assignRole('user');
@@ -220,13 +228,14 @@ class FrontService
                 'latitude' => $data['latitude'],
                 'longitude' => $data['longitude'],
                 'foto' => $data['foto'],
+                'ktp' => $data['ktp']
             ]);
 
             DB::commit();
 
             return [
                 'status' => true,
-                'message' => 'Berhasil mendaftar, silahkan tunggu konfirmasi dari admin',
+                'message' => 'Berhasil mendaftar, silahkan Login',
             ];
         } catch (\Throwable $th) {
             //throw $th;

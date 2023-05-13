@@ -6,8 +6,12 @@ use App\Models\Kontrak;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use App\Models\Persyaratan;
+use App\Models\Rental;
 use App\Models\Supir;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class MobilService
@@ -277,5 +281,104 @@ class MobilService
             'status' => true,
             'message' => 'Data Supir berhasil ditambahkan',
         ];
+    }
+
+    static function storeProfile($data)
+    {
+        $validator = Validator::make($data, [
+            'nama_rental' => 'required',
+            'nama_pemilik' => 'required',
+            'no_ijin_usaha' => 'required',
+            'alamat' => 'required',
+            'email' => 'required|email|unique:users,email,' . Auth::user()->id,
+            'alamat' => 'required',
+        ]);
+
+        // dd($data);
+        if ($validator->fails()) {
+            return [
+                'status' => false,
+                'message' => $validator->errors()->first(),
+            ];
+        }
+
+        DB::beginTransaction();
+
+        try {
+            // dd($data['ktp']);
+
+            if (array_key_exists('ktp', $data)) {
+                $foto = $data['ktp'];
+                $foto_name = time() . $foto->getClientOriginalName();
+                $foto->move('images/rental/ktp', $foto_name);
+                $data['ktp'] = $foto_name;
+            } else {
+                $data['ktp'] = null;
+            }
+
+            if (array_key_exists('foto_rental', $data)) {
+                $foto = $data['ktp'];
+                $foto_name = time() . $foto->getClientOriginalName();
+                $foto->move('images/rental/ktp', $foto_name);
+                $data['foto_rental'] = $foto_name;
+            } else {
+                $data['foto_rental'] = null;
+            }
+
+            // dd($data['ktp']);
+
+            if ($foto['foto_rental'] != null) {
+                $rental = Rental::where('id', Auth::user()->rental->id)->update([
+                    'foto_rental' => $data['foto_rental']
+                ]);
+            }
+
+            if ($data['ktp'] != null) {
+
+                $rental = Rental::where('id', Auth::user()->rental->id)->update([
+                    'nama_pemilik' => $data['nama_pemilik'],
+                    'nama_rental' => $data['nama_rental'],
+                    'no_ijin_usaha' => $data['no_ijin_usaha'],
+                    'alamat' => $data['alamat'],
+                    'ktp' => $data['ktp'],
+                ]);
+            }
+
+            if ($data['ktp'] == null) {
+                $rental = Rental::where('id', Auth::user()->rental->id)->update([
+                    'nama_pemilik' => $data['nama_pemilik'],
+                    'nama_rental' => $data['nama_rental'],
+                    'no_ijin_usaha' => $data['no_ijin_usaha'],
+                    'alamat' => $data['alamat'],
+                ]);
+            }
+
+            if ($data['password'] != null) {
+                # code...
+                $user = User::where('id', Auth::user()->id)->update([
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                ]);
+            }
+            if ($data['password'] == null) {
+                # code...
+                $user = User::where('id', Auth::user()->id)->update([
+                    'email' => $data['email'],
+                ]);
+            }
+
+            DB::commit();
+            return [
+                'status' => true,
+                'message' => 'Data Profile berhasil diubah',
+            ];
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e->getMessage());
+            return [
+                'status' => false,
+                'message' => $e->getMessage(),
+            ];
+        }
     }
 }
