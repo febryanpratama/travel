@@ -73,7 +73,7 @@
                      </div>
                   </div>
                   <div class="update-profile">
-                     <button type="submit" class="btn btn-primary">Update Profile</button>
+                     <button type="button" class="btn btn-primary">Update Profile</button>
                   </div>
                </div>
             </form>

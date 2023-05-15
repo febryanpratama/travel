@@ -63,7 +63,7 @@
                                                 <div class="text-success">Lunas</div>
                                                 @break
                                                 @case('Belum Lunas')
-                                                <div class="text-danger">Belum Lunas</div>
+                                                <div class="text-danger"><a href="#" data-bs-toggle="modal" data-bs-target="#buktiPembayaran">Belum Lunas</a></div>
                                                 
                                                 @break
                                             @default
@@ -99,30 +99,26 @@
    </div>
 </div>
 
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="buktiPembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Form Kontrak Mobil</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="{{ url('rental/kontrak') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 mt-1">
-                            <label for="" class="control-label">Nama Kontrak</label>
+                        <div class="col-md-12 mt-1">
+                            <label for="" class="control-label">Upload Bukti Pembayaran</label>
                             <input type="file" name="perjanjian" class="form-control" required>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <label for="" class="control-label">Keterangan Kontrak</label>
-                            <input type="text" name="keterangan" class="form-control" required>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
         </form>
         </div>
