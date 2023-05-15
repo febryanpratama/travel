@@ -176,6 +176,9 @@ Route::group([
     'prefix' => 'user',
     'controller' => UserUserController::class,
 ], function () {
+    Route::prefix('profil')->group(function () {
+        Route::get('/', 'indexProfile');
+    });
     Route::prefix('orders')->group(function () {
         Route::get('/', 'indexOrders');
         Route::get('/{id}', 'detailOrders');

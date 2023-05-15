@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pelanggan;
 use App\Models\Pengantaran;
 use App\Models\Penyewaan;
 use Carbon\Carbon;
@@ -53,5 +54,14 @@ class UserController extends Controller
 
             return back()->withSuccess('Berhasil mengubah status');
         }
+    }
+    public function indexProfile()
+    {
+
+        $data = Pelanggan::with('user')->where('user_id', Auth::user()->id)->first();
+
+        return view('pages.back.user.profile', [
+            'data' => $data
+        ]);
     }
 }

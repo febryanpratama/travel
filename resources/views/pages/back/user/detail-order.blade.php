@@ -165,7 +165,25 @@
       <form action="{{ url('user/orders/'.$data->id.'/digunakan') }}" method="POST">
         @csrf
         <div class="modal-body">
-            Apakah mobil sudah selesai digunakan? Jika iya silahkan dikonfirmasi
+         <div class="row">
+            <div class="col-md-12">
+               <p>Apakah mobil sudah selesai digunakan? Jika iya silahkan dikonfirmasi</p>
+            </div>
+            <hr>
+            <div class="col-12">
+               <label class="form-label control-label" for="modalEditUserName">Rating</label>
+               <br>
+               <span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
+               <span class="fa fa-star" id="star2" onclick="add(this,2)"></span>
+               <span class="fa fa-star" id="star3" onclick="add(this,3)"></span>
+               <span class="fa fa-star" id="star4" onclick="add(this,4)"></span>
+               <span class="fa fa-star" id="star5" onclick="add(this,5)"></span>
+            </div>
+            <div class="col-12">
+               <label for="" class="form-label">Review</label>
+               <textarea name="review" id="" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+         </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -175,4 +193,29 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        function add(ths,sno){
+
+            for (var i=1;i<=5;i++){
+                var cur=document.getElementById("star"+i)
+                cur.className="fa fa-star"
+            }
+            // console.log(sno);
+
+            $('#rating').val(sno);
+
+            for (var i=1;i<=sno;i++){
+            var cur=document.getElementById("star"+i)
+            if(cur.className=="fa fa-star")
+                {
+                cur.className="fa fa-star checked"
+                }
+            }
+
+        }
+        
+    </script>
 @endsection

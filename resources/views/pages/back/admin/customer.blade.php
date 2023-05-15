@@ -8,7 +8,7 @@
             <div class="settings-widget">
                <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
-                     <h3>List Rental</h3>
+                     <h3>List Pelanggan</h3>
                      <p>Order Dashboard is a quick overview of all current orders.</p>
                   </div>
                </div>
@@ -17,7 +17,7 @@
                <div class="settings-inner-blk p-0">
                   <div class="comman-space pb-0">
                      <div class="sell-course-head withdraw-history-head border-bottom-0">
-                        <h3>Rental List</h3>
+                        <h3>List Pelanggan</h3>
                      </div>
                   </div>
                   <div class="comman-space pb-0">

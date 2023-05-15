@@ -183,6 +183,14 @@
 		</div>
 	</div>
 	<!-- xs Slider bottom title Start -->
+    <hr>
+    <div class="x_offer_car_main_wrapper float_left padding_tb_100">
+        <div class="container">
+            <div class="row" id="mapCanvas" style="width: 100%;height: 100%">
+            </div>
+        </div>
+    </div>
+    <hr>
 	<div class="x_slider_bottom_title_main_wrapper">
 		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
 			<h3><a href="#">24 / 7 Layanan Pelanggan</a></h3>
@@ -214,6 +222,8 @@
 		</div>
 	</div>
 	<!-- xs Slider bottom title End -->
+    
+    <hr>
 	<!-- xs offer car tabs Start -->
 	<div class="x_offer_car_main_wrapper float_left padding_tb_100">
 		<div class="container">
@@ -313,13 +323,7 @@
 			</div>
 		</div>
 	</div>
-<hr>
-    <div class="x_offer_car_main_wrapper float_left padding_tb_100">
-        <div class="container">
-            <div class="row" id="mapCanvas" style="width: 100%;height: 100%">
-            </div>
-        </div>
-    </div>
+    
 	<!-- xs offer car tabs End -->
 @endsection
 

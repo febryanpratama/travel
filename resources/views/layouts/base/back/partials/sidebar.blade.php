@@ -94,11 +94,20 @@
                 <h3>ACCOUNT SETTINGS</h3>
             </div>
             <ul>
+                @role('rental')
                 <li class="nav-item">
                     <a class="" href="{{ url('rental/profil') }}" class="nav-link ">
                         <i class="feather-settings"></i>Profil
                     </a>
                 </li>
+                @endrole
+                @role('rental')
+                <li class="nav-item">
+                    <a class="" href="{{ url('user/profil') }}" class="nav-link ">
+                        <i class="feather-settings"></i>Profil
+                    </a>
+                </li>
+                @endrole
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" id="myform">
                         @csrf
