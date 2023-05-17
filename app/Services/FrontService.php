@@ -249,7 +249,7 @@ class FrontService
 
     static function getDetailMobil($mobil_id)
     {
-        $data = Mobil::with('rental')->where('id', $mobil_id)->first();
+        $data = Mobil::with('rental', 'rating')->where('id', $mobil_id)->first();
 
         // dd($data);
         return [

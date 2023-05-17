@@ -3,6 +3,7 @@
 namespace App\helpers;
 
 use App\Models\Penyewaan;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 
 class Format
@@ -46,5 +47,24 @@ class Format
         }
 
         return 0;
+    }
+
+    static function countRating($car_id)
+    {
+        $rating = Rating::where('mobil_id', $car_id)->get();
+
+        if ($rating->isEmpty()) {
+            # code...
+            return 0;
+        }
+
+        $cRating = Rating::where('mobil_id', $car_id)->count();
+
+        // dd($cRating);
+
+        $sRating = Rating::where('mobil_id', $car_id)->sum('rating');
+
+        $avgRating = $sRating / $cRating;
+        return $avgRating;
     }
 }

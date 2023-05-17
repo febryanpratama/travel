@@ -239,6 +239,34 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-md-12">
+                        <div class="row">
+							{{-- {{ dd($data) }} --}}
+                            @foreach ($data->rating as $rating)
+                            <div class="col-md-12">
+                                <div class="blog_single_comment_wrapper">
+                                    <div class="blog_comment3_wrapper">
+                                        <div class="blog_comment1_img">
+                                            <img src="{{ asset('images/pelanggan/'.$rating->user->foto) }}" alt="comment_img" class="img-responsive img-circle" />
+                                        </div>
+                                        <div class="blog_comment1_cont">
+                                            <h3>
+                                                {{ $rating->user->nama_lengkap }} <i class="fa fa-circle"></i> <span>{{ \Carbon\Carbon::parse($rating->created_at)->format('M d Y') }}</span> &nbsp;&nbsp;
+                                                <i class="fa fa-star{{ (App\Helpers\Format::countRating($data->id) >= 1 ? '' : '-o') }} oo"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::countRating($data->id) >= 1 ? '' : '-o') }} oo"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::countRating($data->id) >= 1 ? '' : '-o') }} oo"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::countRating($data->id) >= 1 ? '' : '-o') }} oo"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::countRating($data->id) >= 1 ? '' : '-o') }} oo"></i>
+                                            </h3>
+                                            <p>{{ $rating->review }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            @endforeach
+                        </div>
+                    </div>
 			</div>
 		</div>
 	</div>

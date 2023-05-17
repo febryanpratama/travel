@@ -164,6 +164,7 @@
       </div>
       <form action="{{ url('user/orders/'.$data->id.'/digunakan') }}" method="POST">
         @csrf
+        <input type="hidden" name="rating" value="" id="rating">
         <div class="modal-body">
          <div class="row">
             <div class="col-md-12">
