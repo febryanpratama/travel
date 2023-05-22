@@ -10,8 +10,10 @@
                                     <span></span>
                                 </span>
                             </a>
-                            <a href="index.html" class="navbar-brand logo">
-                                <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo">
+                            <a href="{{ url('dashboard') }}" class="navbar-brand logo">
+                                {{-- <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo"> --}}
+                                <span><h2 style="color: #ff875a">RentaLin</h2></span>
+                                
                             </a>
                         </div>
                         <div class="main-menu-wrapper">
@@ -376,15 +378,36 @@
                             <li class="nav-item user-nav">
                                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <span class="user-img">
-                                        <img src="{{ asset('') }}assets/back/img/instructor/profile-avatar.jpg" alt="">
+                                        @role('admin')
+                                            <img src="{{ asset('') }}images/default.jpg" alt="User Image"
+                                                >
+                                            @endrole
+                                            @role('user')
+                        <img src="{{ asset('') }}images/pelanggan/{{ Auth::user()->pelanggan->foto }}"
+                            alt=""></a>
+                            @endrole
+                            @role('rental')
+                        <img src="{{ asset('') }}images/rental/{{ Auth::user()->rental->foto_rental }}"
+                            alt=""></a>
+                            @endrole
                                         <span class="status online"></span>
                                     </span>
                                 </a>
                                 <div class="users dropdown-menu dropdown-menu-right" data-popper-placement="bottom-end">
                                     <div class="user-header">
                                         <div class="avatar avatar-sm">
-                                            <img src="{{ asset('') }}assets/back/img/instructor/profile-avatar.jpg" alt="User Image"
+                                            @role('admin')
+                                            <img src="{{ asset('') }}images/default.jpg" alt="User Image"
                                                 class="avatar-img rounded-circle">
+                                            @endrole
+                                            @role('user')
+                                            <img src="{{ asset('') }}images/pelanggan/{{ Auth::user()->pelanggan->foto }}"
+                                                alt="" class="avatar-img rounded-circle"></a>
+                                                @endrole
+                                                @role('rental')
+                        <img src="{{ asset('') }}images/rental/{{ Auth::user()->rental->foto_rental }}"
+                            alt="" class="avatar-img rounded-circle"></a>
+                            @endrole
                                         </div>
                                         <div class="user-text">
                                             <h6>{{ Auth::user()->name }}</h6>
@@ -393,8 +416,8 @@
                                     </div>
                                     <a class="dropdown-item" href="{{ url('dashboard') }}"><i
                                             class="feather-home me-1"></i> Dashboard</a>
-                                    <a class="dropdown-item" href="instructor-edit-profile.html"><i
-                                            class="feather-star me-1"></i> Edit Profile</a>
+                                    {{-- <a class="dropdown-item" href="instructor-edit-profile.html"><i
+                                            class="feather-star me-1"></i> Edit Profile</a> --}}
                                     {{-- <div class="dropdown-item night-mode">
                                         <span><i class="feather-moon me-1"></i> Night Mode </span>
                                         <div class="form-check form-switch check-on m-0">

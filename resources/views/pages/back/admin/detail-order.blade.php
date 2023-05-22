@@ -49,6 +49,12 @@
                 @endswitch
                {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
             </div>
+            <div class="profile-share d-flex align-items-center justify-content-center">
+               <a href="{{ url('admin/orders/'.$data->id.'/syarat-ketentuan') }}">
+                  <button type="button" class="btn btn-primary">Syarat dan Prosedur</button>
+               </a>
+               {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
+            </div>
          </div>
          <div class="checkout-form personal-address add-course-info ">
             <div class="personal-info-head">

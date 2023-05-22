@@ -86,7 +86,9 @@
                 <div class="login-wrapper">
                     <div class="loginbox">
                         <div class="img-logo">
-                            <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo">
+                            {{-- <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo"> --}}
+                                <span><h2 style="color: #ff875a">RentaLin</h2></span>
+
                             <div class="back-home">
                                 <a href="{{ url('login') }}">Back to Home</a>
                             </div>

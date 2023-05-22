@@ -3,10 +3,22 @@
         <div class="settings-menu p-0">
             <div class="profile-bg">
                 <h5>Beginner</h5>
+                
                 <img src="{{ asset('') }}assets/back/img/instructor-profile-bg.jpg" alt="">
                 <div class="profile-img">
-                    <a href="instructor-profile.html"><img src="{{ asset('') }}assets/back/img/user/user15.jpg"
+                    <a href="instructor-profile.html">
+                        @role('admin')
+                        <img src="{{ asset('') }}images/default.jpg"
                             alt=""></a>
+                            @endrole
+                        @role('user')
+                        <img src="{{ asset('') }}images/pelanggan/{{ Auth::user()->pelanggan->foto }}"
+                            alt=""></a>
+                            @endrole
+                        @role('rental')
+                        <img src="{{ asset('') }}images/rental/{{ Auth::user()->rental->foto_rental }}"
+                            alt=""></a>
+                            @endrole
                 </div>
             </div>
             <div class="profile-group">
@@ -80,12 +92,23 @@
                         <i class="feather-users"></i> Data Customer
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="" href="{{ url('admin/profil') }}" class="nav-link">
+                        <i class="feather-users"></i> Profil
+                    </a>
+                </li>
+
                 @endrole
 
                 @role('user')
                 <li class="nav-item">
                     <a class="" href="{{ url('user/orders') }}" class="nav-link">
-                        <i class="feather-dollar-sign"></i> My Order
+                        <i class="feather-dollar-sign"></i> Order
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="{{ url('user/profil') }}" class="nav-link">
+                        <i class="feather-users"></i> Profil
                     </a>
                 </li>
                 @endrole                
@@ -101,13 +124,13 @@
                     </a>
                 </li>
                 @endrole
-                @role('rental')
+                {{-- @role('rental')
                 <li class="nav-item">
                     <a class="" href="{{ url('user/profil') }}" class="nav-link ">
                         <i class="feather-settings"></i>Profil
                     </a>
                 </li>
-                @endrole
+                @endrole --}}
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" id="myform">
                         @csrf

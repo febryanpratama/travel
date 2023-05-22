@@ -50,6 +50,9 @@ Route::group([
     Route::get('auth/register', 'register');
     Route::post("/auth/register", 'registerPost');
 
+    Route::get('auth/forgot-password', 'forgotPassword');
+    Route::post('auth/forgot-password', 'storeforgotPassword');
+
     Route::get('auth/register-customer', 'registerCust');
     Route::post("auth/register-customer", 'registerPostCust');
 
@@ -79,6 +82,9 @@ Route::group([
         Route::get('/', 'index');
         Route::post('/', 'store');
 
+        Route::get('{id}/detail', 'detail');
+        Route::get('{id}/detail/supir', 'detailSupir');
+
         Route::get('/{id}/terima', 'terima');
 
 
@@ -99,6 +105,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexOrder');
         Route::get('/{order_id}', 'detailOrder');
+        Route::get('/{order_id}/syarat-ketentuan', 'syaratketentuan');
     });
 
 
@@ -110,6 +117,14 @@ Route::group([
         Route::get('/{id}/detail', 'detailAdmin');
         Route::get('/{id}/terima', 'terimaAdmin');
         Route::get('/{id}/tolak', 'tolakAdmin');
+    });
+
+    Route::group([
+        'prefix' => 'profil',
+        'controller' => UserController::class,
+    ], function () {
+        Route::get('/', 'indexProfil');
+        Route::post('/', 'storeProfil');
     });
 });
 
@@ -178,6 +193,7 @@ Route::group([
 ], function () {
     Route::prefix('profil')->group(function () {
         Route::get('/', 'indexProfile');
+        Route::post('/', 'storeProfile');
     });
     Route::prefix('orders')->group(function () {
         Route::get('/', 'indexOrders');

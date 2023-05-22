@@ -25,19 +25,19 @@
                <h4>Detail Pribadi</h4>
                <p>Ubah Informasi pribadi anda.</p>
             </div>
-            <form action="{{ url('rental/profil') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('user/profil') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                <div class="row">
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Nama Customer</label>
-                        <input type="text" class="form-control" name="nama_rental" value="{{ $data->nama_lengkap }}" placeholder="Enter your first Name">
+                        <input type="text" class="form-control" name="nama_lengkap" value="{{ $data->nama_lengkap }}" placeholder="Enter your first Name">
                      </div>
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">NIK</label>
-                        <input type="text" class="form-control" name="no_ijin_usaha" value="{{ $data->nik }}" placeholder="Enter your last Name">
+                        <input type="text" class="form-control" name="nik" value="{{ $data->nik }}" placeholder="Enter your last Name">
                      </div>
                   </div>
                   <div class="col-lg-6">
@@ -49,12 +49,19 @@
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Nomor Telpon</label>
-                        <input type="text" class="form-control" name="alamat" value="{{ $data->no_telp }}" placeholder="Enter your last Name">
+                        <input type="number" class="form-control" name="no_telpon" value="{{ $data->no_telp }}" placeholder="Enter your last Name">
                      </div>
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
-                        <label class="form-control-label">Identitas Pribadi / <span><a href="{{ asset('images/pelanggan/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
+                        <label class="form-control-label">Foto Profil / <span><a href="{{ asset('images/pelanggan/'.$data->foto) }}" target="_blank">Lihat Foto</a></span></label>
+                        
+                        <input type="file" class="form-control" name="foto" value="{{ $data->ktp }}" placeholder="Enter your last Name">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Identitas Pribadi (ktp) / <span><a href="{{ asset('images/pelanggan/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
                         
                         <input type="file" class="form-control" name="ktp" value="{{ $data->ktp }}" placeholder="Enter your last Name">
                     </div>
@@ -73,7 +80,7 @@
                      </div>
                   </div>
                   <div class="update-profile">
-                     <button type="button" class="btn btn-primary">Update Profile</button>
+                     <button type="submit" class="btn btn-primary">Update Profile</button>
                   </div>
                </div>
             </form>

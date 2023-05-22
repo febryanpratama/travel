@@ -40,4 +40,21 @@ class AdminController extends Controller
             'data' => $data
         ]);
     }
+
+    public function syaratketentuan($order_id)
+    {
+        $data = Penyewaan::with('rental', 'mobil', 'customer', 'rental.syarat', 'rental.kontrak')->where('id', $order_id)->first();
+
+        // dd($data);
+
+        if (!$data) {
+            return back()->withErrors('Data Tidak Ditemukan');
+        }
+
+        // dd($data);
+
+        return view('pages.back.admin.syaratketentuan', [
+            'data' => $data
+        ]);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\Rental\MobilController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('rent', [MobilController::class, 'getRent']);
 
 Route::post('/getDistance', [MobilController::class, 'getDistance']);
+
+Route::post('check-mail', [FrontController::class, 'checkMail']);

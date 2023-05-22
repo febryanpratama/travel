@@ -58,7 +58,7 @@
                             <img src="{{ asset('') }}assets/back/img/login-img.png" class="img-fluid" alt="Logo">
                         </div>
                         <div class="mentor-course text-center">
-                            <h2>Welcome to <br>DreamsLMS Courses.</h2>
+                            <h2>Selamat datang di <br>RentaLin  .</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                         </div>
@@ -68,7 +68,7 @@
                             <img src="{{ asset('') }}assets/back/img/login-img.png" class="img-fluid" alt="Logo">
                         </div>
                         <div class="mentor-course text-center">
-                            <h2>Welcome to <br>DreamsLMS Courses.</h2>
+                            <h2>Selamat datang di <br>RentaLin  .</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                         </div>
@@ -78,7 +78,7 @@
                             <img src="{{ asset('') }}assets/back/img/login-img.png" class="img-fluid" alt="Logo">
                         </div>
                         <div class="mentor-course text-center">
-                            <h2>Welcome to <br>DreamsLMS Courses.</h2>
+                            <h2>Selamat datang di <br>RentaLin  .</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                         </div>
@@ -91,7 +91,9 @@
                 <div class="login-wrapper">
                     <div class="loginbox">
                         <div class="img-logo">
-                            <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo">
+                            {{-- <img src="{{ asset('') }}assets/back/img/logo.svg" class="img-fluid" alt="Logo"> --}}
+                                <span><h2 style="color: #ff875a">RentaLin</h2></span>
+
                             <div class="back-home">
                                 <a href="{{ url('/') }}">Back to Home</a>
                             </div>

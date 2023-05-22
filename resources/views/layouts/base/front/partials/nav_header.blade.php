@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class=" col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
 					<div class="hs_logo_wrapper d-none d-sm-none d-xs-none d-md-block">
-						<a href="index-2.html">
+						<a href="{{ url('/') }}">
 							<h5><b>RentaLin</b></h5>
 							{{-- <img src="{{ asset('') }}assets/front/images/logo.png" class="img-responsive" alt="logo" title="Logo" /> --}}
 						</a>

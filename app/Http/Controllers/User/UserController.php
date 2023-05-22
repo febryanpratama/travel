@@ -7,6 +7,7 @@ use App\Models\Pelanggan;
 use App\Models\Pengantaran;
 use App\Models\Penyewaan;
 use App\Models\Rating;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -94,5 +95,58 @@ class UserController extends Controller
         return view('pages.back.user.profile', [
             'data' => $data
         ]);
+    }
+
+    public function storeProfile(Request $request)
+    {
+        // dd($request->all());
+
+        $user = User::where('id', Auth::user()->id)->first();
+
+        if (!$user) {
+            return back()->withErrors('Data tidak ditemukan');
+        }
+
+        if ($request['password'] != null) {
+            $user->update([
+                'email' => $request['email'],
+                'password' => bcrypt($request['password']),
+            ]);
+        }
+
+        $user->update([
+            'email' => $request['email'],
+        ]);
+
+        if ($request['foto']) {
+            $foto = $request->file('foto');
+            $nama_foto = time() . "_" . $foto->getClientOriginalName();
+            $tujuan_upload = 'images/pelanggan';
+            $foto->move($tujuan_upload, $nama_foto);
+
+            Pelanggan::where('user_id', Auth::user()->id)->update([
+                'foto' => $nama_foto,
+            ]);
+        }
+
+        if ($request['ktp']) {
+            $ktp = $request->file('ktp');
+            $nama_ktp = time() . "_" . $ktp->getClientOriginalName();
+            $tujuan_upload = 'images/pelanggan/ktp';
+            $ktp->move($tujuan_upload, $nama_ktp);
+
+            Pelanggan::where('user_id', Auth::user()->id)->update([
+                'ktp' => $nama_ktp,
+            ]);
+        }
+
+        Pelanggan::where('user_id', Auth::user()->id)->update([
+            'nama_lengkap' => $request['nama_lengkap'],
+            'nik' => $request['nik'],
+            'no_telp' => $request['no_telpon'],
+            'alamat' => $request['alamat'],
+        ]);
+
+        return back()->withSuccess('Berhasil mengubah data');
     }
 }

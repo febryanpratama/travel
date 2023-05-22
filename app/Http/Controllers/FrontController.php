@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use App\Models\Rental;
+use App\Models\User;
 use App\Services\FrontService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -176,5 +177,46 @@ class FrontController extends Controller
         return view('pages.front.syaratketentuan', [
             'data' => $data
         ]);
+    }
+
+
+    public function forgotPassword()
+    {
+        return view('pages.front.auth.forgotpassword');
+    }
+
+    public function checkMail(Request $request)
+    {
+        // $response = $this->frontService->checkMail($request->all());/
+
+        $email = User::where('email', $request->email)->first();
+
+        if (!$email) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Email Tidak Ditemukan'
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Email Ditemukan'
+        ]);
+    }
+
+    public function storeforgotPassword(Request $request)
+    {
+        // dd($request->all());
+        $email = User::where('email', $request->email)->first();
+
+        if (!$email) {
+            return redirect()->back()->withErrors('Email Tidak Ditemukan');
+        }
+
+        $email->update([
+            'password' => bcrypt($request->password)
+        ]);
+
+        return redirect('/login')->withSuccess('Berhasil Merubah Password anda. Silahkan Login Kembali');
     }
 }

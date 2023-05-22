@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rental;
 use App\Services\Admin\RentalService;
 use Illuminate\Http\Request;
 
@@ -29,5 +30,18 @@ class RentalController extends Controller
     {
         $response = $this->rentalService->terima($id);
         return redirect()->back()->withSuccess($response['message']);
+    }
+
+    public function detail($id)
+    {
+        $rental = Rental::where('id', $id)->first();
+
+        if (!$rental) {
+            return back()->withErrors('Data Rental Tidak Ditemukan');
+        }
+
+        return view('pages.back.admin.detail-rental', [
+            'data' => $rental
+        ]);
     }
 }

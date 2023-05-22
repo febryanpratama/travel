@@ -68,4 +68,25 @@ class UserController extends Controller
 
         return redirect()->back()->withSuccess('Data rental berhasil ditolak');
     }
+
+    public function indexProfil()
+    {
+        $data = User::where('id', auth()->user()->id)->first();
+
+        return view('pages.back.admin.profil', [
+            'data' => $data
+        ]);
+    }
+
+    public function storeProfil(Request $request)
+    {
+        $data = User::where('id', auth()->user()->id)->first();
+
+        $data->update([
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        return redirect()->back()->withSuccess('Data berhasil diubah');
+    }
 }

@@ -31,4 +31,9 @@ class Rental extends Model
     {
         return $this->hasMany(Kontrak::class, 'rental_id', 'id')->withTrashed();
     }
+
+    public function supir()
+    {
+        return $this->hasMany(Supir::class, 'rental_id', 'id')->withTrashed();
+    }
 }

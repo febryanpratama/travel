@@ -105,7 +105,7 @@
                                     <div class="pass-group">
                                         <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password">
                                         
-                                        <span class="feather-eye toggle-password"></span>
+                                        <span class="feather-eye toggle-password" id="too"></span>
                                     </div>
                                 </div>
                                 <div class="forgot">
@@ -186,6 +186,12 @@
             )
             // swal("Oh No !", "{{ session('errors') }}", "errors");
             @endif ()
+
+            $('.toggle-password').on('click', function(){
+                // $(this).toggleClass('feather-eye-off');
+                var input = $("#password");
+                input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password');
+            })
         })
     </script>
 </body>
