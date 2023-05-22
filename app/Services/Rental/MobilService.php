@@ -285,6 +285,7 @@ class MobilService
 
     static function storeProfile($data)
     {
+        // dd($data);
         $validator = Validator::make($data, [
             'nama_rental' => 'required',
             'nama_pemilik' => 'required',
@@ -312,28 +313,6 @@ class MobilService
                 $foto_name = time() . $foto->getClientOriginalName();
                 $foto->move('images/rental/ktp', $foto_name);
                 $data['ktp'] = $foto_name;
-            } else {
-                $data['ktp'] = null;
-            }
-
-            if (array_key_exists('foto_rental', $data)) {
-                $foto = $data['ktp'];
-                $foto_name = time() . $foto->getClientOriginalName();
-                $foto->move('images/rental/ktp', $foto_name);
-                $data['foto_rental'] = $foto_name;
-            } else {
-                $data['foto_rental'] = null;
-            }
-
-            // dd($data['ktp']);
-
-            if ($foto['foto_rental'] != null) {
-                $rental = Rental::where('id', Auth::user()->rental->id)->update([
-                    'foto_rental' => $data['foto_rental']
-                ]);
-            }
-
-            if ($data['ktp'] != null) {
 
                 $rental = Rental::where('id', Auth::user()->rental->id)->update([
                     'nama_pemilik' => $data['nama_pemilik'],
@@ -342,9 +321,7 @@ class MobilService
                     'alamat' => $data['alamat'],
                     'ktp' => $data['ktp'],
                 ]);
-            }
-
-            if ($data['ktp'] == null) {
+            } else {
                 $rental = Rental::where('id', Auth::user()->rental->id)->update([
                     'nama_pemilik' => $data['nama_pemilik'],
                     'nama_rental' => $data['nama_rental'],
@@ -352,6 +329,32 @@ class MobilService
                     'alamat' => $data['alamat'],
                 ]);
             }
+
+            if (array_key_exists('foto_rental', $data)) {
+                $foto = $data['foto_rental'];
+                $foto_name = time() . $foto->getClientOriginalName();
+                $foto->move('images/rental', $foto_name);
+                $data['foto_rental'] = $foto_name;
+
+                Rental::where('id', Auth::user()->rental->id)->update([
+                    'foto_rental' => $data['foto_rental']
+                ]);
+            }
+
+
+            // if ($data['ktp'] != null) {
+
+            //     $rental = Rental::where('id', Auth::user()->rental->id)->update([
+            //         'nama_pemilik' => $data['nama_pemilik'],
+            //         'nama_rental' => $data['nama_rental'],
+            //         'no_ijin_usaha' => $data['no_ijin_usaha'],
+            //         'alamat' => $data['alamat'],
+            //         'ktp' => $data['ktp'],
+            //     ]);
+            // }
+
+            // if ($data['ktp'] == null) {
+            // }
 
             if ($data['password'] != null) {
                 # code...
