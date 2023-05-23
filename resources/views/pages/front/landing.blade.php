@@ -39,8 +39,7 @@
 										<div class="clear"></div>
 									</div>
 								</div>
-								<div
-									class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none  d-lg-block d-xl-block">
+								{{-- <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none  d-lg-block d-xl-block">
 									<div class="content_tabs">
 										<div class="row">
 											<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -87,8 +86,6 @@
 																		<ul>
 																			<li>
 																				<button type="submit" class="btn btn-primary">Cari <i class="fa fa-arrow-right"></i></button>
-																				{{-- <a href="#">search <i
-																						class="fa fa-arrow-right"></i></a> --}}
 																			</li>
 																		</ul>
 																	</div>
@@ -100,7 +97,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 					</div>
@@ -117,8 +114,7 @@
 		</div>
 	</div>
 	<!-- hs Slider End -->
-	<div
-		class="x_responsive_form_wrapper x_responsive_form_wrapper2 float_left d-block d-sm-block d-md-block  d-lg-none d-xl-none">
+	{{-- <div class="x_responsive_form_wrapper x_responsive_form_wrapper2 float_left d-block d-sm-block d-md-block  d-lg-none d-xl-none">
 		<div class="container">
 			<form action="{{ url('get-car') }}" method="POST">
                 @csrf
@@ -165,11 +161,6 @@
                                     </ul>
                                 </div>
                                 <div class="x_slider_checout_right d-flex justify-content-end">
-                                    {{-- <ul>
-                                        <li>
-                                            <a href="#">search <i class="fa fa-arrow-right"></i></a>
-                                        </li>
-                                    </ul> --}}
                                     <button type="submit" class="btn btn-outline-primary">
                                         search <i class="fa fa-arrow-right"></i>
                                     </button>
@@ -181,12 +172,73 @@
 
             </form>
 		</div>
-	</div>
+	</div> --}}
 	<!-- xs Slider bottom title Start -->
     <hr>
-    <div class="x_offer_car_main_wrapper float_left padding_tb_100">
-        <div class="container">
-            <div class="row" id="mapCanvas" style="width: 100%;height: 100%">
+    <div class="x_offer_car_main_wrapper float_left padding_tb_100" style="background-color:#efefef">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container">
+                    <div id="mapCanvas" style="width: 100%;height: 500px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="x_slider_form_main_wrapper float_left"
+                            data-animation="animated fadeIn">
+                            <div class="x_slider_form_heading_wrapper float_left">
+                                <h3>Temukan mobil yang tepat untuk Anda</h3>
+                            </div>
+                            <form action="{{ url('getCar') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="latitude" value="" id="latitude">
+                                <input type="hidden" name="longitude" value="" id="longitude">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="x_slider_form_input_wrapper float_left">
+                                            <h3>Lokasi Penjemputan</h3>
+                                            <input type="text" autocomplete="off" id="search" class="full-width" placeholder="Pilih kota yang anda inginkan">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="form-sec-header">
+                                            <h3>Tanggal Penjemputan</h3>
+                                            <label class="cal-icon">Tanggal Penjemputan
+                                                <input type="text" placeholder="Tue 16 Jan 2018"
+                                                    class="form-control datepicker">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt-5">
+                                        <div class="x_slider_checkbox_bottom float_left">
+                                            <div class="x_slider_checout_left">
+                                                <ul>
+                                                    <li><i
+                                                            class="fa fa-check-circle"></i>&nbsp;&nbsp;24/7
+                                                        Layanan Pelanggan</li>
+                                                    <li><i
+                                                            class="fa fa-check-circle"></i>&nbsp;&nbsp;Booking yang mudah</li>
+                                                    <li><i
+                                                            class="fa fa-check-circle"></i>&nbsp;&nbsp;tidak ada biaya tambahan</li>
+                                                </ul>
+                                            </div>
+                                            <div class="x_slider_checout_right">
+                                                <ul>
+                                                    <li>
+                                                        <button type="submit" class="btn btn-primary">Cari <i class="fa fa-arrow-right"></i></button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

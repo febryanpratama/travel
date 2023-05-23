@@ -318,6 +318,8 @@ class FrontService
 
     public function storeCheckout($data)
     {
+
+        // dd($data);
         $validator = Validator::make($data, [
             'penyewaan_id' => 'required|exists:penyewaans,id',
             'nominal' => 'required|numeric',
@@ -354,7 +356,8 @@ class FrontService
                 'is_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? 'Lunas' : 'Belum Lunas',
                 'pembayaran_awal' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? $data['nominal'] : 0,
                 'sisa_pembayaran' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? ($penyewaan->total_harga - $data['nominal']) : 0,
-                'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $data['nominal'] : $data['nominal']
+                'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $data['nominal'] : $data['nominal'],
+                'is_location' => $data['is_location']
             ]);
 
             DB::commit();

@@ -40,13 +40,14 @@ class Format
         // dd(Auth::user());
         $role = Auth::user()->roles->pluck('name');
 
-        if ($role == 'user') {
+        // return $role[0];
+        if ($role[0] == 'user') {
             $data = Penyewaan::where('customer_id', Auth::user()->Pelanggan->id)->where('is_status', 'Keranjang')->count();
 
             return $data;
         }
 
-        return 0;
+        return 10;
     }
 
     static function countRating($car_id)

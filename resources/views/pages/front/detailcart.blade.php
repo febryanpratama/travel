@@ -307,10 +307,25 @@
                                 </div> --}}
                               </div>
                               <hr>
+                              <hr>
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <label for="" class="control-label">Lokasi Pengambilan Mobil</label>
+                                    <div>
+                                       <input type="radio" id="kantor" name="is_location" value="Ambil Sendiri" class="form-control-radio">
+                                       <label for="kantor">Kantor Rental</label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" id="lokasi" name="is_location" value="Diantar" class="form-control-radio">
+                                       <label for="lokasi">Lokasi Saya</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
                               {{-- {{ dd($data) }} --}}
                               <div class="checkbox car_checkout_chekbox">
-                                 <input type="checkbox" id="c3" name="cb" required>
-                                 <label for="c3">Saya telah Membaca dan Menerima <a href="{{ url('syarat-ketentuan/'.$data->rental->id) }}" style="color: blue">Persyaratan &amp; Ketentuan *</a></label>
+                                 <input type="checkbox" id="c3" name="cb" disabled required>
+                                 <label for="c3" id="c4">Saya telah Membaca dan Menerima </label><a href="{{ url('syarat-ketentuan/'.$data->rental->id) }}" style="color: blue" target="_blank"><span id="syaratketentuan"> Persyaratan &amp; Ketentuan *</span></a>
                               </div>
                            </form>
                         </div>
@@ -340,6 +355,31 @@
 @section('script')
 <script>
     $(document).ready(function(){
+
+         // $("#myCheckBox").prop("disabled", true) 
+         $('#c4').on('click', function(){
+            // checkSyarat()
+            // console.log("check")
+            let element = document.getElementById('c3')
+            console.log(element.getAttribute('disabled'))
+            if(element.getAttribute('disabled') == ''){
+               console.log('disabled')
+               Swal.fire(
+                        'Oh No !',
+                        'Silahkan Baca Persyaratan & Ketentuan terlebih Dahulu !',
+                        'error'
+                     )
+            }else{
+               console.log("enable")
+
+            }
+         })
+
+         $('#syaratketentuan').on('click', function(){
+            let element = document.getElementById('c3')
+
+            element.removeAttribute('disabled')
+         })
         $('.check').on('change', function(){
             if($(this).is(':checked')){
                 let code = $(this).val();
