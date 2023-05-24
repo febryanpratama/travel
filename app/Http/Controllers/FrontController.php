@@ -35,9 +35,11 @@ class FrontController extends Controller
         return view('pages.front.auth.register');
     }
 
-    public function registerPost()
+    public function registerPost(Request $request)
     {
-        $response = $this->frontService->storeRegisterRental(request()->all());
+        // dd($request->all());
+
+        $response = $this->frontService->storeRegisterRental($request->all());
 
         if (!$response['status']) {
             // dd($response['message']);
@@ -49,7 +51,6 @@ class FrontController extends Controller
 
     public function registerPostCust(Request $request)
     {
-        // dd($request->all());
         $response = $this->frontService->storeRegisterCust($request->all());
         if (!$response['status']) {
             // dd($response['message']);

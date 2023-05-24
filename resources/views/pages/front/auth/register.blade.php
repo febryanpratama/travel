@@ -115,132 +115,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" id="rental">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nama Rental</label>
-                                        <input type="text" class="form-control" name="nama_rental" placeholder="Nama Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nama Pemilik Rental</label>
-                                        <input type="text" class="form-control" name="nama_pemilik" placeholder="Nama Pemilik Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nomor Ijin Usaha</label>
-                                        <input type="text" class="form-control" name="no_ijin_usaha" placeholder="Nomor Ijin Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Alamat Rental</label>
-                                        <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
-                                        {{-- <input type="text" class="form-control" name="alamat_rental" placeholder="Alamat Rental .."> --}}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Foto Rental</label>
-                                        <input type="file" class="form-control" name="foto_rental" placeholder="Alamat Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Email</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Password</label>
-                                        <div class="pass-group" id="passwordInput">
-                                            <input type="password" class="form-control pass-input" name="password"
-                                                placeholder="Enter your password">
-                                            <span class="toggle-password feather-eye"></span>
-                                            <span class="pass-checked"><i class="feather-check"></i></span>
-                                        </div>
-                                        <div class="password-strength" id="passwordStrength">
-                                            <span id="poor"></span>
-                                            <span id="weak"></span>
-                                            <span id="strong"></span>
-                                            <span id="heavy"></span>
-                                        </div>
-                                        <div id="passwordInfo"></div>
-                                    </div>
-                                </div>
-                                {{-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="form-control-label">Get Lat Long</label>
-                                        <button class="btn btn-outline-primary latlng form-control" type="button">Sesuaikan Posisi Anda</button>
-                                    </div>
-                                </div> --}}
-                            </div>
-                            <div class="row hide" id="perorangan">
-                                {{-- <hr> --}}
-                               
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nama Rental Perorangan</label>
-                                        <input type="text" class="form-control" name="nama_rental" placeholder="Nama Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nama Pemilik Rental Perorangan</label>
-                                        <input type="text" class="form-control" name="nama_pemilik" placeholder="Nama Pemilik Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Nomor BPKB</label>
-                                        <input type="text" class="form-control" name="no_ijin_usaha" placeholder="Nomor Ijin Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Alamat Rental Perorangan</label>
-                                        <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Foto Rental</label>
-                                        <input type="file" class="form-control" name="foto_rental" placeholder="Alamat Rental ..">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Email</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Password</label>
-                                        <div class="pass-group" id="passwordInput">
-                                            <input type="password" class="form-control pass-input" name="password"
-                                                placeholder="Enter your password">
-                                            <span class="toggle-password feather-eye"></span>
-                                            <span class="pass-checked"><i class="feather-check"></i></span>
-                                        </div>
-                                        <div class="password-strength" id="passwordStrength">
-                                            <span id="poor"></span>
-                                            <span id="weak"></span>
-                                            <span id="strong"></span>
-                                            <span id="heavy"></span>
-                                        </div>
-                                        <div id="passwordInfo"></div>
-                                    </div>
-                                </div>
-                                {{-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="" class="form-control-label">Get Lat Long</label>
-                                        <button class="btn btn-outline-primary latlng form-control" type="button">Sesuaikan Posisi Anda</button>
-                                    </div>
-                                </div> --}}
+                            <div class="row" id="kolom">
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -461,12 +336,122 @@
                 var daftar = $('.daftar :selected').val();
 
                 if(daftar == 'rental'){
-                    $('#rental').removeClass('hide');
-                    $('#perorangan').addClass('hide');
+                    $('#kolom').html(`
+                        <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Rental</label>
+                                        <input type="text" class="form-control" name="nama_rental" placeholder="Nama Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Pemilik Rental</label>
+                                        <input type="text" class="form-control" name="nama_pemilik" placeholder="Nama Pemilik Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nomor Ijin Usaha</label>
+                                        <input type="text" class="form-control" name="no_ijin_usaha" placeholder="Nomor Ijin Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Alamat Rental</label>
+                                        <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat_rental" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
+                                        {{-- <input type="text" class="form-control" name="alamat_rental" placeholder="Alamat Rental .."> --}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Foto Rental</label>
+                                        <input type="file" class="form-control" name="foto_rental" placeholder="Alamat Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Password</label>
+                                        <div class="pass-group" id="passwordInput">
+                                            <input type="password" class="form-control pass-input" name="password"
+                                                placeholder="Enter your password">
+                                            <span class="toggle-password feather-eye"></span>
+                                            <span class="pass-checked"><i class="feather-check"></i></span>
+                                        </div>
+                                        <div class="password-strength" id="passwordStrength">
+                                            <span id="poor"></span>
+                                            <span id="weak"></span>
+                                            <span id="strong"></span>
+                                            <span id="heavy"></span>
+                                        </div>
+                                        <div id="passwordInfo"></div>
+                                    </div>
+                                </div>
+                    `)
                 }else{
                     // console.log(daftar)
-                    $('#rental').addClass('hide');
-                    $('#perorangan').removeClass('hide');
+                    $('#kolom').html(`
+                        <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Rental Perorangan</label>
+                                        <input type="text" class="form-control" name="nama_rental" placeholder="Nama Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nama Pemilik Rental Perorangan</label>
+                                        <input type="text" class="form-control" name="nama_pemilik" placeholder="Nama Pemilik Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Nomor BPKB</label>
+                                        <input type="text" class="form-control" name="no_ijin_usaha" placeholder="Nomor Ijin Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Alamat Rental Perorangan</label>
+                                        <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat_rental" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Foto Rental</label>
+                                        <input type="file" class="form-control" name="foto_rental" placeholder="Alamat Rental ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Password</label>
+                                        <div class="pass-group" id="passwordInput">
+                                            <input type="password" class="form-control pass-input" name="password"
+                                                placeholder="Enter your password">
+                                            <span class="toggle-password feather-eye"></span>
+                                            <span class="pass-checked"><i class="feather-check"></i></span>
+                                        </div>
+                                        <div class="password-strength" id="passwordStrength">
+                                            <span id="poor"></span>
+                                            <span id="weak"></span>
+                                            <span id="strong"></span>
+                                            <span id="heavy"></span>
+                                        </div>
+                                        <div id="passwordInfo"></div>
+                                    </div>
+                                </div>
+                    
+                    `)
                 }
 
             })
