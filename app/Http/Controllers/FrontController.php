@@ -43,7 +43,7 @@ class FrontController extends Controller
 
         if (!$response['status']) {
             // dd($response['message']);
-            return redirect()->back()->withErrors($response['message']);
+            return back()->withErrors($response['message']);
         } else {
             return redirect('/login')->withSuccess($response['message']);
         }
@@ -103,7 +103,7 @@ class FrontController extends Controller
             if (!$response['status']) {
                 return back()->withErrors($response['message']);
             } else {
-                return redirect('/')->withSuccess($response['message']);
+                return redirect('/cart')->withSuccess($response['message']);
             }
         }
     }
@@ -155,7 +155,7 @@ class FrontController extends Controller
 
         $response = $this->frontService->storeCheckout($request->all());
 
-        if (!$response) {
+        if (!$response['status']) {
             return redirect()->back()->withErrors($response['message']);
         } else {
             return redirect('/')->withSuccess($response['message']);

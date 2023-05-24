@@ -13,7 +13,11 @@
                <a href="student-profile.html"><img src="{{ asset('images/mobil/'.$data->mobil->foto_mobil) }}" alt="" class="img-fluid"></a>
                <div class="course-name">
                   <h4><a href="student-profile.html">{{ $data->kd_invoice }}</a></h4>
-                  <p>{{ $data->mobil->nama_mobil }}</p>
+                  <p>{{ $data->mobil->nama_mobil }} / @if ($data->is_pembayaran == 'Lunas')
+                      <span class="text-success">Pembayaran Lunas</span>
+                      @else
+                      <span class="text-danger">Pembayaran DP</span>
+                  @endif</p>
                </div>
             </div>
             <div class="profile-share d-flex align-items-center justify-content-center">
@@ -106,6 +110,14 @@
                         <input type="text" class="form-control" value="{{ $data->mobil->plat_mobil }}" readonly>
                      </div>
                   </div>
+                  @if ($data->pembayaran_awal != null)
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="form-control-label">Nominal Pembayaran Awal</label>
+                           <input type="text" class="form-control" value="Rp. {{ number_format($data->pembayaran_awal) }}" readonly>
+                        </div>
+                     </div>
+                  @endif
                   {{-- <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Status</label>

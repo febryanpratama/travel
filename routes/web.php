@@ -149,7 +149,9 @@ Route::group([
         'controller' => MobilController::class,
     ], function () {
         Route::get('/', 'indexSupir');
+        Route::get('/{supir_id}/hapus', 'hapusSupir');
         Route::post('/', 'storeSupir');
+        Route::post('/{supir_id}/edit', 'editSupir');
     });
 
     Route::group([
@@ -198,6 +200,7 @@ Route::group([
     Route::prefix('orders')->group(function () {
         Route::get('/', 'indexOrders');
         Route::get('/{id}', 'detailOrders');
+        Route::post('{id}/bukti', 'inputBukti');
         Route::post('/{id}/digunakan', 'detailOrderDigunakan');
     });
 });

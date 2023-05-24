@@ -324,6 +324,7 @@ class FrontService
             'penyewaan_id' => 'required|exists:penyewaans,id',
             'nominal' => 'required|numeric',
             'channel_pembayaran' => 'required|in:Pembayaran Awal,Pelunasan',
+            'cb' => 'required|in:on',
         ]);
 
         if ($validator->fails()) {

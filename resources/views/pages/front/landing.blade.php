@@ -243,39 +243,6 @@
         </div>
     </div>
     <hr>
-	<div class="x_slider_bottom_title_main_wrapper">
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
-			<h3><a href="#">24 / 7 Layanan Pelanggan</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
-			</p>
-		</div>
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-world"></i>
-			<h3><a href="#">Mudah ditemukan</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
-			</p>
-		</div>
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-checklist"></i>
-			<h3><a href="#">Kapan saja untuk reservasi</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
-			</p>
-		</div>
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-car-trip"></i>
-			<h3><a href="#">Rental Mobil</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
-			</p>
-		</div>
-	</div>
-	<!-- xs Slider bottom title End -->
-    
-    <hr>
 	<!-- xs offer car tabs Start -->
 	<div class="x_offer_car_main_wrapper float_left padding_tb_100">
 		<div class="container">
@@ -375,6 +342,40 @@
 			</div>
 		</div>
 	</div>
+    <hr>
+	<div class="x_slider_bottom_title_main_wrapper">
+		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
+			<h3><a href="#">24 / 7 Layanan Pelanggan</a></h3>
+			<p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.
+			</p>
+		</div>
+		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-world"></i>
+			<h3><a href="#">Mudah ditemukan</a></h3>
+			<p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.
+			</p>
+		</div>
+		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-checklist"></i>
+			<h3><a href="#">Kapan saja untuk reservasi</a></h3>
+			<p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.
+			</p>
+		</div>
+		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-car-trip"></i>
+			<h3><a href="#">Rental Mobil</a></h3>
+			<p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.
+			</p>
+		</div>
+	</div>
+	<!-- xs Slider bottom title End -->
+    
+    
     
 	<!-- xs offer car tabs End -->
 @endsection

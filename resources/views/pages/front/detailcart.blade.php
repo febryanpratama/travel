@@ -299,7 +299,7 @@
                               <div class="row">
                                 <div class="col-md-6" id="InputPembayaranAwal">
                                     <label for="" class="control-label" id="namePembayaran">Nominal Pembayaran Awal</label>
-                                    <input type="number" class="form-control" name="nominal">
+                                    <input type="number" class="form-control" name="nominal" required>
                                 </div>
                                 {{-- <div class="col-md-6 hide" id="InputPelunasan">
                                     <label for="" class="control-label">Pelunasan</label>
@@ -312,11 +312,11 @@
                                  <div class="col-md-6">
                                     <label for="" class="control-label">Lokasi Pengambilan Mobil</label>
                                     <div>
-                                       <input type="radio" id="kantor" name="is_location" value="Ambil Sendiri" class="form-control-radio">
+                                       <input type="radio" id="kantor" name="is_location" value="Ambil Sendiri" class="form-control-radio" required="required">
                                        <label for="kantor">Kantor Rental</label>
                                     </div>
                                     <div>
-                                       <input type="radio" id="lokasi" name="is_location" value="Diantar" class="form-control-radio">
+                                       <input type="radio" id="lokasi" name="is_location" value="Diantar" class="form-control-radio" required="required">
                                        <label for="lokasi">Lokasi Saya</label>
                                     </div>
                                  </div>
@@ -336,7 +336,7 @@
                         <div class="col-md-12 mt-1">
                            <ul>
                               <li>
-                                 <button type="submit" form="myForm" class="btn btn-primary">Selesaikan Sekarang <i class="fa fa-arrow-right"></i></button>
+                                 <button type="submit" form="myForm" class="btn btn-primary" disabled id="submit">Selesaikan Sekarang <i class="fa fa-arrow-right"></i></button>
                               </li>
                            </ul>
                         </div>
@@ -370,6 +370,7 @@
                         'error'
                      )
             }else{
+               
                console.log("enable")
 
             }
@@ -379,6 +380,10 @@
             let element = document.getElementById('c3')
 
             element.removeAttribute('disabled')
+
+            // const checkedcb = $('#c3').is(':checked');
+            $('#submit').removeAttr('disabled')
+
          })
         $('.check').on('change', function(){
             if($(this).is(':checked')){
@@ -428,6 +433,10 @@
                 // });
             }
         });
+
+        
+        
+      //   console.log(checkedcb)
     })
 </script>
 @endsection

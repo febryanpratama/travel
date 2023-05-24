@@ -41,6 +41,7 @@
                                  <th>Jasa Rental</th>
                                  <th>Mobil</th>
                                  <th>Status Pembayaran</th>
+                                 <th>Bukti Pembayaran</th>
                                  <th>Status</th>
                                  <th>Aksi</th>
                               </tr>
@@ -59,16 +60,39 @@
                                         <td>{{ $item->mobil->nama_mobil }}</td>
                                         <td>
                                             @switch($item->is_pembayaran)
-                                            @case('Lunas')
-                                                <div class="text-success">Lunas</div>
+                                                @case('Lunas')
+                                                    @if ($item->bukti_pembayaran != null)
+                                                    <div><a href="{{ asset('images/bukti_pembayaran/'.$item->bukti_pembayaran) }}" class="text-success" target="_blank">Lunas</a></div>
+                                                        
+                                                    @else
+                                                    
+                                                    <div><a href="#"  class="text-success" >Lunas</a></div>
+                                                    @endif
                                                 @break
                                                 @case('Belum Lunas')
-                                                <div class="text-danger"><a href="#" data-bs-toggle="modal" data-bs-target="#buktiPembayaran">Belum Lunas</a></div>
+
+                                                @if ($item->bukti_pembayaran != null)
+                                                    <div><a href="{{ asset('images/bukti_pembayaran/'.$item->bukti_pembayaran) }}" class="text-danger" target="_blank">Belum Lunas</a></div>
+                                                    
+                                                @else
+                                                <div>
+                                                    <a href="#" class="text-danger" >Belum Lunas</a>
+                                                </div>
+                                                    
+                                                @endif
                                                 
                                                 @break
-                                            @default
-                                                
-                                        @endswitch
+                                                @default
+                                                    
+                                            @endswitch
+                                        </td>
+                                        <td>
+                                            @if ($item->bukti_pembayaran != null)
+                                                    <div><a href="{{ asset('images/bukti_pembayaran/'.$item->bukti_pembayaran) }}"   target="_blank">Lihat Bukti</a></div>
+                                            
+                                                @else
+                                                <a href="#"  data-bs-toggle="modal" data-bs-target="#buktiPembayaran{{ $item->id }}">Upload Bukti</a>
+                                            @endif
                                         </td>
                                         <td>
                                             <span class="btn btn-outline-info">
@@ -99,29 +123,32 @@
    </div>
 </div>
 
-<div class="modal fade" id="buktiPembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="{{ url('rental/kontrak') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12 mt-1">
-                            <label for="" class="control-label">Upload Bukti Pembayaran</label>
-                            <input type="file" name="perjanjian" class="form-control" required>
+@foreach ($data as $it=>$dd)
+    <div class="modal fade" id="buktiPembayaran{{ $dd->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ url('user/orders/'.$dd->id.'/bukti') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 mt-1">
+                                <label for="" class="control-label">Upload Bukti Pembayaran</label>
+                                <input type="file" name="bukti_pembayaran" class="form-control" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-        </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+            </form>
+            </div>
         </div>
     </div>
-</div>
+@endforeach
+
 @endsection

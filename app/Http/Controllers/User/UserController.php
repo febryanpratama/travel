@@ -87,6 +87,30 @@ class UserController extends Controller
             return back()->withErrors($e->getMessage());
         }
     }
+
+    public function inputBukti(Request $request, $id)
+    {
+        $order = Penyewaan::where('id', $id)->first();
+
+        if (!$order) {
+            return back()->withErrors('Data tidak ditemukan');
+        }
+
+        if ($request['bukti_pembayaran']) {
+            $file = $request['bukti_pembayaran'];
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'images/bukti_pembayaran';
+            $file->move($tujuan_upload, $nama_file);
+
+            $order->update([
+                'bukti_pembayaran' => $nama_file,
+            ]);
+
+            return back()->withSuccess('Berhasil mengirim bukti pembayaran');
+        }
+
+        return back()->withErrors('Bukti pembayaran tidak boleh kosong');
+    }
     public function indexProfile()
     {
 

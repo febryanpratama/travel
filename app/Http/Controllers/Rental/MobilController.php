@@ -268,6 +268,49 @@ class MobilController extends Controller
         }
     }
 
+    public function editSupir(Request $request, $supir_id)
+    {
+        // dd
+        $supir = Supir::where('id', $supir_id)->first();
+
+        if (!$supir) {
+            return back()->withErrors('Data Supir tidak ditemukan');
+        }
+
+        if (array_key_exists('foto', $request->all())) {
+
+            $image = $request->file('foto');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/supir');
+            $image->move($destinationPath, $name);
+
+            $supir->update([
+                'foto' => $name
+            ]);
+        }
+
+        $supir->update([
+            'nama_supir' => $request['nama_supir'],
+            'no_hp' => $request['no_hp'],
+            'alamat' => $request['alamat'],
+        ]);
+
+        return back()->withSuccess('Data Supir Berhasil Diubah');
+    }
+
+    public function hapusSupir($supir_id)
+    {
+        $supir = Supir::where('id', $supir_id)->first();
+
+        if (!$supir) {
+            return back()->withErrors('Data Supir tidak ditemukan');
+        }
+
+        $supir->delete();
+
+        return back()->withSuccess('Data Supir berhasil Dihapus');
+    }
+
     public function addSupir(Request $request, $mobil_id)
     {
         $validator = Validator::make($request->all(), [

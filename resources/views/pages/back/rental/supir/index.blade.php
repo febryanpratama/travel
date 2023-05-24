@@ -54,10 +54,10 @@
                                             <img src="{{ asset('images/supir/'.$item->foto) }}" width="50" height="50" alt="">
                                         </td>
                                         <td>
-                                            <svg xmlns="http://www.w3.org/2000/svg" title="Detail" fill="none"style="width: 20px;height:20px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            {{-- <svg xmlns="http://www.w3.org/2000/svg" title="Detail" fill="none"style="width: 20px;height:20px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round"  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                                                 <path stroke-linecap="round" stroke-linejoin="round"  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
+                                            </svg> --}}
 
 
                                             <button class="btn btn-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,8 +66,8 @@
                                                 </svg>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/terima') }}">Terima</a></li>
-                                                <li><a class="dropdown-item" href="#">Tolak</a></li>
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">Edit</a></li>
+                                                <li><a class="dropdown-item" href="{{ url('rental/supir/'.$item->id.'/hapus') }}">Hapus</a></li>
                                                 {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                                             </ul>
                                         </td>
@@ -84,6 +84,45 @@
       </div>
    </div>
 </div>
+@foreach ($data as $it=>$d)
+    <div class="modal fade" id="editModal{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Form Edit Pengemudi Mobil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ url('rental/supir/'.$d->id.'/edit') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label for="" class="control-label">Nama Pengemudi</label>
+                                <input type="text" name="nama_supir" class="form-control" value="{{ $d->nama_supir }}" required>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <label for="" class="control-label">Nomor Telpon</label>
+                                <input type="number" name="no_hp" class="form-control" value="{{ $d->no_hp }}" required>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <label for="" class="control-label">Alamat</label>
+                                <input type="text" name="alamat" class="form-control" value="{{ $d->alamat }}" required>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <label for="" class="control-label">Foto</label>
+                                <input type="file" name="foto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+@endforeach
 
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
