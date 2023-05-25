@@ -58,8 +58,6 @@ class FrontService
             ->limit(20)
             ->get();
 
-        // dd($data);
-
         if ($data->isEmpty()) {
             return [
                 'status' => false,
@@ -347,7 +345,28 @@ class FrontService
                 ];
             }
 
-            // dd($penyewaan);
+            // dd($data);
+
+            if ($data['channel_pembayaran'] == 'Pembayaran Awal') {
+
+                if ($data['nominal'] < (($penyewaan->total_harga / 100) * 50)) {
+                    // dd("50% dari total harga adalah " . (($penyewaan->total_harga / 100) * 50));
+                    // return back()->withErrors('Nominal pembayaran awal minimal 50% dari total harga');
+                    return [
+                        'status' => false,
+                        'message' => 'Nominal pembayaran awal minimal 50% dari total harga yaitu Rp.' . number_format(($penyewaan->total_harga / 100) * 50)
+                    ];
+                }
+                // $data['nominal'] = $penyewaan->total_harga;
+            } else {
+                if ($data['nominal'] != $penyewaan->total_harga) {
+                    return [
+                        'status' => false,
+                        'message' => 'Nominal pembayaran harus sama dengan total harga'
+                    ];
+                    // return back()->withErrors('Nominal pembayaran harus sama dengan total harga');
+                }
+            }
 
             $invoice = 'INV-00' . ($penyewaan->id + 1) . '-' . Carbon::now()->format('Y');
 

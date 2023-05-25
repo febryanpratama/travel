@@ -37,7 +37,7 @@
             <h3>DASHBOARD</h3>
             <ul>
                 <li class="nav-item ">
-                    <a class="active" href="instructor-dashboard.html" class="nav-link">
+                    <a class="active" href="{{ url('dashboard') }}" class="nav-link">
                         <i class="feather-home"></i> My Dashboard
                     </a>
                 </li>

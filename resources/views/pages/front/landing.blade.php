@@ -24,7 +24,7 @@
 										<h2 data-animation="animated fadeInLeft">SEWA MOBIL MURAH DI<br>
 											tujuan yang Anda inginkan</h2>
 										<p data-animation="animated bounceInUp">Salah satu prioritas utama kami adalah menyesuaikan setiap paket yang kami tawarkan kepada
-											<br>kebutuhan pelanggan yang tepat. Sewa Mobil / Sepeda / Jeep Mulai dari 15k / Jam</span>
+											<br>kebutuhan pelanggan yang tepat. Sewa Mobil Mulai dari 15k / Jam</span>
 										</p>
 										<div class="hs_effect_btn">
 											<ul>
@@ -275,11 +275,18 @@
                                 @foreach ($data as $item)
                                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="x_car_offer_main_boxes_wrapper float_left">
-                                            <div class="x_car_offer_starts float_left"> <i class="fa fa-star"></i>
+                                            <div class="x_car_offer_starts float_left">
+                                                <i class="fa fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 1 ? '' : '-o') }}"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 2 ? '' : '-o') }}"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 3 ? '' : '-o') }}"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 4 ? '' : '-o') }}"></i>
+                                                <i class="fa fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 5 ? '' : '-o') }}"></i>
+                                                <i style="color: black"> / {{ App\Helpers\Format::sumRating($item->id)}}</i>
+                                                {{-- <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i> --}}
                                             </div>
                                             <div class="x_car_offer_img float_left">
                                                 <img src="{{ asset('images/mobil/'.$item->foto_mobil) }}" class="img-fluid" style="max-height: 150px" alt="img">
