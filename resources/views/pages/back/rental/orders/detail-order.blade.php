@@ -14,6 +14,12 @@
                <div class="course-name">
                   <h4><a href="student-profile.html">{{ $data->kd_invoice }}</a></h4>
                   <p>{{ $data->mobil->nama_mobil }}</p>
+                  @if ($data->bukti_pembayaran != null)
+                           <div><a href="{{ asset('images/bukti_pembayaran/'.$data->bukti_pembayaran) }}"   target="_blank">Lihat Bukti</a></div>
+                  
+                     @else
+                     <a href="#"  data-bs-toggle="modal" >Belum Upload Bukti Pembayaran</a>
+                  @endif
                </div>
             </div>
             <div class="profile-share d-flex align-items-center justify-content-center">
@@ -44,7 +50,10 @@
                             Order Telah Selesai
                         </button>
                         @break
-                    @default
+                     @default
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                            Ditolak
+                        </button>
                         
                 @endswitch
                {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
@@ -176,6 +185,24 @@
         @csrf
         <div class="modal-body">
             Apakah Mobil sudah diantar? , jika sudah silahkan konfirmasi
+            <hr>
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="" class="control-label">Status</label>
+                  <select name="is_status" class="form-control" id="">
+                     <option value="" selected disabled required> == Pilih == </option>
+                     <option value="Disetujui">Disetujui</option>
+                     <option value="Ditolak">Ditolak</option>
+                  </select>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="" class="control-label">Keterangan Pengantaran*</label>
+                  <textarea name="keterangan" id="" cols="30" rows="5" class="form-control"></textarea>
+                  <small class="text-danger">*optional</small>
+               </div>
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

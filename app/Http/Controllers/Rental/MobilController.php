@@ -188,7 +188,7 @@ class MobilController extends Controller
     }
     public function detailOrderPengantaran(Request $request, $order_id)
     {
-        // dd($order_id);
+        // dd($request->all());
         $data = Penyewaan::with('mobil', 'rental', 'customer')->whereNotIn('is_status', ['Keranjang'])->where('id', $order_id)->first();
 
         if (!$data) {
@@ -198,9 +198,17 @@ class MobilController extends Controller
             DB::beginTransaction();
 
             try {
-                $data->update([
-                    'is_status' => 'Sedang Digunakan'
-                ]);
+
+                if ($request['is_status'] == 'Disetujui') {
+                    $data->update([
+                        'is_status' => 'Sedang Digunakan'
+                    ]);
+                } else {
+                    $data->update([
+                        'is_status' => 'Ditolak',
+                        'keterangan' => $request['keterangan']
+                    ]);
+                }
 
                 DB::commit();
                 return back()->withSuccess('Berhasil mengubah status');

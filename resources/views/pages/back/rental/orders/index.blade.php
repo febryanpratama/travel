@@ -70,7 +70,7 @@
                                             @endswitch
                                         </td>
                                         <td>
-                                            <span class="btn btn-outline-success">
+                                            <span class="btn btn-sm btn-outline-success text-black">
                                                 {{ $item->is_status }}
                                             </span>
                                         </td>

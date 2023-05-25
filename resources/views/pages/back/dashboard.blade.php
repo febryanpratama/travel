@@ -99,13 +99,13 @@
                                                 <div class="sell-table-group d-flex align-items-center">
                                                     <div class="sell-group-img">
                                                         <a href="course-details.html">
-                                                            <img src="{{ asset('images/mobil/'.$item->mobil->foto_mobil) }}"
+                                                            <img src="{{ asset('images/mobil/'.@$item->mobil->foto_mobil) }}"
                                                                 class="img-fluid " alt="">
                                                         </a>
                                                     </div>
                                                     <div class="sell-tabel-info">
                                                         </p>
-                                                        <p><a href="course-details.html">{{ $item->mobil->nama_mobil }}</a>
+                                                        <p><a href="course-details.html">{{ @$item->mobil->nama_mobil }}</a>
                                                     </div>
                                                 </div>
                                             </td>
