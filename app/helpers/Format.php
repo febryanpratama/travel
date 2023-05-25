@@ -68,4 +68,23 @@ class Format
         $avgRating = $sRating / $cRating;
         return $avgRating;
     }
+
+    static function sumRating($car_id)
+    {
+        $rating = Rating::where('mobil_id', $car_id)->get();
+
+        if ($rating->isEmpty()) {
+            # code...
+            return 0;
+        }
+
+        $cRating = Rating::where('mobil_id', $car_id)->count();
+
+        // dd($cRating);
+
+        $sRating = Rating::where('mobil_id', $car_id)->sum('rating');
+
+        $avgRating = $sRating / $cRating;
+        return $avgRating;
+    }
 }

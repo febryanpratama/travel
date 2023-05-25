@@ -72,12 +72,17 @@
                                 </div> --}}
                             </div>
                             <div class="rating">
+                                <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 1 ? ' filled' : ' ') }}"></i>
+                                <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 2 ? ' filled' : ' ') }}"></i>
+                                <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 3 ? ' filled' : ' ') }}"></i>
+                                <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 4 ? ' filled' : ' ') }}"></i>
+                                <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 5 ? ' filled' : ' ') }}"></i>
+                                {{-- <i class="fas fa-star filled"></i>
                                 <i class="fas fa-star filled"></i>
                                 <i class="fas fa-star filled"></i>
                                 <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="d-inline-block average-rating"><span>4.0</span> (15)</span>
+                                <i class="fas fa-star"></i> --}}
+                                <span class="d-inline-block average-rating"><span>{{ App\Helpers\Format::sumRating($item->id)}}</span> (15)</span>
                             </div>
                             <div class="course-group d-flex mb-0">
                                 <div class="course-group-img d-flex">
