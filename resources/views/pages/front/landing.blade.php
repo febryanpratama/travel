@@ -391,7 +391,8 @@
 <script src="https://cdn.jsdelivr.net/gh/tomickigrzegorz/autocomplete@1.8.3/dist/js/autocomplete.min.js"></script>
 {{-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap" type="text/javascript"></script>  --}}
 {{-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script> --}}
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc" defer></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap&libraries=geometry&v=weekly" defer></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc" defer></script> --}}
 {{-- <script type="text/javascript"> 
     /*
  * declare map as a global variable
@@ -445,122 +446,168 @@
 
 <script>
 // Initialize and add the map
-function initMap() {
-    var map;
-    var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
-    var bounds = new google.maps.LatLngBounds();
-    var mapOptions = {
-        center: myCenter,
-        zoom: 14,
-        mapTypeId: 'roadmap'
-    };
-                    
-    // Display a map on the web page
-    map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
-    // map.setTilt(50);
+    function initMap() {
+        var map;
+        var radius = 1500
+        var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+            center: myCenter,
+            zoom: 14,
+            mapTypeId: 'roadmap'
+        };
+
         
-     var markers = [
-        // ['Brooklyn Museum, NY', -0.0372848, 109.3142381],
-        // ['Pontianak', -0.0362484, 109.4142181],
-        // ['Prospect Park Zoo, NY', 40.66427511834109, -73.96512605857858],
-        // ['Barclays Center, Brooklyn, NY', 40.68268267107631, -73.97546296241961]
-    ];
-                        
-    // Info window content
-    var infoWindowContent = [
-        // ['<div class="info_content">' +
-        // '<h2>Brooklyn Museum</h2>' +
-        // '<h3>200 Eastern Pkwy, Brooklyn, NY 11238</h3>' +
-        // '<p>The Brooklyn Museum is an art museum located in the New York City borough of Brooklyn.</p>' + 
-        // '</div>'],
-        // ['<div class="info_content">' +
-        // '<h2>Central Library</h2>' +
-        // '<h3>10 Grand Army Plaza, Brooklyn, NY 11238</h3>' +
-        // '<p>The Central Library is the main branch of the Brooklyn Public Library, located at Flatbush Avenue.</p>' +
-        // '</div>']
-       
-    ];
-
-    $.ajax({
-        url: "{{ url('api/rent') }}",
-        type: "GET",
-        dataType: "JSON",
-        success: function(data) {
-            console.log(data);
-            $.each(data.data, function(key, value) {
-                let mark = [
-                    value.nama_rental,
-                    parseFloat(value.latitude),
-                    parseFloat(value.longitude)
-                ];
-
-                console.log(mark)
-
-                markers.push(mark);
-
-
-                let content = [
-                     '<div class="info_content">' +
-                        '<img src="http://127.0.0.1:8000/images/rental/'+value.foto_rental+'" style="widht: 200px;height:100px" alt="">' +
-                    '<h2>'+value.nama_rental+'</h2>' +
-                    '<h4>'+value.tipe+'</h4>'+
-                    '<p>'+value.alamat+'</p>' +
-                    '<a href="{{ url('rental/detail') }}/'+value.id+'">Detail</a>'+
-                    '</div>',
-                ]
-                infoWindowContent.push(content);
-
-            });
-
-        }
-    })
-    // Multiple markers location, latitude, and longitude
-
-
-    // console.log(markers)
-    console.log(infoWindowContent)
-   
-
-    setTimeout(() => {
-        // Add multiple markers to map
-
-        console.log(markers)
-        var infoWindow = new google.maps.InfoWindow(), marker, i;
-        
-        // Place each marker on the map  
-        for( i = 0; i < markers.length; i++ ) {
-            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(position);
-            marker = new google.maps.Marker({
-                position: position,
+        // Display a map on the web page
+        map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+        const regionCircle = new google.maps.Circle({
+                strokeColor: "#FF0000",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#FF0000",
+                fillOpacity: 0.19,
                 map: map,
-                title: markers[i][0]
+                center: myCenter,
+                radius: radius,
+                clickable: false
+        });
+        // map.setTilt(50);
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            map: map,
+            title: 'Your Location',
+            icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
+            
+        var markers = [
+            // ['Brooklyn Museum, NY', -0.0372848, 109.3142381],
+            // ['Pontianak', -0.0362484, 109.4142181],
+            // ['Prospect Park Zoo, NY', 40.66427511834109, -73.96512605857858],
+            // ['Barclays Center, Brooklyn, NY', 40.68268267107631, -73.97546296241961]
+        ];
+                            
+        // Info window content
+        var infoWindowContent = [
+            // ['<div class="info_content">' +
+            // '<h2>Brooklyn Museum</h2>' +
+            // '<h3>200 Eastern Pkwy, Brooklyn, NY 11238</h3>' +
+            // '<p>The Brooklyn Museum is an art museum located in the New York City borough of Brooklyn.</p>' + 
+            // '</div>'],
+            // ['<div class="info_content">' +
+            // '<h2>Central Library</h2>' +
+            // '<h3>10 Grand Army Plaza, Brooklyn, NY 11238</h3>' +
+            // '<p>The Central Library is the main branch of the Brooklyn Public Library, located at Flatbush Avenue.</p>' +
+            // '</div>']
+        
+        ];
+
+        $.ajax({
+            url: "{{ url('api/rent') }}",
+            type: "GET",
+            dataType: "JSON",
+            success: function(data) {
+                // console.log(data);
+                $.each(data.data, function(key, value) {
+                    let mark = [
+                        value.nama_rental,
+                        parseFloat(value.latitude),
+                        parseFloat(value.longitude)
+                    ];
+
+                    // let myData = new google.maps.LatLng(parseFloat(value.latitude), parseFloat(value.longitude));
+                    let myData = [value.latitude, value.longitude]
+
+                    // console.log("myData"+myData[1])
+                    // console.log("myCenter"+myCenter)
+                    let centerLocation = [localStorage.getItem("latitude"),localStorage.getItem("longitude")]
+                    let check = checkCircleInMarker(centerLocation, myData, radius)
+                    // console.log("check"+check)
+
+                    if(check){
+                        console.log('ada')
+                        // console.log(mark)
+    
+                        markers.push(mark);
+    
+    
+                        let content = [
+                            '<div class="info_content">' +
+                                '<img src="http://127.0.0.1:8000/images/rental/'+value.foto_rental+'" style="widht: 200px;height:100px" alt="">' +
+                            '<h2>'+value.nama_rental+'</h2>' +
+                            '<h4>'+value.tipe+'</h4>'+
+                            '<p>'+value.alamat+'</p>' +
+                            '<a href="{{ url('rental/detail') }}/'+value.id+'">Detail</a>'+
+                            '</div>',
+                        ]
+                        infoWindowContent.push(content);
+
+                    }else{
+                        console.log('tidak ada')
+                    }
+
+
+                });
+
+            }
+        })
+        // Multiple markers location, latitude, and longitude
+
+
+        // console.log(markers)
+        console.log(infoWindowContent)
+    
+
+        setTimeout(() => {
+            // Add multiple markers to map
+
+            console.log(markers)
+            var infoWindow = new google.maps.InfoWindow(), marker, i;
+            
+            // Place each marker on the map  
+            for( i = 0; i < markers.length; i++ ) {
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: markers[i][0]
+                });
+                
+                // Add info window to marker    
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(infoWindowContent[i][0]);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+        
+                // Center the map to fit all markers on the screen
+                map.fitBounds(bounds);
+            }
+        
+            // Set zoom level
+            var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                this.setCenter(myCenter);
+                this.setZoom(14);
+                google.maps.event.removeListener(boundsListener);
             });
             
-            // Add info window to marker    
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infoWindow.setContent(infoWindowContent[i][0]);
-                    infoWindow.open(map, marker);
-                }
-            })(marker, i));
-    
-            // Center the map to fit all markers on the screen
-            map.fitBounds(bounds);
+        }, 5000);
+            
+        function checkCircleInMarker(markerPosition, circlePosition, radius) {
+            console.log("circle"+circlePosition[1])
+            console.log("marker"+markerPosition)
+            var km = radius/1000;
+            var kx = Math.cos(Math.PI * circlePosition[0] / 180) * 111;
+            var dx = Math.abs(circlePosition[1] - markerPosition[1]) * kx;
+            var dy = Math.abs(circlePosition[0] - markerPosition[0]) * 111;
+            // console.log("dy"+dy)
+            return Math.sqrt(dx * dx + dy * dy) <= km;
         }
-    
-        // Set zoom level
-        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-            this.setCenter(myCenter);
-            this.setZoom(14);
-            google.maps.event.removeListener(boundsListener);
-        });
-        
-    }, 5000);
-        
-}
+    }
 
-window.initMap = initMap;
+
+    window.initMap = initMap;
 </script>
 <script>
         $(document).ready(function(){
