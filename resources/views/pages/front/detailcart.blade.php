@@ -237,7 +237,7 @@
                               </div> --}}
                            </div>
                            <hr>
-                           <form class="billing-form" id="myForm" method="POST" action="{{ url('checkout') }}">
+                           <form class="billing-form" id="myForm" method="POST" action="{{ url('checkout') }}" enctype="multipart/form-data">
                               @csrf
                               <input type="hidden" name="penyewaan_id" value="{{ $data->id }}">
                               {{-- <input type="hidden" name="total_price" value="" id="total_price"> --}}
@@ -301,6 +301,10 @@
                                     <label for="" class="control-label" id="namePembayaran">Nominal Pembayaran Awal</label>
                                     <input type="number" class="form-control" name="nominal" required>
                                 </div>
+                                <div class="col-md-6" >
+                                    <label for="" class="control-label" >Upload Bukti Pembayaran</label>
+                                    <input type="file" class="form-control" name="bukti_pembayaran" required>
+                                </div>
                                 {{-- <div class="col-md-6 hide" id="InputPelunasan">
                                     <label for="" class="control-label">Pelunasan</label>
                                     <input type="number" class="form-control" name="pelunasan" >
@@ -325,7 +329,7 @@
                               {{-- {{ dd($data) }} --}}
                               <div class="checkbox car_checkout_chekbox">
                                  <input type="checkbox" id="c3" name="cb" disabled required>
-                                 <label for="c3" id="c4">Saya telah Membaca dan Menerima </label><a href="{{ url('syarat-ketentuan/'.$data->rental->id) }}" style="color: blue" target="_blank"><span id="syaratketentuan"> Persyaratan &amp; Ketentuan *</span></a>
+                                 <label for="c3" id="c4">Saya telah Membaca dan Menerima </label><a href="#" style="color: blue" data-toggle="modal" data-target="#exampleModal"><span id="syaratketentuan"> Persyaratan &amp; Ketentuan *</span></a>
                               </div>
                            </form>
                         </div>
@@ -350,6 +354,55 @@
 </div>
 <!-- x car book sidebar section Wrapper End -->
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Syarat & Kontrak</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <div class="col-md-12">
+               <label for="" class="control-label" style="padding: 1px"><h5>Detail Persyaratan</h5></label>
+            </div>
+         </div>
+         @foreach ($data->rental->syarat as $k=>$it)
+         <hr>
+         <div class="row">
+         {{-- <h4>Persyaratan</h4> --}}
+            <div class="col-md-6">Persyaratan {{ $k+1}}</div>
+            <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->persyaratan) }}" style="color: red">Lihat Dokumen</a></p></div>
+         </div>
+         <hr>
+         @endforeach
+
+         <br>
+         <br>
+         <div class="row">
+            <div class="col-md-12">
+               <label for="" class="control-label" style="padding: 1px"><h5>Detail Kontrak</h5></label>
+            </div>
+         </div>
+         @foreach ($data->rental->kontrak as $k=>$it)
+         <hr>
+         <div class="row">
+         {{-- <h4>Persyaratan</h4> --}}
+            <div class="col-md-6">Kontrak {{ $k+1}}</div>
+            <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->perjanjian) }}" style="color: red">Lihat Dokumen</a></p></div>
+         </div>
+         <hr>
+         @endforeach
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('script')

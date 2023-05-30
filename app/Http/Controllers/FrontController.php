@@ -137,7 +137,7 @@ class FrontController extends Controller
 
     public function detailCart($id)
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('id', $id)->first();
+        $data = Penyewaan::with('mobil', 'rental', 'customer', 'rental.syarat', 'rental.kontrak')->where('id', $id)->first();
 
         // dd($data);
         if (!$data) {

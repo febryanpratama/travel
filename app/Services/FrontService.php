@@ -323,6 +323,7 @@ class FrontService
             'nominal' => 'required|numeric',
             'channel_pembayaran' => 'required|in:Pembayaran Awal,Pelunasan',
             'cb' => 'required|in:on',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($validator->fails()) {
@@ -368,6 +369,13 @@ class FrontService
                 }
             }
 
+            if ($data['bukti_pembayaran']) {
+                $file = $data['bukti_pembayaran'];
+                $nama_file = time() . "_" . $file->getClientOriginalName();
+                $tujuan_upload = 'images/bukti_pembayaran';
+                $file->move($tujuan_upload, $nama_file);
+            }
+
             $invoice = 'INV-00' . ($penyewaan->id + 1) . '-' . Carbon::now()->format('Y');
 
             $update = Penyewaan::where('id', $data['penyewaan_id'])->update([
@@ -377,7 +385,8 @@ class FrontService
                 'pembayaran_awal' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? $data['nominal'] : 0,
                 'sisa_pembayaran' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? ($penyewaan->total_harga - $data['nominal']) : 0,
                 'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $data['nominal'] : $data['nominal'],
-                'is_location' => $data['is_location']
+                'is_location' => $data['is_location'],
+                'bukti_pembayaran' => $nama_file
             ]);
 
             DB::commit();

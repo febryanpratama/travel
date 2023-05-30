@@ -176,14 +176,14 @@
       </div>
       <form action="{{ url('user/orders/'.$data->id.'/digunakan') }}" method="POST">
         @csrf
-        <input type="hidden" name="rating" value="" id="rating">
+        {{-- <input type="hidden" name="rating" value="" id="rating"> --}}
         <div class="modal-body">
          <div class="row">
             <div class="col-md-12">
                <p>Apakah mobil sudah selesai digunakan? Jika iya silahkan dikonfirmasi</p>
             </div>
             <hr>
-            <div class="col-12">
+            {{-- <div class="col-12">
                <label class="form-label control-label" for="modalEditUserName">Rating</label>
                <br>
                <span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
@@ -195,7 +195,7 @@
             <div class="col-12">
                <label for="" class="form-label">Review</label>
                <textarea name="review" id="" cols="30" rows="5" class="form-control"></textarea>
-            </div>
+            </div> --}}
          </div>
         </div>
         <div class="modal-footer">

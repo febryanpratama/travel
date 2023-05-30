@@ -239,9 +239,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
+				{{-- <div class="col-md-12">
                         <div class="row">
-							{{-- {{ dd($data) }} --}}
                             @foreach ($data->rating as $rating)
                             <div class="col-md-12">
                                 <div class="blog_single_comment_wrapper">
@@ -266,7 +265,7 @@
                                 
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
 			</div>
 		</div>
 	</div>

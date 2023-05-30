@@ -47,14 +47,14 @@ class UserController extends Controller
     {
         // dd($request->all());
 
-        $validator = Validator::make($request->all(), [
-            'rating' => 'required|numeric|min:1|max:5',
-            'review' => 'required',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'rating' => 'required|numeric|min:1|max:5',
+        //     'review' => 'required',
+        // ]);
 
-        if ($validator->fails()) {
-            return back()->withErrors($validator->errors());
-        }
+        // if ($validator->fails()) {
+        //     return back()->withErrors($validator->errors());
+        // }
 
         DB::beginTransaction();
 
@@ -70,14 +70,14 @@ class UserController extends Controller
                     'is_status' => 'Selesai Digunakan'
                 ]);
 
-                Rating::create([
-                    'penyewaan_id' => $data->id,
-                    'rental_id' => $data->rental_id,
-                    'mobil_id' => $data->mobil_id,
-                    'user_id' => $data->customer_id,
-                    'rating' => $request->rating,
-                    'review' => $request->review,
-                ]);
+                // Rating::create([
+                //     'penyewaan_id' => $data->id,
+                //     'rental_id' => $data->rental_id,
+                //     'mobil_id' => $data->mobil_id,
+                //     'user_id' => $data->customer_id,
+                //     'rating' => $request->rating,
+                //     'review' => $request->review,
+                // ]);
                 DB::commit();
 
                 return back()->withSuccess('Berhasil mengubah status');
