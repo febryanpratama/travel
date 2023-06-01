@@ -325,6 +325,9 @@ class MobilService
                 ]);
             } else {
                 $rental = Rental::where('id', Auth::user()->rental->id)->update([
+                    'nama_bank' => $data['nama_bank'],
+                    'no_rekening' => $data['no_rekening'],
+                    'nama_rekening' => $data['nama_rekening'],
                     'nama_pemilik' => $data['nama_pemilik'],
                     'nama_rental' => $data['nama_rental'],
                     'no_ijin_usaha' => $data['no_ijin_usaha'],

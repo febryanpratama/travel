@@ -66,6 +66,31 @@
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
+                        <label class="form-control-label">Nama Bank</label>
+                        <select name="nama_bank" class="form-control" id="">
+                           <option value="" selected disabled> == Pilih == </option>
+                           <option value="Bank BRI" {{ $data->nama_bank == 'Bank BRI' ? 'selected' : '' }}>Bank BRI</option>
+                           <option value="Bank BCA" {{ $data->nama_bank == 'Bank BCA' ? 'selected' : '' }}>Bank BCA</option>
+                           <option value="Bank BNI" {{ $data->nama_bank == 'Bank BNI' ? 'selected' : '' }}>Bank BNI</option>
+                           <option value="Bank Mandiri" {{ $data->nama_bank == 'Bank Mandiri' ? 'selected' : '' }}>Bank Mandiri</option>
+                           <option value="Bank BRI" {{ $data->nama_bank == 'Bank BRI' ? 'selected' : '' }}>Bank BRI</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Nama Pemilik Rekening</label>
+                        <input type="text" class="form-control" name="nama_rekening" value="{{ $data->nama_rekening }}" placeholder="Nama Pemilik Rekening">
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Nomor Rekening</label>
+                        <input type="text" class="form-control" name="no_rekening" value="{{ $data->no_rekening }}" placeholder="Nomor Rekening">
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
                         <label class="form-control-label">Foto Surat Ijin / <span><a href="{{ asset('images/rental/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
                         
                         <input type="file" class="form-control" name="ktp" value="{{ $data->ktp }}" placeholder="Enter your last Name">

@@ -40,6 +40,19 @@
             </div>
         </div>
         @endrole
+        @role('rental')
+        <div class="col-md-4 d-flex">
+            <div class="card instructor-card w-100">
+                <div class="card-body">
+                    <div class="instructor-inner">
+                        <h6>Fee Bulan Ini</h6>
+                        <h4 class="instructor-text-info">{{ number_format($total_fee) }}</h4>
+                        <p>New this month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endrole
         <div class="col-md-4 d-flex">
             <div class="card instructor-card w-100">
                 <div class="card-body">

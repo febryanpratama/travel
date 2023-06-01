@@ -50,6 +50,7 @@ class DashboardController extends Controller
             $orderberjalan = Penyewaan::whereNotIn('is_status', ['keranjang', 'selesai'])->where('rental_id', Auth::user()->rental->id)->whereYear('created_at', Carbon::now()->year)->count();
             $orderSelesai = Penyewaan::where('is_status', 'selesai')->where('rental_id', Auth::user()->rental->id)->whereYear('created_at', Carbon::now()->year)->count();
 
+            $fee = Penyewaan::where('rental_id', Auth::user()->rental->id)->where('is_status', 'Sudah Dikembalikan')->whereMonth('created_at', Carbon::now()->month)->sum('fee');
             $order = Penyewaan::with('mobil', 'rental')->where('rental_id', Auth::user()->rental->id)->whereNotIn('is_status', ['keranjang'])->whereYear('created_at', Carbon::now()->year)->orderByDESC('created_at')->get()->take(5);
 
             return view('pages.back.dashboard', [
@@ -57,7 +58,8 @@ class DashboardController extends Controller
                 'orderselesai' => $orderSelesai,
                 'order' => $order,
                 'orderberjalan' => $orderberjalan,
-                'mobil' => $mobil
+                'mobil' => $mobil,
+                'total_fee' => $fee,
             ]);
         } else {
             $orderTotal = Penyewaan::whereNotIn('is_status', ['keranjang'])->where('rental_id', Auth::user()->Pelanggan->id)->whereYear('created_at', Carbon::now()->year)->count();
