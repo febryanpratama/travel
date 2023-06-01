@@ -301,10 +301,10 @@
                                     <label for="" class="control-label" id="namePembayaran">Nominal Pembayaran Awal</label>
                                     <input type="number" class="form-control" name="nominal" required>
                                 </div>
-                                <div class="col-md-6" >
+                                {{-- <div class="col-md-6" >
                                     <label for="" class="control-label" >Upload Bukti Pembayaran</label>
                                     <input type="file" class="form-control" name="bukti_pembayaran" required>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="col-md-6 hide" id="InputPelunasan">
                                     <label for="" class="control-label">Pelunasan</label>
                                     <input type="number" class="form-control" name="pelunasan" >

@@ -26,6 +26,8 @@ Route::group([
     'controller' => FrontController::class,
 ], function () {
     Route::get('/', 'index');
+    Route::get('/cek-penyewaan', 'cekExpiredPenyewaan');
+
     Route::get('/{id}/detail', 'detail');
     Route::post('/getCar', 'getCar');
 

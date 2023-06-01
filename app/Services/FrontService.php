@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\helpers\Format;
 use App\Models\Mobil;
 use App\Models\pelanggan;
 use App\Models\Penyewaan;
@@ -323,7 +324,7 @@ class FrontService
             'nominal' => 'required|numeric',
             'channel_pembayaran' => 'required|in:Pembayaran Awal,Pelunasan',
             'cb' => 'required|in:on',
-            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($validator->fails()) {
@@ -337,7 +338,7 @@ class FrontService
         DB::beginTransaction();
         try {
 
-            $penyewaan = Penyewaan::where('id', $data['penyewaan_id'])->where('is_status', 'Keranjang')->first();
+            $penyewaan = Penyewaan::with('customer')->where('id', $data['penyewaan_id'])->where('is_status', 'Keranjang')->first();
 
             if (!$penyewaan) {
                 return [
@@ -346,6 +347,7 @@ class FrontService
                 ];
             }
 
+            // dd($penyewaan->customer);
             // dd($data);
 
             if ($data['channel_pembayaran'] == 'Pembayaran Awal') {
@@ -369,12 +371,14 @@ class FrontService
                 }
             }
 
-            if ($data['bukti_pembayaran']) {
-                $file = $data['bukti_pembayaran'];
-                $nama_file = time() . "_" . $file->getClientOriginalName();
-                $tujuan_upload = 'images/bukti_pembayaran';
-                $file->move($tujuan_upload, $nama_file);
-            }
+            // if ($data['bukti_pembayaran']) {
+            //     $file = $data['bukti_pembayaran'];
+            //     $nama_file = time() . "_" . $file->getClientOriginalName();
+            //     $tujuan_upload = 'images/bukti_pembayaran';
+            //     $file->move($tujuan_upload, $nama_file);
+            // }
+
+            $expiredDate = Carbon::now()->addHours(3);
 
             $invoice = 'INV-00' . ($penyewaan->id + 1) . '-' . Carbon::now()->format('Y');
 
@@ -386,8 +390,13 @@ class FrontService
                 'sisa_pembayaran' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? ($penyewaan->total_harga - $data['nominal']) : 0,
                 'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $data['nominal'] : $data['nominal'],
                 'is_location' => $data['is_location'],
-                'bukti_pembayaran' => $nama_file
+                'fee' => ($penyewaan->total_harga * 0.1),
+                'expired_date' => $expiredDate
+                // 'bukti_pembayaran' => $nama_file
             ]);
+
+            // Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . number_format($data['nominal']) . ' ke nomor rekening ' . $penyewaan->mobil->rental->no_rekening . ' a.n ' . $penyewaan->mobil->rental->nama_rekening . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');
+            Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . number_format($data['nominal']) . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');
 
             DB::commit();
             return [

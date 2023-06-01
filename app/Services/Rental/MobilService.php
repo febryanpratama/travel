@@ -293,6 +293,8 @@ class MobilService
             'alamat' => 'required',
             'email' => 'required|email|unique:users,email,' . Auth::user()->id,
             'alamat' => 'required',
+            'jam_mulai' => 'required',
+            'jam_selesai' => 'required',
         ]);
 
         // dd($data);
@@ -327,6 +329,8 @@ class MobilService
                     'nama_rental' => $data['nama_rental'],
                     'no_ijin_usaha' => $data['no_ijin_usaha'],
                     'alamat' => $data['alamat'],
+                    'jam_mulai' => $data['jam_mulai'],
+                    'jam_selesai' => $data['jam_selesai'],
                 ]);
             }
 

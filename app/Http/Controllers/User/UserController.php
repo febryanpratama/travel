@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\helpers\Format;
 use App\Http\Controllers\Controller;
 use App\Models\Pelanggan;
 use App\Models\Pengantaran;
@@ -78,6 +79,8 @@ class UserController extends Controller
                 //     'rating' => $request->rating,
                 //     'review' => $request->review,
                 // ]);
+                Format::whatsappMessage($data->customer->no_telp, 'Mobil telah selesai digunakan, mohon untuk melakukan pengembalian mobil');
+
                 DB::commit();
 
                 return back()->withSuccess('Berhasil mengubah status');
@@ -90,7 +93,7 @@ class UserController extends Controller
 
     public function inputBukti(Request $request, $id)
     {
-        $order = Penyewaan::where('id', $id)->first();
+        $order = Penyewaan::with('customer')->where('id', $id)->first();
 
         if (!$order) {
             return back()->withErrors('Data tidak ditemukan');
@@ -105,6 +108,8 @@ class UserController extends Controller
             $order->update([
                 'bukti_pembayaran' => $nama_file,
             ]);
+
+            Format::whatsappMessage($order->customer->no_telp, 'Bukti pembayaran telah diterima, mohon menunggu konfirmasi dari Rental');
 
             return back()->withSuccess('Berhasil mengirim bukti pembayaran');
         }

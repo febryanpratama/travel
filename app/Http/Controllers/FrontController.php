@@ -7,6 +7,7 @@ use App\Models\Penyewaan;
 use App\Models\Rental;
 use App\Models\User;
 use App\Services\FrontService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -219,5 +220,25 @@ class FrontController extends Controller
         ]);
 
         return redirect('/login')->withSuccess('Berhasil Merubah Password anda. Silahkan Login Kembali');
+    }
+
+    public function cekExpiredPenyewaan()
+    {
+        $data = Penyewaan::where('bukti_pembayaran', null)->get();
+
+        foreach ($data as $key => $value) {
+            $date = Carbon::parse($value->expired_date);
+            $now = Carbon::now();
+
+            if ($date->diffInHours($now) < 3) {
+                // dd("ada");
+                $value->update([
+                    'is_pembayaran' => 'Expired'
+                ]);
+            }
+            // else {
+            //     dd("tidak ada");
+            // }
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Rental;
 
+use App\helpers\Format;
 use App\Http\Controllers\Controller;
 use App\Models\Kontrak;
 use App\Models\Mobil;
@@ -178,6 +179,8 @@ class MobilController extends Controller
                     'tanggal_pengantaran' => Carbon::now(),
                 ]);
 
+                Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' telah diterima oleh driver. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
+
                 DB::commit();
                 return back()->withSuccess('Berhasil mengubah status');
             } catch (\Exception $e) {
@@ -203,11 +206,14 @@ class MobilController extends Controller
                     $data->update([
                         'is_status' => 'Sedang Digunakan'
                     ]);
+
+                    Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' telah diterima. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
                 } else {
                     $data->update([
                         'is_status' => 'Ditolak',
                         'keterangan' => $request['keterangan']
                     ]);
+                    Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' ditolak. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
                 }
 
                 DB::commit();
@@ -242,6 +248,8 @@ class MobilController extends Controller
                     'keterangan' => $request->keterangan,
                     'tanggal_pengembalian' => Carbon::now(),
                 ]);
+
+                Format::whatsappMessage($data->customer->no_telp, 'Mobil dari rental ' . $data->rental->nama_rental . ' telah dikembalikan. Terima kasih telah menggunakan layanan kami.');
 
                 DB::commit();
                 return back()->withSuccess('Berhasil Menyelesaikan Order');

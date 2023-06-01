@@ -5,6 +5,7 @@ namespace App\helpers;
 use App\Models\Penyewaan;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class Format
 {
@@ -86,5 +87,19 @@ class Format
 
         $avgRating = $sRating / $cRating;
         return $avgRating;
+    }
+
+    static function whatsappMessage($nomor, $message)
+    {
+        $response = Http::withOptions(['verify' => false])->post('https://whatsva.id/api/sendMessageText', [
+            "instance_key" => "dSXsv9hlyJiA",
+            "jid" => $nomor,
+            "message" => $message
+        ]);
+        // dd(json_decode($response));
+        return [
+            'status' => true,
+            'message' => 'Berhasil mengirim pesan'
+        ];
     }
 }

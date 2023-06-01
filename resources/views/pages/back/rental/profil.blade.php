@@ -54,6 +54,18 @@
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
+                        <label class="form-control-label">Jam Operasional Mulai</label>
+                        <input type="time" class="form-control" name="jam_mulai" value="{{ $data->jam_mulai }}" placeholder="Enter your last Name">
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Jam Operasional Selesai</label>
+                        <input type="time" class="form-control" name="jam_selesai" value="{{ $data->jam_selesai }}" placeholder="Enter your last Name">
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
                         <label class="form-control-label">Foto Surat Ijin / <span><a href="{{ asset('images/rental/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
                         
                         <input type="file" class="form-control" name="ktp" value="{{ $data->ktp }}" placeholder="Enter your last Name">
