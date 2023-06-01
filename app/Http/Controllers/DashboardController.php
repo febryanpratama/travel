@@ -39,6 +39,7 @@ class DashboardController extends Controller
                 'order' => $order,
                 'orderberjalan' => $orderberjalan,
                 'mobil' => $mobil
+
             ]);
         } else if ($roles[0] == 'rental') {
             // $rental = Rental::with('auth')->whereRelation('auth', 'is_active', '1')->count();

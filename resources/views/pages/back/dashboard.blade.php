@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-xl-9 col-lg-8 col-md-12">
     <div class="row">
-        @role('Admin')
+        @role('admin')
         <div class="col-md-4 d-flex">
             <div class="card instructor-card w-100">
                 <div class="card-body">
@@ -27,7 +27,7 @@
             </div>
         </div>
         @endrole
-        @role('Admin|Rental')
+        @role('admin|rental')
         <div class="col-md-4 d-flex">
             <div class="card instructor-card w-100">
                 <div class="card-body">
