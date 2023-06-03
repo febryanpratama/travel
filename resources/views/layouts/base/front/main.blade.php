@@ -63,26 +63,26 @@ Version: 1.0.0
 	
 	@yield('content')
 		<!-- x footer Wrapper Start -->
-	<div class="x_footer_bottom_main_wrapper float_left">
+	<div class="x_footer_bottom_main_wrapper float_left" id="kontak">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper float_left">
 						<h3>Tentang Kami</h3>
 						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 							aliqua.</p> <span><a href="#">Read More &nbsp;<i
 									class="fa fa-angle-double-right"></i></a></span>
-						<ul>
+						{{-- <ul>
 							<li><a href="#"><i class="fa fa-facebook"></i></a>
 							</li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a>
 							</li>
 							<li><a href="#"><i class="fa fa-linkedin"></i></a>
 							</li>
-						</ul>
+						</ul> --}}
 					</div>
 				</div>
-				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_second float_left">
 						<h3>Informasi</h3>
 						<ul>
@@ -90,16 +90,16 @@ Version: 1.0.0
 							</li>
 							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Layanan</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Syarat & Ketentuan</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Cari Driver</a>
-							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Garansi Termurah</a>
-							</li>
+							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Syarat & Ketentuan</a> --}}
+							{{-- </li> --}}
+							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Cari Driver</a>
+							</li> --}}
+							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Garansi Termurah</a>
+							</li> --}}
 						</ul>
 					</div>
 				</div>
-				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+				{{-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_second float_left">
 						<h3>Layanan Pelanggan</h3>
 						<ul>
@@ -109,8 +109,8 @@ Version: 1.0.0
 							</li>
 						</ul>
 					</div>
-				</div>
-				<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+				</div> --}}
+				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper_third float_left">
 						<h3>Punya Pertanyaan?</h3>
 						<div class="x_footer_bottom_icon_section float_left">
@@ -126,7 +126,7 @@ Version: 1.0.0
 							</div>
 							<div class="x_footer_bottom_icon_cont">
 								<h4>Email Kami</h4>
-								<p><a href="#">listing@example.com</a>
+								<p><a href="#">admin@rentalin.com</a>
 								</p>
 							</div>
 						</div>

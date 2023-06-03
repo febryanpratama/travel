@@ -27,6 +27,19 @@
 										0</span>
 								</a>
 								@endrole
+							@role('admin')
+							<a class="menu-button" href="#"><i
+									class="flaticon-shopping-cart"></i><span>
+										0</span>
+								</a>
+								@endrole
+								@if (!Auth::user())
+								<a class="menu-button" href="#"><i
+										class="flaticon-shopping-cart"></i><span>
+											0</span>
+									</a>
+									
+								@endif
 							{{-- <div class="drop-menu">
 								<div class="cc_cart_wrapper1">
 									<div class="cc_cart_img_wrapper">

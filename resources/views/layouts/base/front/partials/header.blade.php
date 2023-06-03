@@ -1,7 +1,7 @@
 <div class="x_top_header_wrapper float_left">
 		<div class="container">
 			<div class="x_top_header_left_side_wrapper float_left">
-				<p>Call Us : 0814 251 152</p>
+				<p style="color: #4f5dec">Call Us : 0814 251 152</p>
 			</div>
 			<div class="x_top_header_right_side_wrapper float_left">
 				<div class="x_top_header_social_icon_wrapper">

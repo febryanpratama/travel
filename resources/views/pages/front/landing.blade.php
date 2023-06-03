@@ -28,10 +28,10 @@
 										</p>
 										<div class="hs_effect_btn">
 											<ul>
-												<li data-animation="animated flipInX"><a href="#">tentang kami<i
+												<li data-animation="animated flipInX"><a href="#tentangkami">tentang kami<i
 															class="fa fa-arrow-right"></i></a>
 												</li>
-												<li data-animation="animated flipInX"><a href="#">kontak<i
+												<li data-animation="animated flipInX"><a href="#kontak">kontak<i
 															class="fa fa-arrow-right"></i></a>
 												</li>
 											</ul>
@@ -102,14 +102,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="carousel-nevigation">
+				{{-- <div class="carousel-nevigation">
 					<a class="prev" href="#carousel-example-generic" role="button" data-slide="prev"> <i
 							class="fa fa-angle-left"></i>
 					</a>
 					<a class="next" href="#carousel-example-generic" role="button" data-slide="next"> <i
 							class="fa fa-angle-right"></i>
 					</a>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
@@ -345,7 +345,7 @@
 		</div>
 	</div>
     <hr>
-	<div class="x_slider_bottom_title_main_wrapper">
+	<div class="x_slider_bottom_title_main_wrapper" id="tentangkami">
 		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
 			<h3><a href="#">24 / 7 Layanan Pelanggan</a></h3>
 			<p>Proin gravida nibh vel velit auctor
