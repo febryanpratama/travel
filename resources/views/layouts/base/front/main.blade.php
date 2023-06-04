@@ -17,7 +17,7 @@ Version: 1.0.0
 
 <head>
 	<meta charset="utf-8" />
-	<title>Xpedia</title>
+	<title>RentaLin</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta name="description" content="Xpedia" />
 	<meta name="keywords" content="Xpedia" />

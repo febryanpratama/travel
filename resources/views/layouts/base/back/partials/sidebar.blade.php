@@ -36,35 +36,35 @@
         <div class="settings-menu">
             <h3>DASHBOARD</h3>
             <ul>
-                <li class="nav-item ">
-                    <a class="active" href="{{ url('dashboard') }}" class="nav-link">
+                <li class="nav-item">
+                    <a class="{{ Request::is('dashboard') ? 'active' : '' }}" href="{{ url('dashboard') }}" class="nav-link">
                         <i class="feather-home"></i> My Dashboard
                     </a>
                 </li>
                 @role('rental')
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/mobil') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/mobil') ? 'active' : '' }}" href="{{ url('rental/mobil') }}" class="nav-link">
                         <i class="feather-book"></i> My Cars
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/persyaratan') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/persyaratan') ? 'active' : '' }}" href="{{ url('rental/persyaratan') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Persyaratan
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/kontrak') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/kontrak') ? 'active' : '' }}" href="{{ url('rental/kontrak') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Kontrak
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/supir') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/supir') ? 'active' : '' }}" href="{{ url('rental/supir') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Supir
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/orders') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/orders/*') ? 'active' : '' }}" href="{{ url('rental/orders') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Orders
                     </a>
                 </li>
@@ -72,28 +72,28 @@
 
                 @role('admin')
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/orders') }}" class="nav-link">
+                    <a class="{{ Request::is('admin/orders') ? 'active' : '' }}" href="{{ url('admin/orders') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Orders
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/rental') }}" class="nav-link">
+                    <a class="{{ Request::is('admin/rental') ? 'active' : '' }}" href="{{ url('admin/rental') }}" class="nav-link">
                         <i class="feather-users"></i> Data Rental
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/mobil') }}" class="nav-link">
+                    <a class="{{ Request::is('admin/mobil') ? 'active' : '' }}" href="{{ url('admin/mobil') }}" class="nav-link">
                         <i class="feather-users"></i> Data Mobil
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/customer') }}" class="nav-link">
+                    <a class="{{ Request::is('admin/customer') ? 'active' : '' }}" href="{{ url('admin/customer') }}" class="nav-link">
                         <i class="feather-users"></i> Data Customer
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('admin/profil') }}" class="nav-link">
+                    <a class="{{ Request::is('admin/profil') ? 'active' : '' }}" href="{{ url('admin/profil') }}" class="nav-link">
                         <i class="feather-users"></i> Profil
                     </a>
                 </li>
@@ -102,12 +102,12 @@
 
                 @role('user')
                 <li class="nav-item">
-                    <a class="" href="{{ url('user/orders') }}" class="nav-link">
+                    <a class="{{ Request::is('user/orders') ? 'active' : '' }}" href="{{ url('user/orders') }}" class="nav-link">
                         <i class="feather-dollar-sign"></i> Order
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="" href="{{ url('user/profil') }}" class="nav-link">
+                    <a class="{{ Request::is('user/profil') ? 'active' : '' }}" href="{{ url('user/profil') }}" class="nav-link">
                         <i class="feather-users"></i> Profil
                     </a>
                 </li>
@@ -119,7 +119,7 @@
             <ul>
                 @role('rental')
                 <li class="nav-item">
-                    <a class="" href="{{ url('rental/profil') }}" class="nav-link ">
+                    <a class="{{ Request::is('rental/profil') ? 'active' : '' }}" href="{{ url('rental/profil') }}" class="nav-link ">
                         <i class="feather-settings"></i>Profil
                     </a>
                 </li>

@@ -26,22 +26,22 @@ class UserSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        $rental = User::create([
-            'name' => 'Rental',
-            'email' => 'rental@rental.com',
-            'password' => Hash::make('123456'),
-            'is_active' => 1
-        ]);
+        // $rental = User::create([
+        //     'name' => 'Rental',
+        //     'email' => 'rental@rental.com',
+        //     'password' => Hash::make('123456'),
+        //     'is_active' => 1
+        // ]);
 
-        $rental->assignRole('rental');
+        // $rental->assignRole('rental');
 
-        $user = User::create([
-            'name' => 'User',
-            'email' => 'user@user.com',
-            'password' => Hash::make('123456'),
-            'is_active' => 1
-        ]);
+        // // $user = User::create([
+        // //     'name' => 'User',
+        // //     'email' => 'user@user.com',
+        // //     'password' => Hash::make('123456'),
+        // //     'is_active' => 1
+        // // ]);
 
-        $user->assignRole('user');
+        // $user->assignRole('user');
     }
 }

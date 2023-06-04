@@ -48,7 +48,7 @@ class Format
             return $data;
         }
 
-        return 10;
+        return 0;
     }
 
     static function countRating($car_id)
