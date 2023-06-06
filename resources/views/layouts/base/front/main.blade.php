@@ -143,9 +143,9 @@ Version: 1.0.0
 		</div>
 	</div>
 	<div class="x_copyr_main_wrapper float_left">
-		<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
+		{{-- <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a> --}}
 		<div class="container">
-			<p>Copyright © 2018 StarlabSys. All rights reserved.</p>
+			<p>Copyright © <script>document.write(new Date().getFullYear())</script> StarlabSys. All rights reserved.</p>
 		</div>
 	</div>
 	<script src="{{ asset('') }}assets/front/js/jquery-3.3.1.min.js"></script>
