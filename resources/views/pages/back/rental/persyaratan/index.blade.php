@@ -8,8 +8,8 @@
             <div class="settings-widget">
                <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
-                     <h3>List Kontrak</h3>
-                     <p>Order Dashboard is a quick overview of all current orders.</p>
+                     <h3>List Persyaratan</h3>
+                     <p>Berikut merupakan List Persyaratan.</p>
                   </div>
                </div>
             </div>
@@ -19,7 +19,7 @@
                     <div class="row ">
                         <div class="col-md-6">
                             <div class="sell-course-head withdraw-history-head border-bottom-0">
-                               <h3>Kontrak List</h3>
+                               <h3>List Persyaratan</h3>
                             </div>
                         </div>
                         <div class="col-md-6">

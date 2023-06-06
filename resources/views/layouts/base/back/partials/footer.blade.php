@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="copyright-text">
-                                    <p class="mb-0">&copy; 2022 DreamsLMS. All rights reserved.</p>
+                                    <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> RentaLin. All rights reserved.</p>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
                <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
                      <h3>List Order</h3>
-                     <p>Lorem ipsum dolor sit amet..</p>
+                     <p>Berikut merupakan List Order</p>
                   </div>
                </div>
             </div>

@@ -9,7 +9,7 @@
                <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
                      <h3>List Kontrak</h3>
-                     <p>Order Dashboard is a quick overview of all current orders.</p>
+                     <p>Berikut merupakan List Kontrak.</p>
                   </div>
                </div>
             </div>
@@ -19,12 +19,12 @@
                     <div class="row ">
                         <div class="col-md-6">
                             <div class="sell-course-head withdraw-history-head border-bottom-0">
-                               <h3>Kontrak List</h3>
+                               <h3>List Kontrak</h3>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-                                + Mobil
+                                + Kontrak
                             </button>
                         </div>
                     </div>
