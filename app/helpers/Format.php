@@ -2,6 +2,7 @@
 
 namespace App\helpers;
 
+use App\Models\Notifikasi;
 use App\Models\Penyewaan;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,13 @@ class Format
 
         return 0;
     }
+    static function getNotif()
+    {
+        $data = Notifikasi::with('receiver', 'receiver.rental', 'receiver.Pelanggan')->where('penerima_id', Auth::user()->id)->get();
 
+        // dd($data);
+        return $data;
+    }
     static function countRating($car_id)
     {
         $rating = Rating::where('mobil_id', $car_id)->get();

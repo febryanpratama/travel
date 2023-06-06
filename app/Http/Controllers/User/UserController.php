@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\helpers\Format;
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
 use App\Models\Pelanggan;
 use App\Models\Pengantaran;
 use App\Models\Penyewaan;
@@ -81,6 +82,12 @@ class UserController extends Controller
                 // ]);
                 Format::whatsappMessage($data->customer->no_telp, 'Mobil telah selesai digunakan, mohon untuk melakukan pengembalian mobil');
 
+                Notifikasi::create([
+                    'pengirim_id' => Auth::user()->id,
+                    'penerima_id' => $data->rental->user_id,
+                    'judul_notifikasi' => 'Mobil telah selesai digunakan',
+                    'deskripsi_notifikasi' => 'Mobil telah selesai digunakan, mohon untuk melakukan pengembalian mobil'
+                ]);
                 DB::commit();
 
                 return back()->withSuccess('Berhasil mengubah status');

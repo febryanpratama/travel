@@ -6,6 +6,7 @@ use App\helpers\Format;
 use App\Http\Controllers\Controller;
 use App\Models\Kontrak;
 use App\Models\Mobil;
+use App\Models\Notifikasi;
 use App\Models\Pengantaran;
 use App\Models\Pengembalian;
 use App\Models\Penyewaan;
@@ -179,6 +180,13 @@ class MobilController extends Controller
                     'tanggal_pengantaran' => Carbon::now(),
                 ]);
 
+                Notifikasi::create([
+                    'pengirim_id' => Auth::user()->id,
+                    'penerima_id' => $data->customer->user_id,
+                    'judul_notifikasi' => 'Mobil Sedang Diantar oleh ' . $data->rental->nama_rental,
+                    'deskripsi_notifikasi' => 'Mobil Sedang Diantar oleh ' . $data->rental->nama_rental . ' dengan keterangan ' . $body['keterangan'],
+                ]);
+
                 Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' telah diterima oleh driver. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
 
                 DB::commit();
@@ -208,11 +216,24 @@ class MobilController extends Controller
                     ]);
 
                     Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' telah diterima. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
+                    Notifikasi::create([
+                        'pengirim_id' => Auth::user()->id,
+                        'penerima_id' => $data->customer->user_id,
+                        'judul_notifikasi' => 'Mobil telah Diantar oleh ' . $data->rental->nama_rental,
+                        'deskripsi_notifikasi' => 'Mobil telahj Diantar oleh ' . $data->rental->nama_rental . ' dan siap digunakan oleh anda',
+                    ]);
                 } else {
                     $data->update([
                         'is_status' => 'Ditolak',
                         'keterangan' => $request['keterangan']
                     ]);
+                    Notifikasi::create([
+                        'pengirim_id' => Auth::user()->id,
+                        'penerima_id' => $data->customer->user_id,
+                        'judul_notifikasi' => 'Pengantaran Mobil dari ' . $data->rental->nama_rental . ' ditolak',
+                        'deskripsi_notifikasi' => 'Pengantaran Mobil dari ' . $data->rental->nama_rental . ' ditolak dengan keterangan ' . $request['keterangan'],
+                    ]);
+
                     Format::whatsappMessage($data->customer->no_telp, 'Pengantaran Mobil dari rental ' . $data->rental->nama_rental . ' ditolak. Silahkan menunggu konfirmasi selanjutnya. Terima kasih');
                 }
 
@@ -247,6 +268,13 @@ class MobilController extends Controller
                     'penyewaan_id' => $data->id,
                     'keterangan' => $request->keterangan,
                     'tanggal_pengembalian' => Carbon::now(),
+                ]);
+
+                Notifikasi::create([
+                    'pengirim_id' => Auth::user()->id,
+                    'penerima_id' => $data->customer->user_id,
+                    'judul_notifikasi' => 'Mobil telah Dikembalikan kepada ' . $data->rental->nama_rental,
+                    'deskripsi_notifikasi' => 'Mobil telah Dikembalikan kepada ' . $data->rental->nama_rental . ' dengan keterangan ' . $body['keterangan'],
                 ]);
 
                 Format::whatsappMessage($data->customer->no_telp, 'Mobil dari rental ' . $data->rental->nama_rental . ' telah dikembalikan. Terima kasih telah menggunakan layanan kami.');

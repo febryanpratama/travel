@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\helpers\Format;
 use App\Models\Mobil;
+use App\Models\Notifikasi;
 use App\Models\pelanggan;
 use App\Models\Penyewaan;
 use App\Models\Rental;
@@ -393,6 +394,13 @@ class FrontService
                 'fee' => ($penyewaan->total_harga * 0.1),
                 'expired_date' => $expiredDate
                 // 'bukti_pembayaran' => $nama_file
+            ]);
+
+            Notifikasi::create([
+                'pengirim_id' => $penyewaan->customer->user_id,
+                'penerima_id' => $penyewaan->rental->user_id,
+                'judul_notifikasi' => 'Pemesanan ' . $penyewaan->mobil->nama_mobil . ' oleh ' . $penyewaan->customer->nama_lengkap,
+                'deskripsi_notifikasi' => 'Pemesanan ' . $penyewaan->mobil->nama_mobil . ' oleh ' . $penyewaan->customer->nama_lengkap . ' dengan kode invoice ' . $invoice . ' telah berhasil dilakukan. Silahkan cek detail pemesanan di halaman order anda',
             ]);
 
             Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . number_format($data['nominal']) . ' ke nomor rekening ' . $penyewaan->rental->nama_bank . " -- " . $penyewaan->rental->no_rekening . ' a.n ' . $penyewaan->rental->nama_rekening . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');

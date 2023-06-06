@@ -284,7 +284,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item noti-nav">
                                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <img src="{{ asset('') }}assets/back/img/icon/notification.svg" alt="img">
@@ -302,79 +302,32 @@
                                     </div>
                                     <div class="noti-content">
                                         <ul class="notification-list">
-                                            <li class="notification-message">
-                                                <div class="media d-flex">
-                                                    <div>
-                                                        <a href="notifications.html" class="avatar">
-                                                            <img class="avatar-img" alt=""
-                                                                src="{{ asset('') }}assets/back/img/user/user1.jpg">
-                                                        </a>
+
+                                            {{-- 0 --}}
+                                            @foreach (App\helpers\Format::getNotif() as $nt)
+                                                <li class="notification-message">
+                                                    <div class="media d-flex">
+                                                        <div>
+                                                            <a href="#" class="avatar">
+                                                                <img class="avatar-img" alt=""
+                                                                    src="{{ asset('') }}assets/back/img/user/user3.jpg">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h6><a href="notifications.html">{{ $nt->receiver->name }} <span>{{$nt->judul_notifikasi}}</a>
+                                                            </h6>
+                                                            <p class="noti-details">“{{ $nt->deskripsi_notifikasi }}”</p>
+                                                            <p>{{ Carbon\Carbon::parse($nt->created_at)->format('d M Y H:i:s') }}</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <h6><a href="notifications.html">Lex Murphy requested
-                                                                <span>access to</span> UNIX directory tree hierarchy
-                                                            </a></h6>
-                                                        <button class="btn btn-accept">Accept</button>
-                                                        <button class="btn btn-reject">Reject</button>
-                                                        <p>Today at 9:42 AM</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="notification-message">
-                                                <div class="media d-flex">
-                                                    <div>
-                                                        <a href="notifications.html" class="avatar">
-                                                            <img class="avatar-img" alt=""
-                                                                src="{{ asset('') }}assets/back/img/user/user2.jpg">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6><a href="notifications.html">Ray Arnold left 6
-                                                                <span>comments on</span> Isla Nublar SOC2 compliance
-                                                                report</a></h6>
-                                                        <p>Yesterday at 11:42 PM</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="notification-message">
-                                                <div class="media d-flex">
-                                                    <div>
-                                                        <a href="notifications.html" class="avatar">
-                                                            <img class="avatar-img" alt=""
-                                                                src="{{ asset('') }}assets/back/img/user/user3.jpg">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6><a href="notifications.html">Dennis Nedry <span>commented
-                                                                    on</span> Isla Nublar SOC2 compliance report</a>
-                                                        </h6>
-                                                        <p class="noti-details">“Oh, I finished de-bugging the phones,
-                                                            but the system's compiling for eighteen minutes, or twenty.
-                                                            So, some minor systems may go on and off for a while.”</p>
-                                                        <p>Yesterday at 5:42 PM</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="notification-message">
-                                                <div class="media d-flex">
-                                                    <div>
-                                                        <a href="notifications.html" class="avatar">
-                                                            <img class="avatar-img" alt=""
-                                                                src="{{ asset('') }}assets/back/img/user/user1.jpg">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h6><a href="notifications.html">John Hammond
-                                                                <span>created</span> Isla Nublar SOC2 compliance report
-                                                            </a></h6>
-                                                        <p>Last Wednesday at 11:15 AM</p>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                                
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
-                            </li> --}}
+                            </li>
+                            
                             <li class="nav-item user-nav">
                                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <span class="user-img">

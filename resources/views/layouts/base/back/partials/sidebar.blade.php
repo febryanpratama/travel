@@ -24,7 +24,7 @@
             <div class="profile-group">
                 <div class="profile-name text-center">
                     <h4><a href="instructor-profile.html">{{ Auth::user()->name }}</a></h4>
-                    <p>Instructor</p>
+                    <p>{{ ucfirst(Auth::user()->roles->pluck('name')[0]) }}</p>
                 </div>
                 <div class="go-dashboard text-center">
                     <a href="{{ url('/') }}" class="btn btn-primary">Landing Page</a>

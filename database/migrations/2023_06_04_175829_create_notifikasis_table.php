@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('pengirim_id');
             $table->integer('penerima_id');
-            $table->integer('judul_notifikasi');
-            $table->integer('deskripsi_notifikasi');
+            $table->string('judul_notifikasi');
+            $table->string('deskripsi_notifikasi');
+            $table->enum('is_read', [1, 0])->default(0);
             $table->timestamps();
         });
     }
