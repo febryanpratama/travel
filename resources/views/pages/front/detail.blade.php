@@ -103,7 +103,7 @@
 											<br>/ hari
 										</p>
 									</div>
-									<div class="x_car_detail_slider_bottom_cont_center float_left">
+									{{-- <div class="x_car_detail_slider_bottom_cont_center float_left">
 										<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, rem a quis
 											bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
 											Dssed odio sit amet nibh vulputate cursus a sit amt mauris. Morbi accumsan
@@ -113,7 +113,7 @@
 											auctor aliquet. Aenean sollicitudin, lorem quis bibendum tor. This is
 											Photoshop's version of Lorem Ipsum.
 										</p>
-									</div>
+									</div> --}}
 									<div
 										class="x_car_offer_heading x_car_offer_heading_listing float_left x_car_offer_heading_inner_car_names x_car_offer_heading_inner_car_names2">
 										<ul class="">
