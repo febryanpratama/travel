@@ -92,8 +92,9 @@
 									</div>
 								</div>
 								<div class="x_car_detail_slider_bottom_cont float_left">
-									<div class="x_car_detail_slider_bottom_cont_left">
-										<h3>{{ $data->nama_mobil }} /<span>{{ $data->rental->tipe }} </span></h3>
+									<div class="x_car_detail_slider_bottom_cont_left" class="p-2">
+										<h3>Nama Rental : <span>{{ $data->rental->nama_rental }} </span></h3>
+										<h3>{{ $data->nama_mobil }} /<span>TIpe {{ $data->rental->tipe }} </span></h3>
 										
 										<span>Jarak / Waktu : </span><span id="rev"></span>
 									</div>
