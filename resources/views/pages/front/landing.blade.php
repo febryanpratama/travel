@@ -26,7 +26,7 @@
 										<p data-animation="animated bounceInUp">Salah satu prioritas utama kami adalah menyesuaikan setiap paket yang kami tawarkan kepada
 											<br>kebutuhan pelanggan yang tepat. Sewa Mobil Mulai dari 15k / Jam</span>
 										</p>
-										<div class="hs_effect_btn">
+										{{-- <div class="hs_effect_btn">
 											<ul>
 												<li data-animation="animated flipInX"><a href="#tentangkami">tentang kami<i
 															class="fa fa-arrow-right"></i></a>
@@ -35,7 +35,7 @@
 															class="fa fa-arrow-right"></i></a>
 												</li>
 											</ul>
-										</div>
+										</div> --}}
 										<div class="clear"></div>
 									</div>
 								</div>
