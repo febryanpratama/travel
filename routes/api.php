@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('rent', [MobilController::class, 'getRent']);
+Route::get('cars', [MobilController::class, 'getCars']);
 
 Route::post('/getDistance', [MobilController::class, 'getDistance']);
 

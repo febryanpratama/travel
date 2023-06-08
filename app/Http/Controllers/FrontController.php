@@ -31,6 +31,11 @@ class FrontController extends Controller
         ]);
     }
 
+    public function cariMobil()
+    {
+        return view('pages.front.carimobil');
+    }
+
     public function register()
     {
         return view('pages.front.auth.register');

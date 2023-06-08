@@ -42,6 +42,19 @@ class MobilController extends Controller
             'data' => $response
         ]);
     }
+
+    public function getCars()
+    {
+        $response = Mobil::with('rental', 'rental.auth')->whereRelation('rental.auth', 'is_active', '1')->get();
+
+        // dd($response);
+        return response()->json([
+            'status' => true,
+            'message' => 'Data mobil berhasil diambil',
+            'data' => $response
+        ]);
+    }
+
     public function index()
     {
         $response = $this->mobilService->getMobil();

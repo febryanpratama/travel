@@ -54,8 +54,8 @@
                         </div>
                         <div class="mentor-course text-center">
                             <h2>Welcome to <br>DreamsLMS Courses.</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> --}}
                         </div>
                     </div>
                     <div class="welcome-login">
@@ -64,8 +64,8 @@
                         </div>
                         <div class="mentor-course text-center">
                             <h2>Welcome to <br>DreamsLMS Courses.</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> --}}
                         </div>
                     </div>
                     <div class="welcome-login">
@@ -74,8 +74,8 @@
                         </div>
                         <div class="mentor-course text-center">
                             <h2>Welcome to <br>DreamsLMS Courses.</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> --}}
                         </div>
                     </div>
                 </div>

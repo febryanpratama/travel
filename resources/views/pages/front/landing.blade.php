@@ -38,7 +38,7 @@
 										</div> --}}
 										<div class="clear"></div>
 									</div>
-								</div>
+                            </div>
 								{{-- <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 d-none d-sm-none d-md-none  d-lg-block d-xl-block">
 									<div class="content_tabs">
 										<div class="row">

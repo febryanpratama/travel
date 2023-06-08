@@ -83,6 +83,8 @@
 						<ul class="justify-content-center">
 							<li class="justify-content-center"> <a class="menu-button single_menu" href="{{ url('/') }}">Beranda</a>
 							</li>
+							<li class="justify-content-center"> <a class="menu-button single_menu" href="{{ url('/cari-mobil') }}">Cari Mobil</a>
+							</li>
 							{{-- <li>
 								<div class="dropdown-wrapper menu-button"> <a class="menu-button" href="#">Blog</a>
 									<div class="drop-menu"> <a class="menu-button"
