@@ -251,10 +251,10 @@
 					<div class="x_offer_car_heading_wrapper float_left">
 						<h4>APA YANG KAMI TAWARKAN</h4>
 						<h3>Pilih Mobil Anda</h3>
-						<p>Morbi mollis vestibulum sollicitudin. Nunc in eros a justo facilisis rutrum. Aenean id
+						{{-- <p>Morbi mollis vestibulum sollicitudin. Nunc in eros a justo facilisis rutrum. Aenean id
 							ullamcorper libero
 							<br>Vestibulum imperdiet nibh vel magna lacinia commodo ultricies,
-						</p>
+						</p> --}}
 					</div>
 				</div>
 				<div class="col-md-12 d-flex">
@@ -346,13 +346,14 @@
 	</div>
     <hr>
 	<div class="x_slider_bottom_title_main_wrapper" id="tentangkami">
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
+
+		{{-- <div class="x_slider_bottom_box_wrapper"> <i class="flaticon-magnifying-glass"></i>
 			<h3><a href="#">24 / 7 Layanan Pelanggan</a></h3>
 			<p>Proin gravida nibh vel velit auctor
 				<br>aliquet. Aenean sollicitudin, lorem
 				<br>quis bibendum auctor.
 			</p>
-		</div>
+		</div> --}}
 		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-world"></i>
 			<h3><a href="#">Mudah ditemukan</a></h3>
 			<p>Proin gravida nibh vel velit auctor
@@ -367,13 +368,13 @@
 				<br>quis bibendum auctor.
 			</p>
 		</div>
-		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-car-trip"></i>
+		{{-- <div class="x_slider_bottom_box_wrapper"> <i class="flaticon-car-trip"></i>
 			<h3><a href="#">Rental Mobil</a></h3>
 			<p>Proin gravida nibh vel velit auctor
 				<br>aliquet. Aenean sollicitudin, lorem
 				<br>quis bibendum auctor.
 			</p>
-		</div>
+		</div> --}}
 	</div>
 	<!-- xs Slider bottom title End -->
     

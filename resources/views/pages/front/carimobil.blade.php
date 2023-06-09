@@ -8,15 +8,15 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
                     <div class="btc_tittle_left_heading">
-                        <h1>List Mobil</h1>
+                        <h1>Cari Mobil</h1>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
                     <div class="btc_tittle_right_heading">
                         <div class="btc_tittle_right_cont_wrapper">
                             <ul>
-                                <li><a href="#">Dashboard</a> <i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Mobil</a> <i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Beranda</a> <i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Cari Mobil</a> <i class="fa fa-angle-right"></i></li>
                                 {{-- <li>{{ $data->name_car }}</li> --}}
                             </ul>
                         </div>

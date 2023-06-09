@@ -35,6 +35,10 @@ class FrontController extends Controller
     {
         return view('pages.front.carimobil');
     }
+    public function tentangkami()
+    {
+        return view('pages.front.tentangkami');
+    }
 
     public function register()
     {

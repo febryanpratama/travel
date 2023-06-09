@@ -1735,8 +1735,10 @@ width:100%;
 /*-- hs Slider End --*/
 /*-- xs Slider bottom title Start --*/
 .x_slider_bottom_box_wrapper{
+	text-align: center;
+	margin: auto;
 	float:left;
-	width:25%;
+	width:50%;
 	background:#ffffff;
 	padding:60px;
 	padding-left:70px;
@@ -1758,6 +1760,8 @@ width:100%;
     transition: all 0.5s;
 }
 .x_slider_bottom_box_wrapper h3{
+	margin: auto;
+	/* text-align: center; */
 	font-size:18px;
 	font-weight:600px;
 	display:inline-block;
@@ -1779,6 +1783,8 @@ width:100%;
     transition: all 0.5s;
 }
 .x_slider_bottom_box_wrapper h3 a{
+	margin: auto;
+	/* text-align: center; */
 	font-size:18px;
 	font-weight:700;
 }
@@ -1786,6 +1792,7 @@ width:100%;
 	color:#111111;
 }
 .x_slider_bottom_box_wrapper p{
+	text-align: center;
 	float:left;
 	width:100%;
 	padding-top:25px;
