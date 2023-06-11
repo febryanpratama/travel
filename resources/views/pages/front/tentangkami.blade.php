@@ -10,7 +10,7 @@
 						<h1>Tentang Kami</h1>
 					</div>
 				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
+				{{-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 full_width">
 					<div class="btc_tittle_right_heading">
 						<div class="btc_tittle_right_cont_wrapper">
 							<ul>
@@ -20,7 +20,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
