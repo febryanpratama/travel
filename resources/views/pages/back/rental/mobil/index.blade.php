@@ -145,6 +145,7 @@
                                     <option value="Daihatsu">Daihatsu</option>
                                     <option value="Wuling">Wuling</option>
                                     <option value="Suzuki">Suzuki</option>
+                                    <option value="Mitsubishi">Mitsubishi</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-1">
