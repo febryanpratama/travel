@@ -118,51 +118,51 @@
                                 <label for="" class="control-label">Tipe Mobil</label>
                                 <select name="tipe_mobil" class="form-control" id="" required>
                                     <option value="" selected disabled>Pilih Tipe Mobil</option>
-                                    <option value="SUV">SUV</option>
-                                    <option value="MPV">MPV</option>
-                                    <option value="Crossover">Crossover</option>
-                                    <option value="Hatchback">Hatchback</option>
-                                    <option value="Sedan">Sedan</option>
-                                    <option value="Sport Sedan">Sport Sedan</option>
-                                    <option value="Convertible">Convertible</option>
-                                    <option value="Station Wagon">Station Wagon</option>
-                                    <option value="Off road">Off road</option>
-                                    <option value="Double Cabin">Double Cabin</option>
-                                    <option value="LCGC">LCGC</option>
+                                    <option value="SUV" {{ $item->tipe_mobil == 'SUV' ? 'selected' : '' }}>SUV</option>
+                                    <option value="MPV" {{ $item->tipe_mobil == 'MPV' ? 'selected' : '' }}>MPV</option>
+                                    <option value="Crossover" {{ $item->tipe_mobil == 'Crossover' ? 'selected' : '' }}>Crossover</option>
+                                    <option value="Hatchback" {{ $item->tipe_mobil == 'Hatchback' ? 'selected' : '' }}>Hatchback</option>
+                                    <option value="Sedan" {{ $item->tipe_mobil == 'Sedan' ? 'selected' : '' }}>Sedan</option>
+                                    <option value="Sport Sedan" {{ $item->tipe_mobil == 'Sport Sedan' ? 'selected' : '' }}>Sport Sedan</option>
+                                    <option value="Convertible" {{ $item->tipe_mobil == 'Convertible' ? 'selected' : '' }}>Convertible</option>
+                                    <option value="Station Wagon" {{ $item->tipe_mobil == 'Station Wagon' ? 'selected' : '' }}>Station Wagon</option>
+                                    <option value="Off road" {{ $item->tipe_mobil == 'Off road' ? 'selected' : '' }}>Off road</option>
+                                    <option value="Double Cabin" {{ $item->tipe_mobil == 'Double Cabin' ? 'selected' : '' }}>Double Cabin</option>
+                                    <option value="LCGC" {{ $item->tipe_mobil == 'LCGC' ? 'selected' : '' }}>LCGC</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Merk Mobil</label>
                                 <select name="merk_mobil" class="form-control" id="" required>
                                     <option value="" selected disabled>Pilih Merk Mobil</option>
-                                    <option value="Honda">Honda</option>
-                                    <option value="Toyota">Toyota</option>
-                                    <option value="Hyundai">Hyundai</option>
-                                    <option value="Daihatsu">Daihatsu</option>
-                                    <option value="Wuling">Wuling</option>
-                                    <option value="Suzuki">Suzuki</option>
-                                    <option value="Mitsubishi">Mitsubishi</option>
+                                    <option value="Honda" {{ $item->merk_mobil == 'Honda' ? 'selected' : '' }}>Honda</option>
+                                    <option value="Toyota" {{ $item->merk_mobil == 'Toyota' ? 'selected' : '' }}>Toyota</option>
+                                    <option value="Hyundai" {{ $item->merk_mobil == 'Hyundai' ? 'selected' : '' }}>Hyundai</option>
+                                    <option value="Daihatsu" {{ $item->merk_mobil == 'Daihatsu' ? 'selected' : '' }}>Daihatsu</option>
+                                    <option value="Wuling" {{ $item->merk_mobil == 'Wuling' ? 'selected' : '' }}>Wuling</option>
+                                    <option value="Suzuki" {{ $item->merk_mobil == 'Suzuki' ? 'selected' : '' }}>Suzuki</option>
+                                    <option value="Mitsubishi" {{ $item->merk_mobil == 'Mitsubishi' ? 'selected' : '' }}>Mitsubishi</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Nama Mobil</label>
-                                <input type="text" name="nama_mobil" class="form-control" required>
+                                <input type="text" name="nama_mobil" value="{{ $item->nama_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Transmisi</label>
                                 <select name="transmisi_mobil" class="form-control" id="" required>
                                     <option value="" selected disabled>Pilih Transmisi Mobil</option>
-                                    <option value="Manual">Manual</option>
-                                    <option value="Automatic">Automatic</option>
+                                    <option value="Manual" {{ $item->transmisi_mobil == 'Manual' ? 'selected' : '' }}>Manual</option>
+                                    <option value="Automatic" {{ $item->transmisi_mobil == 'Automatic' ? 'selected' : '' }}>Automatic</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Kapasitas Penumpang</label>
-                                <input type="text" name="kapasitas_mobil" class="form-control" required>
+                                <input type="text" name="kapasitas_mobil" value="{{ $item->kapasitas_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Warna Mobil</label>
-                                <input type="text" name="warna_mobil" class="form-control" required>
+                                <input type="text" name="warna_mobil" value="{{ $item->warna_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Jenis BBM</label>
@@ -174,15 +174,15 @@
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Fasilitas</label>
-                                <input type="text" name="fasilitas_mobil" class="form-control" required>
+                                <input type="text" name="fasilitas_mobil" value="{{ $item->fasilitas_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Plat Mobil</label>
-                                <input type="text" name="plat_mobil" class="form-control" required>
+                                <input type="text" name="plat_mobil" value="{{ $item->plat_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Harga Sewa Mobil /Hari</label>
-                                <input type="number" name="harga_sewa_mobil" class="form-control" required>
+                                <input type="number" name="harga_sewa_mobil" value="{{ $item->harga_sewa_mobil }}" class="form-control" required>
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Foto Mobil</label>
@@ -190,7 +190,7 @@
                             </div>
                             <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Keterangan</label>
-                                <input type="text" name="keterangan_mobil" class="form-control" required>
+                                <input type="text" name="keterangan_mobil" value="{{ $item->keterangan_mobil }}" class="form-control" required>
                             </div>
                         </div>
                     </div>
