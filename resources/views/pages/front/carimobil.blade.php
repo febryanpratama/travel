@@ -41,7 +41,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="" class="control-label">Masukkan Lokasi</label>
-                                        <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
+                                        <textarea placeholder="Pilih tempat yang anda inginkan" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
 
                                         {{-- <textarea placeholder="Enter Area name to populate Latitude and Longitude" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea> --}}
 

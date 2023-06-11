@@ -199,11 +199,11 @@
                                     <div class="col-md-12">
                                         <div class="x_slider_form_input_wrapper float_left">
                                             <h3>Lokasi Penjemputan</h3>
-                                            <input type="text" autocomplete="off" id="search" class="full-width" placeholder="Pilih kota yang anda inginkan">
+                                            <input type="text" autocomplete="off" id="search" class="full-width" placeholder="Pilih tempat yang anda inginkan">
                                         </div>
                                     </div>
                                     
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="form-sec-header">
                                             <h3>Tanggal Penjemputan</h3>
                                             <label class="cal-icon">Tanggal Penjemputan
@@ -211,7 +211,7 @@
                                                     class="form-control datepicker">
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 mt-5">
                                         <div class="x_slider_checkbox_bottom float_left">
                                             <div class="x_slider_checout_left">
