@@ -7,8 +7,8 @@
             <div class="col-lg-6">
                 <div class="d-flex align-items-center">
                     <div class="view-icons">
-                    <a href="https://dreamslms.dreamguystech.com/laravel/public/course-details" class="grid-view "><i class="feather-grid"></i></a>
-                    <a href="https://dreamslms.dreamguystech.com/laravel/public/course-list" class="list-view active"><i class="feather-list"></i></a>
+                    <a href="#" class="grid-view "><i class="feather-grid"></i></a>
+                    <a href="#" class="list-view active"><i class="feather-list"></i></a>
                     </div>
                     <div class="show-result">
                     <h4>Showing 1-9 of 50 results</h4>
