@@ -356,16 +356,21 @@
 		</div> --}}
 		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-world"></i>
 			<h3><a href="#">Mudah ditemukan</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
-			</p>
+			<p>Selamat datang di MarketPlace Rental Mobil! Kami menyediakan berbagai pilihan mobil sewaan untuk memenuhi kebutuhan perjalanan Anda. Berikut adalah beberapa kata kunci yang mudah ditemukan untuk membantu Anda menemukan mobil yang tepat:
+
+<br><br>1.Rental Mobil: Temukan berbagai opsi rental mobil yang tersedia.
+<br>2. Mobil Sewa: Cari mobil yang dapat Anda sewa sesuai dengan keinginan dan kebutuhan Anda.
+<br>3. Rental Mobil di Daerah Sekitar
+<br>4. Pencarian Rental Mobil Berbasis Lokasi</p>
 		</div>
 		<div class="x_slider_bottom_box_wrapper"> <i class="flaticon-checklist"></i>
 			<h3><a href="#">Kapan saja untuk reservasi</a></h3>
-			<p>Proin gravida nibh vel velit auctor
-				<br>aliquet. Aenean sollicitudin, lorem
-				<br>quis bibendum auctor.
+			<p>Tentu, berikut adalah beberapa kata-kata yang dapat digunakan untuk menyoroti ketersediaan reservasi kapan saja pada MarketPlace rental mobil:
+
+            <br><br>1. Reservasi Kapan Saja
+            <br>2. Pemesanan Setiap Saat
+            <br>3. Booking Fleksibel
+            <br>4. Reservasi Mobil Fleksibel
 			</p>
 		</div>
 		{{-- <div class="x_slider_bottom_box_wrapper"> <i class="flaticon-car-trip"></i>

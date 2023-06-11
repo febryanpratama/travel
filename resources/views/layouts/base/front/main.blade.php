@@ -69,8 +69,7 @@ Version: 1.0.0
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
 					<div class="x_footer_bottom_box_wrapper float_left">
 						<h3>Tentang Kami</h3>
-						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p> <span><a href="#">Read More &nbsp;<i
+						<p>Selamat datang di MarketPlace Rental Mobil berbasis Location Based Service (LBS)! Kami adalah platform yang memudahkan Anda untuk menyewa mobil di lokasi yang tepat, sesuai dengan kebutuhan perjalanan Anda. Berikut adalah beberapa informasi tentang kami :</p> <span><a href="{{ url('tentang-kami') }}">Read More &nbsp;<i
 									class="fa fa-angle-double-right"></i></a></span>
 						{{-- <ul>
 							<li><a href="#"><i class="fa fa-facebook"></i></a>
@@ -86,10 +85,10 @@ Version: 1.0.0
 					<div class="x_footer_bottom_box_wrapper_second float_left">
 						<h3>Informasi</h3>
 						<ul>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Tentang</a>
+							<li><a href="{{ url('tentang-kami') }}"><i class="fa fa-long-arrow-right"></i> &nbsp; Tentang</a>
 							</li>
-							<li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Layanan</a>
-							</li>
+							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Layanan</a>
+							</li> --}}
 							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Syarat & Ketentuan</a> --}}
 							{{-- </li> --}}
 							{{-- <li><a href="#"><i class="fa fa-long-arrow-right"></i> &nbsp; Cari Driver</a>
