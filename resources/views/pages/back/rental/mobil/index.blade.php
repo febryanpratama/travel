@@ -71,19 +71,15 @@
                                     <p>9hr 30min</p>
                                 </div> --}}
                             </div>
-                            <div class="rating">
+                            {{-- <div class="rating">
                                 <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 1 ? ' filled' : ' ') }}"></i>
                                 <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 2 ? ' filled' : ' ') }}"></i>
                                 <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 3 ? ' filled' : ' ') }}"></i>
                                 <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 4 ? ' filled' : ' ') }}"></i>
                                 <i class="fas fa-star{{ (App\Helpers\Format::sumRating($item->id) >= 5 ? ' filled' : ' ') }}"></i>
-                                {{-- <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star"></i> --}}
+                                
                                 <span class="d-inline-block average-rating"><span>{{ App\Helpers\Format::sumRating($item->id)}}</span> (15)</span>
-                            </div>
+                            </div> --}}
                             <div class="course-group d-flex mb-0">
                                 <div class="course-group-img d-flex">
                                     <a href="instructor-profile.html"><img src="assets/img/user/user1.jpg" alt="" class="img-fluid"></a>
