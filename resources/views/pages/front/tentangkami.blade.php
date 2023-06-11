@@ -44,7 +44,7 @@ Penyewaan Mobil Terdekat: Temukan mobil sewaan terdekat dengan menggunakan tekno
 Pilihan Mobil yang Beragam: Kami menawarkan berbagai macam mobil untuk disewa. Dari mobil keluarga yang nyaman hingga mobil mewah yang elegan, kami memiliki opsi yang sesuai dengan preferensi dan anggaran Anda. <br><br>
 
 Proses Pemesanan yang Mudah: Kami memprioritaskan kenyamanan Anda dalam melakukan pemesanan. Dengan platform kami yang user-friendly, Anda dapat dengan mudah menelusuri mobil yang tersedia, memeriksa ketersediaan di lokasi yang diinginkan, dan memesan mobil secara langsung melalui aplikasi kami. <br><br> </p>
-						<img src="images/seg.png" alt="segn">
+						{{-- <img src="images/seg.png" alt="segn"> --}}
 					</div>
 				</div>
 			</div>
