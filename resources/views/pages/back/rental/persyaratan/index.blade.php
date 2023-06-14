@@ -36,7 +36,7 @@
                               <tr class="text-center">
                                  
                                  <th>#</th>
-                                 <th>Nama Persyaratan</th>
+                                 {{-- <th>Nama Persyaratan</th> --}}
                                  <th>Keterangan</th>
                                  <th>Aksi</th>
                               </tr>
@@ -45,7 +45,7 @@
                                @foreach ($data as $key=>$item)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
-                                        <td><a href="{{ asset('files/persyaratan/'.$item->persyaratan) }}" target="_blank">Lihat</a></td>
+                                        {{-- <td><a href="{{ asset('files/persyaratan/'.$item->persyaratan) }}" target="_blank">Lihat</a></td> --}}
                                         <td>{{ $item->keterangan }}</td>
                                         <td>
                                             <svg xmlns="http://www.w3.org/2000/svg" title="Detail" fill="none"style="width: 20px;height:20px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -80,7 +80,7 @@
 </div>
 
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog ">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Form Persyaratan Mobil</h5>
@@ -90,11 +90,11 @@
                 @csrf
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 mt-1">
+                        {{-- <div class="col-md-6 mt-1">
                             <label for="" class="control-label">Nama Persyaratan</label>
                             <input type="file" name="persyaratan" class="form-control" required>
-                        </div>
-                        <div class="col-md-6 mt-1">
+                        </div> --}}
+                        <div class="col-md-12 mt-1">
                             <label for="" class="control-label">Keterangan Persyaratan</label>
                             <input type="text" name="keterangan" class="form-control" required>
                         </div>
