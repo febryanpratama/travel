@@ -9,7 +9,7 @@
                <div class="settings-inner-blk p-0">
                   <div class="sell-course-head comman-space">
                      <h3>List Pengemudi</h3>
-                     <p>Order Dashboard is a quick overview of all current orders.</p>
+                     <p>ini adalah list pengemudi.</p>
                   </div>
                </div>
             </div>

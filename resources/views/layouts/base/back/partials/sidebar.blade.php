@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="{{ Request::is('rental/orders/*') ? 'active' : '' }}" href="{{ url('rental/orders') }}" class="nav-link">
+                    <a class="{{ Request::is('rental/orders') ? 'active' : '' }}" href="{{ url('rental/orders') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Orders
                     </a>
                 </li>
