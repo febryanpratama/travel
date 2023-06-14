@@ -412,4 +412,19 @@ class MobilController extends Controller
             return redirect()->back()->withSuccess($response['message']);
         }
     }
+
+    public function hapusMobil($mobil_id)
+    {
+        $mobil = Mobil::where('id', $mobil_id)->first();
+
+        if (!$mobil) {
+            return back()->withErrors('Data Mobil tidak ditemukan');
+        }
+        // dd($mobil);
+        $mobil->delete();
+
+
+
+        return back()->withSuccess('Berhasil menghapus mobil');
+    }
 }

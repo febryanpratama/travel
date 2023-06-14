@@ -143,6 +143,7 @@ Route::group([
     ], function () {
         Route::get('/', 'index');
         Route::post('/', 'store');
+        Route::get('/{id}/hapus', 'hapusMobil');
         Route::post('/edit', 'editMobil');
         Route::post('/{id}/supir', 'addSupir');
     });

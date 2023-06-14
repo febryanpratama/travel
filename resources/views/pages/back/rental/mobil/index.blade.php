@@ -54,10 +54,15 @@
                         <div class="product-content">
                             <div class="head-course-title">
                                 <h3 class="title"><a href="course-details.html">{{ $item->nama_mobil }}</a></h3>
-                                <div class="all-btn all-category d-flex align-items-center">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editMobil{{ $item->id }}">
+                                <div class="all-btn all-category d-flex align-items-center" >
+                                    <button type="button" class="btn btn-primary mr-1" style="margin-right: 10px" data-bs-toggle="modal" data-bs-target="#editMobil{{ $item->id }}">
                                         Edit Mobil
                                     </button>
+                                    <a href="{{ url('rental/mobil/'.$item->id.'/hapus') }}">
+                                        <button type="button" class="btn btn-primary mr-1" style="border: 2px solid red;color:red" >
+                                            Hapus Mobil
+                                        </button>
+                                    </a>
                                     {{-- <a href="checkout.html" class="btn btn-primary">Edit Mobil</a> --}}
                                 </div>
                             </div>

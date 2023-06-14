@@ -593,13 +593,13 @@
                                             <div class="x_car_offer_heading float_left">
                                                 <ul>
                                                     <li>
-                                                        <a href="#"><i class="fa fa-users"></i> &nbsp;8</a>
+                                                        <a href="#"><i class="fa fa-users"></i> &nbsp;`+listData[index].kapasitas_mobil+`</a>
                                                     </li>
                                                     <li>
                                                         <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#"><i class="fa fa-briefcase"></i> &nbsp;9</a>
+                                                        <a href="#"><i class="fa fa-briefcase"></i> &nbsp;8</a>
                                                     </li>
                                                     <li>
                                                         <div class="nice-select" tabindex="0">
@@ -622,7 +622,7 @@
                                             <div class="x_car_offer_bottom_btn float_left">
                                                 <ul class="">
                                                     <li><a href="#">NEW</a></li>
-                                                    <li><a href="http://127.0.0.1:8000/1/detail">Details</a></li>
+                                                    <li><a href="{{ url('`+listData[index].id+`/detail') }}">Details</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -817,7 +817,7 @@
                                     <div class="x_car_offer_heading float_left">
                                         <ul>
                                             <li>
-                                                <a href="#"><i class="fa fa-users"></i> &nbsp;8</a>
+                                                <a href="#"><i class="fa fa-users"></i> &nbsp;`+value.kapasitas_mobil+`</a>
                                             </li>
                                             <li>
                                                 <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
