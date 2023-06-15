@@ -322,12 +322,13 @@ class FrontService
         // dd($data);
         $validator = Validator::make($data, [
             'penyewaan_id' => 'required|exists:penyewaans,id',
-            'nominal' => 'required|numeric',
+            // 'nominal' => 'required|numeric',
             'channel_pembayaran' => 'required|in:Pembayaran Awal,Pelunasan',
             'cb' => 'required|in:on',
             // 'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
+        // dd($data);
         if ($validator->fails()) {
             # code...
             return [
@@ -353,23 +354,8 @@ class FrontService
 
             if ($data['channel_pembayaran'] == 'Pembayaran Awal') {
 
-                if ($data['nominal'] < (($penyewaan->total_harga / 100) * 50)) {
-                    // dd("50% dari total harga adalah " . (($penyewaan->total_harga / 100) * 50));
-                    // return back()->withErrors('Nominal pembayaran awal minimal 50% dari total harga');
-                    return [
-                        'status' => false,
-                        'message' => 'Nominal pembayaran awal minimal 50% dari total harga yaitu Rp.' . number_format(($penyewaan->total_harga / 100) * 50)
-                    ];
-                }
+                $nominal_fix = 200000;
                 // $data['nominal'] = $penyewaan->total_harga;
-            } else {
-                if ($data['nominal'] != $penyewaan->total_harga) {
-                    return [
-                        'status' => false,
-                        'message' => 'Nominal pembayaran harus sama dengan total harga'
-                    ];
-                    // return back()->withErrors('Nominal pembayaran harus sama dengan total harga');
-                }
             }
 
             // if ($data['bukti_pembayaran']) {
@@ -387,9 +373,9 @@ class FrontService
                 'kd_invoice' => $invoice,
                 'is_status' => 'Dalam Persiapan',
                 'is_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? 'Lunas' : 'Belum Lunas',
-                'pembayaran_awal' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? $data['nominal'] : 0,
-                'sisa_pembayaran' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? ($penyewaan->total_harga - $data['nominal']) : 0,
-                'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $data['nominal'] : $data['nominal'],
+                'pembayaran_awal' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? $nominal_fix : 0,
+                'sisa_pembayaran' => $data['channel_pembayaran'] == 'Pembayaran Awal' ? ($penyewaan->total_harga - $nominal_fix) : 0,
+                'total_pembayaran' => $data['channel_pembayaran'] == 'Pelunasan' ? $penyewaan->total_harga : $nominal_fix,
                 'is_location' => $data['is_location'],
                 'fee' => ($penyewaan->total_harga * 0.1),
                 'expired_date' => $expiredDate
@@ -403,7 +389,7 @@ class FrontService
                 'deskripsi_notifikasi' => 'Pemesanan ' . $penyewaan->mobil->nama_mobil . ' oleh ' . $penyewaan->customer->nama_lengkap . ' dengan kode invoice ' . $invoice . ' telah berhasil dilakukan. Silahkan cek detail pemesanan di halaman order anda',
             ]);
 
-            Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . number_format($data['nominal']) . ' ke nomor rekening ' . $penyewaan->rental->nama_bank . " -- " . $penyewaan->rental->no_rekening . ' a.n ' . $penyewaan->rental->nama_rekening . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');
+            Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . $data['channel_pembayaran'] == 'Pembayaran Awal' ? number_format($nominal_fix) : number_format($penyewaan->total_harga) . ' ke nomor rekening ' . $penyewaan->rental->nama_bank . " -- " . $penyewaan->rental->no_rekening . ' a.n ' . $penyewaan->rental->nama_rekening . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');
             // Format::whatsappMessage($penyewaan->customer->no_telp, 'Halo ' . $penyewaan->customer->nama . ', Terima kasih telah melakukan pemesanan di ' . $penyewaan->mobil->rental->nama_rental . '. Berikut adalah detail pemesanan anda : ' . PHP_EOL . 'Kode Invoice : ' . $invoice . PHP_EOL . 'Tanggal Mulai : ' . $penyewaan->tanggal_mulai . PHP_EOL . 'Tanggal Selesai : ' . $penyewaan->tanggal_selesai . PHP_EOL . 'Total Harga : Rp.' . number_format($penyewaan->total_harga) . PHP_EOL . 'Silahkan melakukan pembayaran sebesar Rp.' . number_format($data['nominal']) . ' dan upload bukti pembayaran di menu pembayaran. Terima kasih');
 
             DB::commit();
@@ -412,7 +398,7 @@ class FrontService
                 'message' => 'Berhasil melakukan pembayaran dengan kode invoice ' . $invoice
             ];
         } catch (\Throwable $th) {
-            // dd($th->getMessage());
+            dd($th->getMessage());
             DB::rollback();
             return [
                 'status' => false,

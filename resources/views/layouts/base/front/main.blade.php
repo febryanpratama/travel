@@ -44,7 +44,7 @@ Version: 1.0.0
 	<!-- preloader Start -->
 	<div id="preloader">
 		<div id="status">
-			<img src="images/loader.gif" id="preloader_image" alt="loader">
+			<img src="{{ asset('') }}assets/front/images/loader.gif" id="preloader_image" alt="loader">
 		</div>
 	</div>
 	<div class="serach-header">

@@ -181,30 +181,30 @@ class MobilService
     static function storePersyaratan($data)
     {
         $validator = Validator::make($data, [
-            'persyaratan' => 'required|mimes:pdf|max:2048',
+            // 'persyaratan' => 'required|mimes:pdf|max:2048',
             'keterangan' => 'required',
         ]);
 
         if ($validator->fails()) {
             # code...
 
-            dd($validator->errors()->first());
+            // dd($validator->errors()->first());
             return [
                 'status' => false,
                 'message' => $validator->errors()->first(),
             ];
         }
 
-        if ($data['persyaratan']) {
-            $persyaratan = $data['persyaratan'];
-            $persyaratan_name = time() . $persyaratan->getClientOriginalName();
-            $persyaratan->move('files/persyaratan', $persyaratan_name);
-            $data['persyaratan'] = $persyaratan_name;
-        }
+        // if ($data['persyaratan']) {
+        //     $persyaratan = $data['persyaratan'];
+        //     $persyaratan_name = time() . $persyaratan->getClientOriginalName();
+        //     $persyaratan->move('files/persyaratan', $persyaratan_name);
+        //     $data['persyaratan'] = $persyaratan_name;
+        // }
 
         Persyaratan::create([
             'rental_id' => Auth::user()->rental->id,
-            'persyaratan' => $data['persyaratan'],
+            'persyaratan' => $data['persyaratan'] ?? 'default.pdf',
             'keterangan' => $data['keterangan'],
         ]);
 

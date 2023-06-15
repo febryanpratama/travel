@@ -286,7 +286,7 @@
                                  </div>
                                  <div class="radio">
                                     <input type="radio" name="channel_pembayaran" class="check" id="PembayaranAwal" value="Pembayaran Awal" checked>
-                                    <label for="PembayaranAwal">Pembayaran Awal</label>
+                                    <label for="PembayaranAwal">Deposit Minimal <b>Rp. 200.000</b></label>
                                  </div>
                                  <div class="radio">
                                     <input type="radio" name="channel_pembayaran" class="check" id="Pelunasan" value="Pelunasan">
@@ -296,11 +296,11 @@
                                  @endforeach --}}
                               </div>
                               <hr>
-                              <div class="row">
-                                <div class="col-md-6" id="InputPembayaranAwal">
+                              {{-- <div class="row"> --}}
+                                {{-- <div class="col-md-6" id="InputPembayaranAwal">
                                     <label for="" class="control-label" id="namePembayaran">Nominal Pembayaran Awal</label>
                                     <input type="number" class="form-control" name="nominal" required>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="col-md-6" >
                                     <label for="" class="control-label" >Upload Bukti Pembayaran</label>
                                     <input type="file" class="form-control" name="bukti_pembayaran" required>
@@ -309,9 +309,9 @@
                                     <label for="" class="control-label">Pelunasan</label>
                                     <input type="number" class="form-control" name="pelunasan" >
                                 </div> --}}
-                              </div>
-                              <hr>
-                              <hr>
+                              {{-- </div>
+                              <hr> --}}
+                              {{-- <hr> --}}
                               <div class="row">
                                  <div class="col-md-6">
                                     <label for="" class="control-label">Lokasi Pengambilan Mobil</label>
@@ -369,15 +369,20 @@
                <label for="" class="control-label" style="padding: 1px"><h5>Detail Persyaratan</h5></label>
             </div>
          </div>
-         @foreach ($data->rental->syarat as $k=>$it)
          <hr>
          <div class="row">
-         {{-- <h4>Persyaratan</h4> --}}
-            <div class="col-md-6">Persyaratan {{ $k+1}}</div>
-            <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->persyaratan) }}" style="color: red">Lihat Dokumen</a></p></div>
+            {{-- <h4>Persyaratan</h4> --}}
+            <div class="col-md-12">
+               <ol>
+                  @foreach ($data->rental->syarat as $k=>$it)
+                  <li class="col-md-6">{{ $it->keterangan }}</li>
+                  @endforeach
+               </ol>
+            </div>
+            {{-- <div class="col-md-6">{{ $it->keterangan }}</div> --}}
+            {{-- <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->persyaratan) }}" style="color: red">Lihat Dokumen</a></p></div> --}}
          </div>
          <hr>
-         @endforeach
 
          <br>
          <br>
@@ -438,54 +443,54 @@
             $('#submit').removeAttr('disabled')
 
          })
-        $('.check').on('change', function(){
-            if($(this).is(':checked')){
-                let code = $(this).val();
-                // console.log(code)
+      //   $('.check').on('change', function(){
+      //       if($(this).is(':checked')){
+      //           let code = $(this).val();
+      //           // console.log(code)
 
-                if (code == 'Pembayaran Awal') {
-                    $('#namePembayaran').html('Nominal Pembayaran Awal')
-                }else{
-                    $('#namePembayaran').html('Nominal Pelunasan')
-                }
-                // let total = {{ $data->mobil->harga_mobil*App\Helpers\Format::days($data->start_date, $data->end_date) }}
+      //           if (code == 'Pembayaran Awal') {
+      //               $('#namePembayaran').html('Nominal Pembayaran Awal')
+      //           }else{
+      //               $('#namePembayaran').html('Nominal Pelunasan')
+      //           }
+      //           // let total = {{ $data->mobil->harga_mobil*App\Helpers\Format::days($data->start_date, $data->end_date) }}
 
-                // $.ajax({
-                //     url: "{{ url('api/calculator') }}",
-                //     type: "POST",
-                //     data: {
-                //         "_token": "{{ csrf_token() }}",
-                //         "code": code,
-                //         "amount": total
-                //     },
-                //     success: function(response){
+      //           // $.ajax({
+      //           //     url: "{{ url('api/calculator') }}",
+      //           //     type: "POST",
+      //           //     data: {
+      //           //         "_token": "{{ csrf_token() }}",
+      //           //         "code": code,
+      //           //         "amount": total
+      //           //     },
+      //           //     success: function(response){
 
-                //         // Response
-                //         if(code != 'COD'){
-                //             if(response.status == true){
-                //                 let totalamount = (total + response.data[0].fee.flat)
-                //                 let format = (totalamount).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 })
-                //                 $('#name').html(response.data[0].code);
-                //                 $('#total').html(format);
-                //                 $('#total_price').val(totalamount);
-                //                 $('#fee').val(response.data[0].fee.flat);
-                //             }else{
-                //                 $('#name').html(response.data[0].code);
-                //                 $('#total').html('Rp. 0');
-                //                 $('#total_price').val(total);
-                //                 $('#fee').val(0);
-                //             }
-                //         }else{
-                //             let format = (total).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 })
-                //             $('#name').html('COD');
-                //             $('#total').html(format);
-                //             $('#total_price').val(total);
-                //             $('#fee').val(0);
-                //         }
-                //     }
-                // });
-            }
-        });
+      //           //         // Response
+      //           //         if(code != 'COD'){
+      //           //             if(response.status == true){
+      //           //                 let totalamount = (total + response.data[0].fee.flat)
+      //           //                 let format = (totalamount).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 })
+      //           //                 $('#name').html(response.data[0].code);
+      //           //                 $('#total').html(format);
+      //           //                 $('#total_price').val(totalamount);
+      //           //                 $('#fee').val(response.data[0].fee.flat);
+      //           //             }else{
+      //           //                 $('#name').html(response.data[0].code);
+      //           //                 $('#total').html('Rp. 0');
+      //           //                 $('#total_price').val(total);
+      //           //                 $('#fee').val(0);
+      //           //             }
+      //           //         }else{
+      //           //             let format = (total).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 })
+      //           //             $('#name').html('COD');
+      //           //             $('#total').html(format);
+      //           //             $('#total_price').val(total);
+      //           //             $('#fee').val(0);
+      //           //         }
+      //           //     }
+      //           // });
+      //       }
+      //   });
 
         
         
