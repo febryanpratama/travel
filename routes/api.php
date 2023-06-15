@@ -26,3 +26,4 @@ Route::get('cars', [MobilController::class, 'getCars']);
 Route::post('/getDistance', [MobilController::class, 'getDistance']);
 
 Route::post('check-mail', [FrontController::class, 'checkMail']);
+Route::post('/fee', [MobilController::class, 'getFee']);

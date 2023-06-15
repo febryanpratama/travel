@@ -183,6 +183,14 @@ Route::group([
     });
 
     Route::group([
+        'prefix' => 'fee',
+        'controller' => MobilController::class,
+    ], function () {
+        Route::get('/', 'indexFee');
+        Route::post('/', 'storeFee');
+    });
+
+    Route::group([
         'prefix' => 'orders',
         'controller' => MobilController::class,
     ], function () {

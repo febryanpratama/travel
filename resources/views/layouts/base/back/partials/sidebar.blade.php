@@ -123,6 +123,11 @@
                         <i class="feather-settings"></i>Profil
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="{{ Request::is('rental/fee') ? 'active' : '' }}" href="{{ url('rental/fee') }}" class="nav-link ">
+                        <i class="feather-settings"></i>Fee
+                    </a>
+                </li>
                 @endrole
                 {{-- @role('rental')
                 <li class="nav-item">

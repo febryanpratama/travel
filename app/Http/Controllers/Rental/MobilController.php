@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Rental;
 
 use App\helpers\Format;
 use App\Http\Controllers\Controller;
+use App\Models\Fee;
 use App\Models\Kontrak;
 use App\Models\Mobil;
 use App\Models\Notifikasi;
@@ -426,5 +427,60 @@ class MobilController extends Controller
 
 
         return back()->withSuccess('Berhasil menghapus mobil');
+    }
+
+    public function indexFee()
+    {
+        $fee = Fee::where('rental_id', Auth::user()->rental->id)->get();
+
+        return view('pages.back.rental.fee', [
+            'data' => $fee
+        ]);
+    }
+
+    public function getFee(Request $request)
+    {
+        // dd($request->all());
+
+        // dd(Auth::user());
+
+        $explode = explode('-', $request['start']);
+
+        $data = penyewaan::where('rental_id', $request['rent'])->whereMonth('tanggal_mulai', $explode[1])->whereYear('tanggal_mulai', $explode[0])->sum('fee');
+
+        // dd($data);
+        return response()->json([
+            'status' => true,
+            'data' => $data
+        ]);
+    }
+
+    public function storeFee(Request $request)
+    {
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'nominal' => 'required|numeric',
+            'start' => 'required',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        };
+
+        $image = $request->file('bukti_pembayaran');
+        $fileName = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/images/fee');
+        $image->move($destinationPath, $fileName);
+        // if ($request->hasFile('bukti_pembayaran')) {
+        // }
+        Fee::create([
+            'rental_id' => Auth::user()->rental->id,
+            'nominal_pembayaran' => $request['nominal'],
+            'bukti_pembayaran' => $fileName,
+            'fee_date' => $request['start'],
+        ]);
+
+        return back()->withSuccess('Berhasil Melakukan Pembayaran Fee bulan ' . $request['start']);
     }
 }
