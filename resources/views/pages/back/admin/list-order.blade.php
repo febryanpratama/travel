@@ -56,7 +56,7 @@
                                             <br>
                                             {{ $item->tanggal_selesai }}</td>
                                         <td>{{ $item->rental->nama_rental }}</td>
-                                        <td>{{ $item->mobil->nama_mobil }}</td>
+                                        <td>{{ @$item->mobil->nama_mobil }}</td>
                                         <td>
                                             @switch($item->is_pembayaran)
                                                 @case('Lunas')

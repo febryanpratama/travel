@@ -25,6 +25,24 @@ class RentalController extends Controller
             'data' => $response['data']
         ]);
     }
+    public function indexStore()
+    {
+        // $response = $this->rentalService->indexStore();
+        return view('pages.back.admin.rental.indexStore', [
+            // 'data' => $response['data']
+        ]);
+    }
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        $response = $this->rentalService->store($request->all());
+        if (!$response['status']) {
+            return redirect()->back()->withErrors($response['message']);
+        } else {
+            return redirect('admin/rental')->withSuccess($response['message']);
+        }
+        // return redirect()->back()->withSuccess($response['message']);
+    }
 
     public function terima($id)
     {

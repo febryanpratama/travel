@@ -16,9 +16,20 @@
             <div class="settings-widget">
                <div class="settings-inner-blk p-0">
                   <div class="comman-space pb-0">
-                     <div class="sell-course-head withdraw-history-head border-bottom-0">
-                        <h3>Rental List</h3>
-                     </div>
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <div class="sell-course-head withdraw-history-head border-bottom-0">
+                               <h3>List Rental</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="text-align: right">
+                           <a href="{{ url('admin/rental/store') }}">
+                              <button type="button" class="btn btn-primary">
+                                  + Rental
+                              </button>
+                           </a>
+                        </div>
+                    </div>
                   </div>
                   <div class="comman-space pb-0">
                      <div class="settings-referral-blk course-instruct-blk  table-responsive">
@@ -92,4 +103,5 @@
       </div>
    </div>
 </div>
+
 @endsection

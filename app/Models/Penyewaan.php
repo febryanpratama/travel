@@ -14,7 +14,7 @@ class Penyewaan extends Model
 
     public function mobil()
     {
-        return $this->belongsTo(Mobil::class);
+        return $this->belongsTo(Mobil::class)->withTrashed();
     }
 
     public function rental()

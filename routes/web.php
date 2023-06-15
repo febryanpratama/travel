@@ -83,7 +83,8 @@ Route::group([
         'controller' => RentalController::class,
     ], function () {
         Route::get('/', 'index');
-        Route::post('/', 'store');
+        Route::get('/store', 'indexStore');
+        Route::post('/store', 'store');
 
         Route::get('{id}/detail', 'detail');
         Route::get('{id}/detail/supir', 'detailSupir');
@@ -99,6 +100,7 @@ Route::group([
         'controller' => AdminController::class,
     ], function () {
         Route::get('/', 'indexMobil');
+        Route::post('/', 'storeMobil');
     });
 
 
