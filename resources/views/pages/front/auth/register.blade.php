@@ -312,9 +312,9 @@
         //         )
         // })
         if (localStorage.getItem('latitude') == null || localStorage.getItem('longitude') == null) {
-            Swal.fire('Lokasi tidak ditemukan', 'Mohon aktifkan pelacakan lokasi untuk menggunakan aplikasi', 'error').then(function() {
-                window.location.reload();
-            });
+            // Swal.fire('Lokasi tidak ditemukan', 'Mohon aktifkan pelacakan lokasi untuk menggunakan aplikasi', 'error').then(function() {
+            //     window.location.reload();
+            // });
         } else {
             let latitude = localStorage.getItem('latitude');
             let longitude = localStorage.getItem('longitude');
