@@ -168,6 +168,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexKontrak');
         Route::post('/', 'storeKontrak');
+        Route::get('/{id}/hapus', 'hapusKontrak');
     });
     Route::group([
         'prefix' => 'persyaratan',
@@ -175,6 +176,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexPersyaratan');
         Route::post('/', 'storePersyaratan');
+        Route::get('/{id}/hapus', 'hapusPersyaratan');
     });
     Route::group([
         'prefix' => 'profil',
@@ -190,6 +192,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexFee');
         Route::post('/', 'storeFee');
+        // Route::get('/{id}/hapus', 'hapusFee');
     });
 
     Route::group([

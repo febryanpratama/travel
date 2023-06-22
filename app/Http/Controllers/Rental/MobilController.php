@@ -111,6 +111,19 @@ class MobilController extends Controller
         }
     }
 
+    public function hapusKontrak($id)
+    {
+        $detail = Kontrak::where('id', $id)->first();
+
+        if (!$detail) {
+            return redirect()->back()->withErrors('Data tidak ditemukan');
+        }
+
+        $detail->delete();
+
+        return redirect()->back()->withSuccess('Data berhasil dihapus');
+    }
+
     public function indexPersyaratan()
     {
         $data = Persyaratan::where('rental_id', Auth::user()->rental->id)->get();
@@ -131,6 +144,19 @@ class MobilController extends Controller
         } else {
             return redirect()->back()->withSuccess($response['message']);
         }
+    }
+
+    public function hapusPersyaratan($id)
+    {
+        $detail = Persyaratan::where('id', $id)->first();
+
+        if (!$detail) {
+            return redirect()->back()->withErrors('Data tidak ditemukan');
+        }
+
+        $detail->delete();
+
+        return redirect()->back()->withSuccess('Data berhasil dihapus');
     }
 
     public function indexOrders()

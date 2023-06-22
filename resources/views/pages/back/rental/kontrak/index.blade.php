@@ -62,8 +62,10 @@
                                                 </svg>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/terima') }}">Terima</a></li>
-                                                <li><a class="dropdown-item" href="#">Tolak</a></li>
+                                                {{-- <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/terima') }}">Terima</a></li> --}}
+                                                {{-- <li><a class="dropdown-item" href="#">Tolak</a></li> --}}
+                                                <li><a class="dropdown-item" href="{{ url('rental/kontrak/'.$item->id.'/hapus') }}">Hapus</a></li>
+
                                                 {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                                             </ul>
                                         </td>
