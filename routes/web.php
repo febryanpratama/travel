@@ -89,7 +89,9 @@ Route::group([
         Route::get('{id}/detail', 'detail');
         Route::get('{id}/detail/supir', 'detailSupir');
 
+        Route::get('/{id}/ubah', 'ubah');
         Route::get('/{id}/terima', 'terima');
+        Route::get('/{id}/hapus', 'hapus');
 
 
         // Route::get('/kontrak', 'indexKontrak');

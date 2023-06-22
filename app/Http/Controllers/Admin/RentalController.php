@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Rental;
+use App\Models\User;
 use App\Services\Admin\RentalService;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,32 @@ class RentalController extends Controller
     {
         $response = $this->rentalService->terima($id);
         return redirect()->back()->withSuccess($response['message']);
+    }
+
+    public function hapus($id)
+    {
+        $user = User::where('id', $id)->update([
+            'is_active' => '0'
+        ]);
+
+        return back()->withSuccess('Berhasil Menonaktifkan Akun');
+    }
+
+    public function ubah($id)
+    {
+        // dd($id);
+        $data = User::with('rental')->where('id', $id)->first();
+        // dd($data);
+        // dd($data->rental);
+        if ($data->rental->tipe == 'rental') {
+            return view('pages.back.admin.rental.ubah', [
+                'data' => $data
+            ]);
+        } else {
+            return view('pages.back.admin.rental.ubahperorangan', [
+                'data' => $data
+            ]);
+        }
     }
 
     public function detail($id)

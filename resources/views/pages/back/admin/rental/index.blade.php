@@ -49,6 +49,7 @@
                            </thead>
                            <tbody class="text-center">
                                @foreach ($data as $key=>$item)
+                               {{-- {{ dd($item) }} --}}
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ @$item->rental->nama_rental }}</td>
@@ -85,8 +86,9 @@
                                              </button>
                                           
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/ubah') }}">Ubah</a></li>
                                                 <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/terima') }}">Terima</a></li>
-                                                <li><a class="dropdown-item" href="#">Tolak</a></li>
+                                                <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/hapus') }}">Tolak</a></li>
                                                 {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                                             </ul>
                                         </td>
