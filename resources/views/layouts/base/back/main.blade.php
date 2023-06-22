@@ -43,6 +43,12 @@
 
 
     <link rel="stylesheet" href="{{ asset('') }}assets/back/css/style.css">
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+
     <style>
         .checked {
             color: orange;
@@ -77,7 +83,7 @@
 
 
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="{{ asset('') }}assets/back/plugins/jquery/jquery.min.js"></script>
+    {{-- <script src="{{ asset('') }}assets/back/plugins/jquery/jquery.min.js"></script> --}}
 
     <script src="{{ asset('') }}assets/back/js/bootstrap.bundle.min.js"></script>
 
@@ -121,6 +127,11 @@
         <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
         
     <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script> --}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -154,6 +165,22 @@
     </script>
 
     @yield('script')
+    <script>
+        $(document).ready(function(){
+            function exportTableToPDF() {
+            }
+            
+            $('#exportButton').on('click', function() {
+                console.log('export')
+                var doc = new jsPDF();
+                doc.autoTable({ html: '#datatable' });
+                doc.save('table.pdf');
+                // exportTableToPDF();
+            });
+
+            // window.jsPDF = window.jspdf.jsPDF;
+        })
+    </script>
 </body>
 
 <!-- Mirrored from dreamslms.dreamguystech.com/laravel/public/instructor-dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 16:59:41 GMT -->

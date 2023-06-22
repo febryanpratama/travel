@@ -22,7 +22,9 @@
                                <h3>List Pengemudi</h3>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="text-align: right">
+                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Pengemudi
                             </button>

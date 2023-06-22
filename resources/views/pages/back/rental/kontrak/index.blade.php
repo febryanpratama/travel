@@ -23,6 +23,8 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Kontrak
                             </button>

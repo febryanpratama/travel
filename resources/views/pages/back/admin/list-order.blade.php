@@ -22,11 +22,12 @@
                                <h3>List Order</h3>
                             </div>
                         </div>
-                        {{-- <div class="col-md-6">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <div class="col-md-6">
+                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+                            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Mobil
-                            </button>
-                        </div> --}}
+                            </button> --}}
+                        </div>
                     </div>
                   </div>
                   <div class="comman-space pb-0">
@@ -35,7 +36,7 @@
                            <thead class="text-center">
                               <tr class="text-center">
                                  
-                                 <th>#</th>
+                                 <th>No</th>
                                  <th>Kode Invoice</th>
                                  <th>Tanggal Penyewaan</th>
                                  <th>Jasa Rental</th>
