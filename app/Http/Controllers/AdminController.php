@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fee;
 use App\Models\Mobil;
 use App\Models\Penyewaan;
 use App\Models\Rental;
@@ -21,6 +22,16 @@ class AdminController extends Controller
         return view('pages.back.admin.list-mobil', [
             'data' => $data,
             'rental' => $rental
+        ]);
+    }
+
+    public function indexFee()
+    {
+        $data = Fee::with('rental')->get();
+
+        // dd($data);
+        return view('pages.back.admin.fee', [
+            'data' => $data
         ]);
     }
 

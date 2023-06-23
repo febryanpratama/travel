@@ -98,6 +98,13 @@ Route::group([
     });
 
     Route::group([
+        'prefix' => 'fee',
+        'controller' => AdminController::class,
+    ], function () {
+        Route::get('/', 'indexFee');
+        // Route::post('/', 'storeMobil');
+    });
+    Route::group([
         'prefix' => 'mobil',
         'controller' => AdminController::class,
     ], function () {

@@ -11,4 +11,9 @@ class Fee extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = ['id'];
+
+    public function rental()
+    {
+        return $this->belongsTo(Rental::class, 'rental_id', 'id');
+    }
 }
