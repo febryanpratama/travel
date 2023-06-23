@@ -93,6 +93,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="{{ Request::is('admin/fee') ? 'active' : '' }}" href="{{ url('admin/fee') }}" class="nav-link">
+                        <i class="feather-users"></i> Data Fee
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="{{ Request::is('admin/profil') ? 'active' : '' }}" href="{{ url('admin/profil') }}" class="nav-link">
                         <i class="feather-users"></i> Profil
                     </a>
