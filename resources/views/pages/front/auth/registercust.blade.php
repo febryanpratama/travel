@@ -161,6 +161,11 @@
                                         <div id="passwordInfo"></div>
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div id="map" style="width: 100%;height: 300px"></div>
+                                    {{-- <div class="form-group"> --}}
+                                    {{-- </div> --}}
+                                </div>
                             </div>
                             <div class="d-grid">
                                 <button class="btn btn-primary btn-start" type="submit">Buat Akun</button>
@@ -257,6 +262,25 @@
                 
             });
         }
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(localStorage.getItem('latitude'), localStorage.getItem('longitude'));
+
+            var myOptions = {
+                zoom: 17,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+            var marker = new google.maps.Marker({
+                draggable: false,
+                position: myLatlng,
+                map: map,
+                title: "Your location"
+            });
+        }
+        window.addDomListener("load", initialize());
+
     </script>
     <script>
 
