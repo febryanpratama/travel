@@ -286,6 +286,20 @@ class FrontService
 
 
             $mobil = Mobil::with('rental')->where('id', $mobil_id)->first();
+
+            $cekdata = Penyewaan::where('mobil_id', $mobil_id)
+                ->where('tanggal_mulai', '<=', $data['tanggal_mulai'])
+                ->where('tanggal_selesai', '>=', $data['tanggal_selesai'])
+                ->whereIn('is_status', ['Keranjang', 'Selesai Digunakan', 'Sudah Dikembalikan', 'Ditolak'])
+                ->first();
+
+            // dd($cekdata);
+            if ($cekdata) {
+                return [
+                    'status' => false,
+                    'message' => 'Mobil sudah disewa pada tanggal tersebut'
+                ];
+            }
             // dd(Auth::user()->pelanggan);
             $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $data['tanggal_mulai'] . ' 00:00:00');
             $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $data['tanggal_selesai'] . ' 23:59:59');

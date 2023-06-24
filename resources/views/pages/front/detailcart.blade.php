@@ -294,6 +294,15 @@
                                  </div>
                                  {{-- @foreach ($channel as $item)
                                  @endforeach --}}
+                                 <div class="heading-block text-left margin-bottom-30">
+                                    <h4>Informasi Pembayaran</h4><br>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-12 margin-bottom-30">
+                                       <p> Bank Rekening : <b>{{ $data->rental->nama_bank }}</b> <br> Nama Pemilik : <b>{{ $data->rental->nama_rekening}}</b> <br> Nomor Rekening:  <b>{{ $data->rental->no_rekening }}</b></p>
+                                    </div>
+
+                                 </div>
                               </div>
                               <hr>
                               {{-- <div class="row"> --}}
