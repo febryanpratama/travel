@@ -79,10 +79,14 @@ class FrontController extends Controller
     {
         $response = $this->frontService->getDetailMobil($id);
 
+        if (!$response['status']) {
+            return back()->withErrors($response['message']);
+        } else {
+            return view('pages.front.detail', [
+                'data' => $response['data'],
+            ]);
+        }
         // dd($response);
-        return view('pages.front.detail', [
-            'data' => $response['data'],
-        ]);
     }
     public function getCar(Request $request)
     {

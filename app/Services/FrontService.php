@@ -20,7 +20,7 @@ class FrontService
 
     public static function getMobil()
     {
-        $data = Mobil::with('rental')->limit(8)->get();
+        $data = Mobil::with('rental')->where('deleted_at', null)->limit(8)->get();
 
         return [
             'status' => true,
@@ -252,6 +252,12 @@ class FrontService
         $data = Mobil::with('rental', 'rating')->where('id', $mobil_id)->first();
 
         // dd($data);
+        if (!$data) {
+            return [
+                'status' => false,
+                'message' => 'Data tidak ditemukan'
+            ];
+        }
         return [
             'status' => true,
             'data' => $data
