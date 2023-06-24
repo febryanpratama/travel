@@ -304,13 +304,15 @@
                                             </div>
                                             <div class="x_car_offer_heading float_left">
                                                 <ul>
-                                                    <li> <a href="#"><i class="fa fa-users"></i> &nbsp;{{ $item->kapasitas_mobil }}</a>
+                                                    <li> <a href="#">{{ $item->merk_mobil }}</a>
                                                     </li>
-                                                    <li> <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
+                                                    <li> <a href="#">{{ $item->kapasitas_mobil }} Seat</a>
                                                     </li>
-                                                    <li> <a href="#"><i class="fa fa-briefcase"></i> &nbsp;9</a>
+                                                    <li> <a href="#">{{ $item->transmisi_mobil }}</a>
                                                     </li>
-                                                    <li>
+                                                    <li> <a href="#">{{ $item->jenis_bbm }}</a>
+                                                    </li>
+                                                    {{-- <li>
                                                         <div class="nice-select" tabindex="0"> <span class="current"><i
                                                                     class="fa fa-bars"></i></span>
                                                             <ul class="list">
@@ -326,7 +328,7 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                    </li>
+                                                    </li> --}}
                                                 </ul>
                                             </div>
                                             <div class="x_car_offer_bottom_btn float_left">
