@@ -63,8 +63,8 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                 {{-- <li><a class="dropdown-item" href="{{ url('admin/rental/'.$item->id.'/terima') }}">Terima</a></li> --}}
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">Ubah</a></li>
                                                 <li><a class="dropdown-item" href="{{ url('rental/persyaratan/'.$item->id.'/hapus') }}">Hapus</a></li>
-                                                {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                                             </ul>
                                         </td>
                                     </tr>
@@ -80,6 +80,39 @@
       </div>
    </div>
 </div>
+
+@foreach ($data as $it)
+<div class="modal fade" id="editModal{{ $it->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ubah Persyaratan Mobil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ url('rental/persyaratan/'.$it->id.'/ubah') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                        {{-- <div class="col-md-6 mt-1">
+                            <label for="" class="control-label">Nama Persyaratan</label>
+                            <input type="file" name="persyaratan" class="form-control" required>
+                        </div> --}}
+                        <div class="col-md-12 mt-1">
+                            <label for="" class="control-label">Keterangan Persyaratan</label>
+                            <input type="text" name="keterangan" value="{{ $it->keterangan }}" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+        </form>
+        </div>
+    </div>
+</div>
+    
+@endforeach
 
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">

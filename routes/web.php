@@ -175,6 +175,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexKontrak');
         Route::post('/', 'storeKontrak');
+        Route::post('/{id}/ubah', 'ubahKontrak');
         Route::get('/{id}/hapus', 'hapusKontrak');
     });
     Route::group([
@@ -183,6 +184,7 @@ Route::group([
     ], function () {
         Route::get('/', 'indexPersyaratan');
         Route::post('/', 'storePersyaratan');
+        Route::post('/{id}/ubah', 'ubahPersyaratan');
         Route::get('/{id}/hapus', 'hapusPersyaratan');
     });
     Route::group([

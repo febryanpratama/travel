@@ -289,12 +289,15 @@
                                             <div class="x_car_offer_price float_left">
                                                 <div class="x_car_offer_price_inner">
                                                     {{-- <h6><i class="fa fa-tag"></i> &nbsp;15% off Deal</h6> --}}
-                                                    <h3 style="font-size: 20px">Rp. {{ App\helpers\Format::formatRupiah($item->harga_sewa_mobil) }}</h3>
-                                                    <p><span>K</span>
+                                                    {{-- <h3 style="font-size: 20px">Rp. {{ App\helpers\Format::formatRupiah($item->harga_sewa_mobil) }}</h3> --}}
+                                                    <h3 style="font-size: 16px">Rp. {{ number_format($item->harga_sewa_mobil) }}</h3>
+                                                    {{-- <h3>Hari</h3> --}}
+                                                    {{-- <p><span>K</span>
                                                         <br>/ hari
-                                                    </p>
+                                                    </p> --}}
                                                 </div>
                                             </div>
+                                            {{-- <h3>Hari</h3> --}}
                                             <div class="x_car_offer_heading float_left">
                                                 <h2><a href="#">{{ $item->nama_mobil }}</a></h2>
                                                 <p>{{ $item->tipe_mobil }}</p>

@@ -111,6 +111,21 @@ class MobilController extends Controller
         }
     }
 
+    public function ubahKontrak(Request $request, $id)
+    {
+        $detail = Kontrak::where('id', $id)->first();
+
+        if (!$detail) {
+            return redirect()->back()->withErrors('Data tidak ditemukan');
+        }
+
+        $detail->update([
+            'keterangan' => $request->keterangan
+        ]);
+
+        return redirect()->back()->withSuccess('Data berhasil diubah');
+    }
+
     public function hapusKontrak($id)
     {
         $detail = Kontrak::where('id', $id)->first();
@@ -144,6 +159,22 @@ class MobilController extends Controller
         } else {
             return redirect()->back()->withSuccess($response['message']);
         }
+    }
+
+    public function ubahPersyaratan(Request $request, $id)
+    {
+
+        $detail = Persyaratan::where('id', $id)->first();
+
+        if (!$detail) {
+            return redirect()->back()->withErrors('Data tidak ditemukan');
+        }
+
+        $detail->update([
+            'keterangan' => $request->keterangan
+        ]);
+
+        return redirect()->back()->withSuccess('Data berhasil diubah');
     }
 
     public function hapusPersyaratan($id)
