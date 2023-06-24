@@ -147,7 +147,7 @@ class MobilService
     static function storeKontrak($data)
     {
         $validator = Validator::make($data, [
-            'perjanjian' => 'required|mimes:pdf|max:2048',
+            // 'perjanjian' => 'required|mimes:pdf|max:2048',
             'keterangan' => 'required',
         ]);
 
@@ -159,16 +159,16 @@ class MobilService
             ];
         }
 
-        if ($data['perjanjian']) {
-            $perjanjian = $data['perjanjian'];
-            $perjanjian_name = time() . $perjanjian->getClientOriginalName();
-            $perjanjian->move('files/perjanjian', $perjanjian_name);
-            $data['perjanjian'] = $perjanjian_name;
-        }
+        // if ($data['perjanjian']) {
+        //     $perjanjian = $data['perjanjian'];
+        //     $perjanjian_name = time() . $perjanjian->getClientOriginalName();
+        //     $perjanjian->move('files/perjanjian', $perjanjian_name);
+        //     $data['perjanjian'] = $perjanjian_name;
+        // }
 
         $kontrak = Kontrak::create([
             'rental_id' => Auth::user()->rental->id,
-            'perjanjian' => $data['perjanjian'],
+            'perjanjian' => $data['perjanjian'] ?? 'default.pdf',
             'keterangan' => $data['keterangan'],
         ]);
 

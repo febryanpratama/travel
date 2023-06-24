@@ -395,8 +395,15 @@
          <hr>
          <div class="row">
          {{-- <h4>Persyaratan</h4> --}}
-            <div class="col-md-6">Kontrak {{ $k+1}}</div>
-            <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->perjanjian) }}" style="color: red">Lihat Dokumen</a></p></div>
+            <div class="col-md-12">
+               <ol>
+                  @foreach ($data->rental->kontrak as $k=>$it)
+                  <li class="col-md-6">{{ $it->keterangan }}</li>
+                  @endforeach
+               </ol>
+            </div>
+            {{-- <div class="col-md-6">Kontrak {{ $k+1}}</div>
+            <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->perjanjian) }}" style="color: red">Lihat Dokumen</a></p></div> --}}
          </div>
          <hr>
          @endforeach

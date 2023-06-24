@@ -47,7 +47,6 @@
                         <i class="feather-book"></i> My Cars
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="{{ Request::is('rental/persyaratan') ? 'active' : '' }}" href="{{ url('rental/persyaratan') }}" class="nav-link">
                         <i class="feather-shopping-bag"></i> Persyaratan
@@ -76,7 +75,6 @@
                         <i class="feather-shopping-bag"></i> Orders
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="{{ Request::is('admin/rental') ? 'active' : '' }}" href="{{ url('admin/rental') }}" class="nav-link">
                         <i class="feather-users"></i> Data Rental
@@ -102,7 +100,6 @@
                         <i class="feather-users"></i> Profil
                     </a>
                 </li>
-
                 @endrole
 
                 @role('user')
