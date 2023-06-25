@@ -96,8 +96,14 @@
                                         </div>
                                         <div class="x_car_access_right_price_main_box_inner_right_wrapper">
                                             <div class="x_car_acc_price_dollar_wrapper">
-                                                <h3>{{ App\Helpers\Format::formatRupiah($item->mobil->harga_sewa_mobil)*App\Helpers\Format::days($item->tanggal_mulai, $item->tanggal_selesai) }}k</h3>
+												{{-- {{ dd(+$item) }} --}}
+                                                <h3>Rp. {{ number_format(($item->mobil->harga_sewa_mobil*App\Helpers\Format::days($item->tanggal_mulai, $item->tanggal_selesai))+$item->hargasopir) }}</h3>
                                                 <p>/ {{ App\Helpers\Format::days($item->tanggal_mulai, $item->tanggal_selesai) }} days</p>
+                                                <p>
+													@if ($item->hargasopir != null)
+													dengan supir
+													@endif
+												</p>
                                             </div>
                                             <div class="x_car_acc_price_dollar_count_wrapper">
                                                 <a href="{{ url('cart/'.$item->id) }}" class="btn btn-primary mt-3">Pilih</a>

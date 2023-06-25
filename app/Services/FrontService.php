@@ -285,7 +285,9 @@ class FrontService
         try {
 
 
-            $mobil = Mobil::with('rental')->where('id', $mobil_id)->first();
+
+            $mobil = Mobil::with('supir', 'rental')->where('id', $mobil_id)->first();
+            // dd($mobil->supir);
 
             $cekdata = Penyewaan::where('mobil_id', $mobil_id)
                 ->where('tanggal_mulai', '<=', $data['tanggal_mulai'])
@@ -308,6 +310,13 @@ class FrontService
 
             // dd($diff_in_days);
 
+            // dd($mobil->supir->harga);
+            if (array_key_exists('is_driver', $data)) {
+                $data['hargasupir'] = $data['is_driver'] == 'on' ? $mobil->supir->harga : null;
+            } else {
+                $data['hargasupir'] = null;
+            }
+
             $sewa = Penyewaan::create([
                 'mobil_id' => $mobil_id,
                 'rental_id' => $mobil->rental->id,
@@ -318,7 +327,8 @@ class FrontService
                 'total_hari' => $diff_in_days,
                 'harga' => $mobil->harga_sewa_mobil,
                 'total_harga' => ($diff_in_days * $mobil->harga_sewa_mobil),
-                'is_status' => 'Keranjang'
+                'is_status' => 'Keranjang',
+                'hargasopir' => $data['hargasupir'],
             ]);
             DB::commit();
             return [

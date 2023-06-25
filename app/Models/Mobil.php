@@ -21,4 +21,9 @@ class Mobil extends Model
     {
         return $this->hasMany(Rating::class, 'mobil_id', 'id');
     }
+
+    public function supir()
+    {
+        return $this->belongsTo(Supir::class);
+    }
 }

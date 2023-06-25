@@ -41,6 +41,7 @@
                                  <th>Nama Pengemudi</th>
                                  <th>No Hp</th>
                                  <th>Alamat</th>
+                                 <th>Harga</th>
                                  <th>Foto</th>
                                  <th>Aksi</th>
                               </tr>
@@ -52,6 +53,7 @@
                                         <td>{{ $item->nama_supir }}</td>
                                         <td>{{ $item->no_hp }}</td>
                                         <td>{{ $item->alamat }}</td>
+                                        <td>Rp. {{ number_format($item->harga) }}</td>
                                         <td>
                                             <img src="{{ asset('images/supir/'.$item->foto) }}" width="50" height="50" alt="">
                                         </td>
@@ -111,6 +113,10 @@
                                 <input type="text" name="alamat" class="form-control" value="{{ $d->alamat }}" required>
                             </div>
                             <div class="col-md-6 mt-1">
+                                <label for="" class="control-label">Harga</label>
+                                <input type="number" name="harga" value="{{ $d->harga }}" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mt-1">
                                 <label for="" class="control-label">Foto</label>
                                 <input type="file" name="foto" class="form-control">
                             </div>
@@ -148,6 +154,10 @@
                         <div class="col-md-6 mt-1">
                             <label for="" class="control-label">Alamat</label>
                             <input type="text" name="alamat" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mt-1">
+                            <label for="" class="control-label">Harga</label>
+                            <input type="number" name="harga" class="form-control" required>
                         </div>
                         <div class="col-md-6 mt-1">
                             <label for="" class="control-label">Foto</label>

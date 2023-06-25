@@ -408,6 +408,7 @@ class MobilController extends Controller
             'nama_supir' => $request['nama_supir'],
             'no_hp' => $request['no_hp'],
             'alamat' => $request['alamat'],
+            'harga' => $request['harga']
         ]);
 
         return back()->withSuccess('Data Supir Berhasil Diubah');

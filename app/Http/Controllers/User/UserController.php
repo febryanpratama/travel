@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function detailOrders($id)
     {
-        $data = Penyewaan::with('mobil', 'rental', 'customer', 'pengantaran', 'pengembalian')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
+        $data = Penyewaan::with('mobil', 'mobil.supir', 'rental', 'customer', 'pengantaran', 'pengembalian')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->where('id', $id)->first();
 
         if (!$data) {
             # code...

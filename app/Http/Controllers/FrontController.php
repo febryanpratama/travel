@@ -102,6 +102,7 @@ class FrontController extends Controller
 
     public function detailPost(Request $request, $mobil_id)
     {
+        // dd($request->all());
         // dd(Auth::user()->roles->pluck('name')[0]);
         if (!Auth::user()) {
             return redirect('/login')->withErrors('Silahkan Login Sebagai User');
@@ -141,7 +142,7 @@ class FrontController extends Controller
         if (!Auth::user()) {
             return redirect('/login')->withErrors('Silahkan Login Sebagai User');
         }
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', Auth::user()->pelanggan->id)->where('is_status', 'Keranjang')->where('is_pembayaran', 'Belum Dibayar')->get();
+        $data = Penyewaan::with('mobil', 'mobil.supir', 'rental', 'customer')->where('customer_id', Auth::user()->pelanggan->id)->where('is_status', 'Keranjang')->where('is_pembayaran', 'Belum Dibayar')->get();
 
         return view('pages.front.cart', [
             'data' => $data

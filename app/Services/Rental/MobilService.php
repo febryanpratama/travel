@@ -253,6 +253,7 @@ class MobilService
             'foto' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required',
+            'harga' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -275,6 +276,7 @@ class MobilService
             'foto' => $data['foto'],
             'no_hp' => $data['no_hp'],
             'alamat' => $data['alamat'],
+            'harga' => $data['harga']
         ]);
 
         return [

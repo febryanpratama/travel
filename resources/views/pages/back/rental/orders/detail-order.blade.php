@@ -100,9 +100,25 @@
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Total Harga</label>
-                        <input type="text" class="form-control" value="{{ number_format($data->total_harga, 0) }}" readonly>
+                        <input type="text" class="form-control" value="{{ number_format(($data->total_harga+@$data->hargasopir), 0) }}" readonly>
+
+                        {{-- <input type="text" class="form-control" value="{{ number_format($data->total_harga, 0) }}" readonly> --}}
                      </div>
                   </div>
+                  @if ($data->hargasopir != null)
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="form-control-label">Nama Supir</label>
+                           <input type="text" class="form-control" value="{{ $data->mobil->supir->nama_supir }}" readonly>
+                        </div>
+                     </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                           <label class="form-control-label">Nomor Telpon Supir</label>
+                           <input type="text" class="form-control" value="{{ $data->mobil->supir->no_hp }}" readonly>
+                        </div>
+                     </div>
+                  @endif
                </div>
             </form>
          </div>
@@ -139,6 +155,10 @@
          <div class="col-md-12 mt-2">
             <label for="">Keterangan</label>
             <input type="text" class="form-control" value="{{ @$data->pengembalian == null ? "Tidak Ada Keterangan" : @$data->pengembalian->keterangan }}">
+         </div>
+         <div class="col-md-12 mt-2">
+            <label for="">Denda</label>
+            <input type="text" class="form-control" value="{{ @$data->denda == null ? "Tidak Ada Denda" : @$data->pengembalian->denda }}">
          </div>
       </div>
    </div>

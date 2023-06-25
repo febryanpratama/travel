@@ -159,6 +159,26 @@
                            </div>
                         </div>
                         <hr>
+                        @if ($data->hargasopir != null)
+                        <div class="panel panel-default x_car_inner_acc_acordion_padding x_car_inner_acc_acordion_padding_last">
+                           <div class="panel-heading car_checkout_caret">
+                              <h5 class="panel-title">
+                                 <a href="#"> Harga Sopir &amp;</a>
+                              </h5>
+                           </div>
+                           <div class="collapse show">
+                              <div class="panel-body">
+                                 <div class="x_car_acc_filter_date">
+                                    <ul>
+                                       <li>Rp. {{ number_format($data->hargasopir) }}</li>
+                                       {{-- <li>Place </li> --}}
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <hr>
+                        @endif
                         {{-- <div class="panel panel-default x_car_inner_acc_acordion_padding x_car_inner_acc_acordion_padding_last">
                            <div class="panel-heading car_checkout_caret">
                               <h5 class="panel-title">
@@ -211,7 +231,7 @@
                               <li>Nama <span id="name"> </span></li>
                            </ul>
                            <ul class="mt-2">
-                              <li>total <span id="total"> Rp. {{ number_format($data->mobil->harga_sewa_mobil*App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai),'0') }}</span></li>
+                              <li>total <span id="total"> Rp. {{ number_format(($data->mobil->harga_sewa_mobil*App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai)+$data->hargasopir),'0') }}</span></li>
                            </ul>
                         </div>
                      </div>
