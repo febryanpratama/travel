@@ -331,13 +331,13 @@ class MobilController extends Controller
             try {
                 $data->update([
                     'is_status' => 'Sudah Dikembalikan',
-                    'denda' => $body['denda'] == null ? 0 : $body['denda'],
                     'keterangan' => $body['keterangan'] == null ?  $body['keterangan'] : null,
                 ]);
 
                 Pengembalian::create([
                     'penyewaan_id' => $data->id,
                     'keterangan' => $request->keterangan,
+                    'denda' => $body['denda'] == null ? 0 : $body['denda'],
                     'tanggal_pengembalian' => Carbon::now(),
                 ]);
 
