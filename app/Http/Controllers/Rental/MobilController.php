@@ -331,6 +331,8 @@ class MobilController extends Controller
             try {
                 $data->update([
                     'is_status' => 'Sudah Dikembalikan',
+                    'is_pembayaran' => 'Lunas',
+                    'total_pembayaran' => $data->total_harga,
                     'keterangan' => $body['keterangan'] == null ?  $body['keterangan'] : null,
                 ]);
 
