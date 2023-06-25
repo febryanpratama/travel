@@ -158,7 +158,7 @@
          </div>
          <div class="col-md-12 mt-2">
             <label for="">Denda</label>
-            <input type="text" class="form-control" value="{{ @$data->denda == null ? "Tidak Ada Denda" : @$data->pengembalian->denda }}">
+            <input type="text" class="form-control" value="Rp. {{ number_format(@$data->denda == null ? "Tidak Ada Denda" : @$data->pengembalian->denda) }}">
          </div>
       </div>
    </div>
