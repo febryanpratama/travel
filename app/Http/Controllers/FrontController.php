@@ -86,7 +86,6 @@ class FrontController extends Controller
                 'data' => $response['data'],
             ]);
         }
-        // dd($response);
     }
     public function getCar(Request $request)
     {
