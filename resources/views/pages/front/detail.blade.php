@@ -101,8 +101,10 @@
 										<span>buka - selesai : </span><span id="rev">{{ $data->rental->jam_mulai }} - {{ $data->rental->jam_selesai }}</span>
 									</div>
 									<div class="x_car_detail_slider_bottom_cont_right">
-										<h3>Rp. {{ App\Helpers\format::formatRupiah($data->harga_sewa_mobil) }}</h3>
-										<p><span>K</span>
+										{{-- <h3>Rp. {{ App\Helpers\format::formatRupiah($data->harga_sewa_mobil) }}</h3> --}}
+										<h3>Rp. {{ number_format($data->harga_sewa_mobil) }}</h3>
+										<p>
+											{{-- <span>K</span> --}}
 											<br>/ hari
 										</p>
 									</div>

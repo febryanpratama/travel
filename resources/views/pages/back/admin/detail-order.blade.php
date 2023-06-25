@@ -119,6 +119,63 @@
                </div>
             </form>
          </div>
+
+         <div class="comman-space pb-0">
+            <h3>Detail Kontrak</h3>
+            <div class="settings-referral-blk course-instruct-blk  table-responsive">
+               <table class="table table-nowrap mb-0" id="datatable">
+                  <thead class="text-center">
+                     <tr class="text-center">
+                        
+                        <th>#</th>
+                        {{-- <th>Nama Kontrak / Persyaratan</th> --}}
+                        <th>Keterangan</th>
+                     </tr>
+                  </thead>
+                  <tbody class="text-center">
+                        @foreach ($data->rental->kontrak as $key=>$dd)
+                        {{-- {{ dd($data) }} --}}
+                           <tr>
+                                 <td>#</td>
+                                 {{-- <td><a href="{{ asset('files/perjanjian/'.$item->perjanjian) }}" target="_blank">Lihat</a></td> --}}
+                                 <td>{{ $dd->keterangan }}</td>
+                                 
+                           </tr>
+                        @endforeach
+                        {{-- @foreach ($data->rental->syarat as $key=>$item)
+                           <tr>
+                                 <td>#</td>
+                                 <td>{{ $item->keterangan }}</td>
+                           </tr>
+                        @endforeach --}}
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <div class="comman-space pb-0">
+            <h3>Detail Persyaratan</h3>
+            <div class="settings-referral-blk course-instruct-blk  table-responsive">
+               <table class="table table-nowrap mb-0" id="datatable">
+                  <thead class="text-center">
+                     <tr class="text-center">
+                        
+                        <th>#</th>
+                        {{-- <th>Nama Kontrak / Persyaratan</th> --}}
+                        <th>Keterangan</th>
+                     </tr>
+                  </thead>
+                  <tbody class="text-center">
+                        
+                        @foreach ($data->rental->syarat as $key=>$ps)
+                           <tr>
+                                 <td>#</td>
+                                 <td>{{ $ps->keterangan }}</td>
+                           </tr>
+                        @endforeach
+                  </tbody>
+               </table>
+            </div>
+         </div>
       </div>
    </div>
    <div class="card">

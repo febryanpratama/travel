@@ -93,7 +93,7 @@
                         <div class="x_car_access_filer_top_img">
                            <img src="{{ asset('images/cars/'.$data->mobil->foto_mobil) }}" alt="car_img" class="img-fluid">
                            <h3>{{ $data->mobil->nama_mobil }}</h3>
-                           <p>{{ App\Helpers\Format::formatRupiah($data->mobil->harga_sewa_mobil) }}k (1 day)</p>
+                           <p>{{ number_format($data->mobil->harga_sewa_mobil) }} (1 day)</p>
                         </div>
                         <hr>
                         <!-- Company -->
@@ -113,8 +113,8 @@
                                        <tbody>
                                           <tr class="text-center">
                                              <td>{{ App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai) }} Day</td>
-                                             <td>{{ App\Helpers\Format::formatRupiah($data->mobil->harga_sewa_mobil) }}k</td>
-                                             <td>{{ App\Helpers\Format::formatRupiah($data->mobil->harga_sewa_mobil)*App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai) }}k</td>
+                                             <td>{{ number_format($data->mobil->harga_sewa_mobil) }}</td>
+                                             <td>{{ number_format($data->mobil->harga_sewa_mobil*App\Helpers\Format::days($data->tanggal_mulai, $data->tanggal_selesai)) }}</td>
                                           </tr>
                                        </tbody>
                                     </table>
