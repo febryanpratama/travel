@@ -24,12 +24,12 @@ class Rental extends Model
 
     public function syarat()
     {
-        return $this->hasMany(Persyaratan::class, 'rental_id', 'id')->withTrashed();
+        return $this->hasMany(Persyaratan::class, 'rental_id', 'id');
     }
 
     public function kontrak()
     {
-        return $this->hasMany(Kontrak::class, 'rental_id', 'id')->withTrashed();
+        return $this->hasMany(Kontrak::class, 'rental_id', 'id');
     }
 
     public function supir()

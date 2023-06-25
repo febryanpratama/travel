@@ -19,29 +19,28 @@
             <div class="profile-share d-flex align-items-center justify-content-center">
                 @switch($data->is_status)
                     @case('Dalam Persiapan')
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dalampersiapan">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#">
                             {{ $data->is_status }}
                         </button>
                         
                         @break
                     @case('Dalam Pengantaran')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengantaran">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
                             {{ $data->is_status }}
                         </button>
                         @break
                     @case('Sedang Digunakan')
-                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
+                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#">
                             {{ $data->is_status }}
                         </button>
                         @break
                     @case('Selesai Digunakan')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
                             {{ $data->is_status }}
                         </button>
                         @break
                     @case('Sudah Dikembalikan')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
-                            Order Telah Selesai
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#"> Telah Selesai
                         </button>
                         @break
                     @default
@@ -50,9 +49,9 @@
                {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
             </div>
             <div class="profile-share d-flex align-items-center justify-content-center">
-               <a href="{{ url('admin/orders/'.$data->id.'/syarat-ketentuan') }}">
+               {{-- <a href="{{ url('admin/orders/'.$data->id.'/syarat-ketentuan') }}">
                   <button type="button" class="btn btn-primary">Syarat dan Prosedur</button>
-               </a>
+               </a> --}}
                {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
             </div>
          </div>
