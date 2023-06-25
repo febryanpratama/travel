@@ -215,14 +215,16 @@
 													</select>
 												</div>
 											</div>
-											<div class="col-md-12">
-												<div class="x_slider_checkbox float_left">
-													<input type="checkbox" name="is_driver" id="c2" name="cb">
-													<label for="c2">Dengan Driver &nbsp;<i
-															class="fa fa-question-circle"></i>
-													</label>
+											@if ($data->supir_id != null)
+												<div class="col-md-12">
+													<div class="x_slider_checkbox float_left">
+														<input type="checkbox" name="is_driver" id="c2" name="cb">
+														<label for="c2">Dengan Driver &nbsp;<i
+																class="fa fa-question-circle"></i>
+														</label>
+													</div>
 												</div>
-											</div>
+											@endif
 											<div class="col-md-12">
 												<div class="x_slider_checout_right x_slider_checout_right_carbooking">
 													<ul>
