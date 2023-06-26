@@ -35,6 +35,34 @@ class AdminController extends Controller
         ]);
     }
 
+    public function terimafee($id)
+    {
+        $fee = Fee::where('id', $id)->first();
+
+        if (!$fee) {
+            return back()->withErrors('Fee tidak ditemukan');
+        }
+        $fee->update([
+            'status' => '1'
+        ]);
+
+        return back()->with('success', 'Fee berhasil diterima');
+    }
+
+    public function tolakfee($id)
+    {
+        $fee = Fee::where('id', $id)->first();
+
+        if (!$fee) {
+            return back()->withErrors('Fee tidak ditemukan');
+        }
+        $fee->update([
+            'status' => '2'
+        ]);
+
+        return back()->with('success', 'Fee berhasil ditolak');
+    }
+
     public function storeMobil(Request $request)
     {
         $data = $request->all();

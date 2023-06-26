@@ -324,6 +324,11 @@ class MobilService
                     'no_ijin_usaha' => $data['no_ijin_usaha'],
                     'alamat' => $data['alamat'],
                     'ktp' => $data['ktp'],
+                    'nama_bank' => $data['nama_bank'],
+                    'no_rekening' => $data['no_rekening'],
+                    'nama_rekening' => $data['nama_rekening'],
+                    'jam_mulai' => $data['jam_mulai'],
+                    'jam_selesai' => $data['jam_selesai'],
                 ]);
             } else {
                 $rental = Rental::where('id', Auth::user()->rental->id)->update([

@@ -92,9 +92,6 @@ Route::group([
         Route::get('/{id}/ubah', 'ubah');
         Route::get('/{id}/terima', 'terima');
         Route::get('/{id}/hapus', 'hapus');
-
-
-        // Route::get('/kontrak', 'indexKontrak');
     });
 
     Route::group([
@@ -102,6 +99,8 @@ Route::group([
         'controller' => AdminController::class,
     ], function () {
         Route::get('/', 'indexFee');
+        Route::get('/{id}/terima', 'terimafee');
+        Route::get('/{id}/tolak', 'tolakfee');
         // Route::post('/', 'storeMobil');
     });
     Route::group([
