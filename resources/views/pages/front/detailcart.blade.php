@@ -426,9 +426,9 @@
          {{-- <h4>Persyaratan</h4> --}}
             <div class="col-md-12">
                <ol>
-                  @foreach ($data->rental->kontrak as $k=>$it)
+                  {{-- @foreach ($data->rental->kontrak as $k=>$it) --}}
                   <li class="col-md-6">{{ $it->keterangan }}</li>
-                  @endforeach
+                  {{-- @endforeach --}}
                </ol>
             </div>
             {{-- <div class="col-md-6">Kontrak {{ $k+1}}</div>
