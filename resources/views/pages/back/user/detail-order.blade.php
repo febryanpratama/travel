@@ -1,7 +1,7 @@
 @extends('layouts.base.back.main')
 
 @section('content')
-<div class="col-xl-9 col-md-8">
+<div class="col-xl-9 col-md-8" id="wrap">
    <div class="settings-widget profile-details">
       <div class="settings-menu p-0">
          <div class="profile-heading">
@@ -21,6 +21,9 @@
                </div>
             </div>
             <div class="profile-share d-flex align-items-center justify-content-center">
+               <button type="button" class="btn btn-outline-primary m-2" id="print">
+                   Print Detail
+               </button>
                @switch($data->is_status)
                     @case('Dalam Persiapan')
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dalampersiapan">

@@ -53,6 +53,17 @@
         .checked {
             color: orange;
         }
+        @media print {
+            body {
+                visibility: hidden;
+            }
+            #wrap {
+                visibility: visible;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
     </style>
 </head>
 
@@ -177,6 +188,12 @@
                 doc.save('table.pdf');
                 // exportTableToPDF();
             });
+
+            $('#print').on('click', function(){
+                $("#wrap").show();
+                window.print();
+
+            })
 
             // window.jsPDF = window.jspdf.jsPDF;
         })
