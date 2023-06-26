@@ -107,6 +107,7 @@
                                             </div>
                                             <div class="x_car_acc_price_dollar_count_wrapper">
                                                 <a href="{{ url('cart/'.$item->id) }}" class="btn btn-primary mt-3">Pilih</a>
+                                                <a href="{{ url('cart/'.$item->id.'/hapus') }}" class="btn btn-danger mt-3">Hapus</a>
                                                 {{-- <div class="quantity">
                                                 </div> --}}
                                             </div>

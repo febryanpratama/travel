@@ -38,6 +38,7 @@ Route::group([
 
     Route::get('/cart', 'indexCart');
     Route::get('/cart/{id}', 'detailCart');
+    Route::get('/cart/{id}/hapus', 'hapusCart');
     Route::get('/cari-mobil', 'cariMobil');
 
     Route::post('/checkout', 'checkout');

@@ -163,6 +163,19 @@ class FrontController extends Controller
         ]);
     }
 
+    public function hapusCart($id)
+    {
+        $data = Penyewaan::where('id', $id)->first();
+
+        if (!$data) {
+            return back()->withErrors('Data Tidak Ditemukan');
+        }
+
+        $data->delete();
+
+        return back()->withSuccess('Data Keranjang Berhasil Dihapus');
+    }
+
     public function checkout(Request $request)
     {
         // dd($request->all());
