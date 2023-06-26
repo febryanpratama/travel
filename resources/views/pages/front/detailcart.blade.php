@@ -384,7 +384,7 @@
 <!-- x car book sidebar section Wrapper End -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Syarat & Kontrak</h5>
@@ -404,7 +404,7 @@
             <div class="col-md-12">
                <ol>
                   @foreach ($data->rental->syarat as $k=>$it)
-                  <li class="col-md-6">{{ $it->keterangan }}</li>
+                  <li >{{ $it->keterangan }}</li>
                   @endforeach
                </ol>
             </div>
@@ -420,22 +420,22 @@
                <label for="" class="control-label" style="padding: 1px"><h5>Detail Kontrak</h5></label>
             </div>
          </div>
-         @foreach ($data->rental->kontrak as $k=>$it)
          <hr>
          <div class="row">
-         {{-- <h4>Persyaratan</h4> --}}
+            {{-- <h4>Persyaratan</h4> --}}
             <div class="col-md-12">
                <ol>
+                  @foreach ($data->rental->kontrak as $k=>$it)
                   {{-- @foreach ($data->rental->kontrak as $k=>$it) --}}
-                  <li class="col-md-6">{{ $it->keterangan }}</li>
+                  <li>{{ $it->keterangan }}</li>
                   {{-- @endforeach --}}
+                  @endforeach
                </ol>
             </div>
             {{-- <div class="col-md-6">Kontrak {{ $k+1}}</div>
             <div class="col-md-6"><p> <a href="{{ asset('files/persyaratan/'.$it->perjanjian) }}" style="color: red">Lihat Dokumen</a></p></div> --}}
          </div>
          <hr>
-         @endforeach
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
