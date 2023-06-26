@@ -126,6 +126,14 @@
                             <input type="file" name="bukti_pembayaran" class="form-control" required>
                         </div>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <h4>Informasi Pembayaran</h4>
+                        <br>
+                        <p>Bank : <b>BNI</b></p>
+                        <p>Nama Pemilik Rekening  : <b>Fransiskus Agus Julianto</b></p>
+                        <p>Nomor Rekening : <b>8792898298</b></p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
