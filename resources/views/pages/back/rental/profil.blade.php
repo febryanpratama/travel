@@ -67,13 +67,13 @@
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Jam Operasional Mulai</label>
-                        <input type="time" class="form-control" name="jam_mulai" value="{{ $data->jam_mulai }}" placeholder="Enter your last Name">
+                        <input type="time" class="form-control " name="jam_mulai" value="{{ $data->jam_mulai }}" placeholder="Enter your last Name">
                      </div>
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Jam Operasional Selesai</label>
-                        <input type="time" class="form-control" name="jam_selesai" value="{{ $data->jam_selesai }}" placeholder="Enter your last Name">
+                        <input type="time" class="form-control " name="jam_selesai" value="{{ $data->jam_selesai }}" placeholder="Enter your last Name">
                      </div>
                   </div>
                   <div class="col-lg-6">
@@ -136,4 +136,46 @@
       </div>
    </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+      // var timepicker = new TimePicker('time', {
+      //    lang: 'en',
+      //    theme: 'dark'
+      //    });
+
+      //    var input = document.getElementById('time');
+
+      //    timepicker.on('change', function(evt) {
+         
+      //    var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+      //    evt.element.value = value;
+
+      //    });
+//       var timepicker = new TimePicker('time', {
+//   lang: 'en',
+//   theme: 'dark'
+// });
+
+// var input = document.getElementById('time');
+
+// timepicker.on('change', function(evt) {
+  
+//   var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+//   evt.element.value = value;
+
+// });
+$('.timepicker').timepicker({
+    timeFormat: 'HH:mm',
+    interval: 60,
+    minTime: '10',
+    maxTime: '6:00pm',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+    </script>
 @endsection
