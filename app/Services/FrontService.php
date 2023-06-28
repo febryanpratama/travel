@@ -292,7 +292,7 @@ class FrontService
             $cekdata = Penyewaan::where('mobil_id', $mobil_id)
                 ->where('tanggal_mulai', '<=', $data['tanggal_mulai'])
                 ->where('tanggal_selesai', '>=', $data['tanggal_selesai'])
-                ->whereIn('is_status', ['Selesai Digunakan', 'Sudah Dikembalikan', 'Ditolak'])
+                ->whereIn('is_status', ['Dalam Persiapan', 'Dalam Pengantaran', 'Sedang Digunakan'])
                 ->first();
 
             // dd($cekdata);
