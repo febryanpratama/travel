@@ -576,7 +576,7 @@
                                         <div class="x_car_offer_main_boxes_wrapper float_left">
                                             
                                             <div class="x_car_offer_img float_left">
-                                                <img src="{{ asset('images/mobil/') }}`+listData[index].foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
+                                                <img src="{{ asset('images/mobil/') }}/`+listData[index].foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
                                             </div>
                                             <div class="x_car_offer_price float_left">
                                                 <div class="x_car_offer_price_inner">
@@ -841,7 +841,7 @@
                                         <div class="x_car_offer_main_boxes_wrapper float_left">
                                             
                                             <div class="x_car_offer_img float_left">
-                                                <img src="{{ asset('images/mobil/') }}`+value.foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
+                                                <img src="{{ asset('images/mobil/') }}/`+value.foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
                                             </div>
                                             <div class="x_car_offer_price float_left">
                                                 <div class="x_car_offer_price_inner">
