@@ -574,55 +574,37 @@
                                 $('#gridhome').append(`
                                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="x_car_offer_main_boxes_wrapper float_left">
+                                            
                                             <div class="x_car_offer_img float_left">
-                                                <img src="http://127.0.0.1:8000/images/mobil/1684997863fortuner.png" class="img-fluid" style="max-height: 150px;" alt="img" />
+                                                <img src="{{ asset('images/mobil/') }}`+listData[index].foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
                                             </div>
                                             <div class="x_car_offer_price float_left">
                                                 <div class="x_car_offer_price_inner">
-                                                    <h3 style="font-size: 20px;">Rp. 1500</h3>
-                                                    <p>
-                                                        <span>K</span> <br />
-                                                        / hari
-                                                    </p>
+                                                    <h3 style="font-size: 16px">Rp. `+listData[index].harga_sewa_mobil+`</h3>
                                                 </div>
                                             </div>
                                             <div class="x_car_offer_heading float_left">
                                                 <h2><a href="#">`+listData[index].nama_mobil+`</a></h2>
-                                                <p>SUV</p>
+                                                <p>`+listData[index].tipe_mobil+`</p>
                                             </div>
                                             <div class="x_car_offer_heading float_left">
                                                 <ul>
-                                                    <li>
-                                                        <a href="#"><i class="fa fa-users"></i> &nbsp;`+listData[index].kapasitas_mobil+`</a>
+                                                    <li> <a href="#">`+listData[index].merk_mobil+`</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
+                                                    <li> <a href="#">`+listData[index].kapasitas_mobil+` Seat</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#"><i class="fa fa-briefcase"></i> &nbsp;8</a>
+                                                    <li> <a href="#">`+listData[index].transmisi_mobil+`</a>
                                                     </li>
-                                                    <li>
-                                                        <div class="nice-select" tabindex="0">
-                                                            <span class="current"><i class="fa fa-bars"></i></span>
-                                                            <ul class="list">
-                                                                <li class="dpopy_li">
-                                                                    <a href="#"><i class="fa fa-snowflake-o"></i> Air Conditioning</a>
-                                                                </li>
-                                                                <li class="dpopy_li">
-                                                                    <a href="#"><i class="fa fa-code-fork"></i>Manual Transmission</a>
-                                                                </li>
-                                                                <li class="dpopy_li">
-                                                                    <a href="#"><i class="fa fa-user-circle-o"></i> Minimum age</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                    <li> <a href="#">`+listData[index].jenis_bbm+`</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div class="x_car_offer_bottom_btn float_left">
                                                 <ul class="">
-                                                    <li><a href="#">NEW</a></li>
-                                                    <li><a href="{{ url('`+listData[index].id+`/detail') }}">Details</a></li>
+                                                    <li><a href="#">NEW</a>
+                                                    </li>
+                                                    <li><a href="{{ url('`+listData[index].id+`/detail') }}">Details</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -795,65 +777,104 @@
                         ]
                         infoWindowContent.push(content);
 
+                        // $('#gridhome').append(`
+                        //     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                        //         <div class="x_car_offer_main_boxes_wrapper float_left">
+                        //             <div class="x_car_offer_img float_left">
+                        //                 <img src="http://127.0.0.1:8000/images/mobil/1684997863fortuner.png" class="img-fluid" style="max-height: 150px;" alt="img" />
+                        //             </div>
+                        //             <div class="x_car_offer_price float_left">
+                        //                 <div class="x_car_offer_price_inner">
+                        //                     <h3 style="font-size: 20px;">Rp. 1500</h3>
+                        //                     <p>
+                        //                         <span>K</span> <br />
+                        //                         / hari
+                        //                     </p>
+                        //                 </div>
+                        //             </div>
+                        //             <div class="x_car_offer_heading float_left">
+                        //                 <h2><a href="#">`+value.nama_mobil+`</a></h2>
+                        //                 <p>SUV</p>
+                        //             </div>
+                        //             <div class="x_car_offer_heading float_left">
+                        //                 <ul>
+                        //                     <li>
+                        //                         <a href="#"><i class="fa fa-users"></i> &nbsp;`+value.kapasitas_mobil+`</a>
+                        //                     </li>
+                        //                     <li>
+                        //                         <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
+                        //                     </li>
+                        //                     <li>
+                        //                         <a href="#"><i class="fa fa-briefcase"></i> &nbsp;9</a>
+                        //                     </li>
+                        //                     <li>
+                        //                         <div class="nice-select" tabindex="0">
+                        //                             <span class="current"><i class="fa fa-bars"></i></span>
+                        //                             <ul class="list">
+                        //                                 <li class="dpopy_li">
+                        //                                     <a href="#"><i class="fa fa-snowflake-o"></i> Air Conditioning</a>
+                        //                                 </li>
+                        //                                 <li class="dpopy_li">
+                        //                                     <a href="#"><i class="fa fa-code-fork"></i>Manual Transmission</a>
+                        //                                 </li>
+                        //                                 <li class="dpopy_li">
+                        //                                     <a href="#"><i class="fa fa-user-circle-o"></i> Minimum age</a>
+                        //                                 </li>
+                        //                             </ul>
+                        //                         </div>
+                        //                     </li>
+                        //                 </ul>
+                        //             </div>
+                        //             <div class="x_car_offer_bottom_btn float_left">
+                        //                 <ul class="">
+                        //                     <li><a href="#">NEW</a></li>
+                        //                     <li><a href="http://127.0.0.1:8000/1/detail">Details</a></li>
+                        //                 </ul>
+                        //             </div>
+                        //         </div>
+                        //     </div>
+                        // `)
+
+
                         $('#gridhome').append(`
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="x_car_offer_main_boxes_wrapper float_left">
-                                    <div class="x_car_offer_img float_left">
-                                        <img src="http://127.0.0.1:8000/images/mobil/1684997863fortuner.png" class="img-fluid" style="max-height: 150px;" alt="img" />
-                                    </div>
-                                    <div class="x_car_offer_price float_left">
-                                        <div class="x_car_offer_price_inner">
-                                            <h3 style="font-size: 20px;">Rp. 1500</h3>
-                                            <p>
-                                                <span>K</span> <br />
-                                                / hari
-                                            </p>
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="x_car_offer_main_boxes_wrapper float_left">
+                                            
+                                            <div class="x_car_offer_img float_left">
+                                                <img src="{{ asset('images/mobil/') }}`+value.foto_mobil+`" class="img-fluid" style="max-height: 150px" alt="img">
+                                            </div>
+                                            <div class="x_car_offer_price float_left">
+                                                <div class="x_car_offer_price_inner">
+                                                    <h3 style="font-size: 16px">Rp. `+value.harga_sewa_mobil+`</h3>
+                                                </div>
+                                            </div>
+                                            <div class="x_car_offer_heading float_left">
+                                                <h2><a href="#">`+value.nama_mobil+`</a></h2>
+                                                <p>`+value.tipe_mobil+`</p>
+                                            </div>
+                                            <div class="x_car_offer_heading float_left">
+                                                <ul>
+                                                    <li> <a href="#">`+value.merk_mobil+`</a>
+                                                    </li>
+                                                    <li> <a href="#">`+value.kapasitas_mobil+` Seat</a>
+                                                    </li>
+                                                    <li> <a href="#">`+value.transmisi_mobil+`</a>
+                                                    </li>
+                                                    <li> <a href="#">`+value.jenis_bbm+`</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="x_car_offer_bottom_btn float_left">
+                                                <ul class="">
+                                                    <li><a href="#">NEW</a>
+                                                    </li>
+                                                    <li><a href="{{ url('`+value.id+`/detail') }}">Details</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="x_car_offer_heading float_left">
-                                        <h2><a href="#">`+value.nama_mobil+`</a></h2>
-                                        <p>SUV</p>
-                                    </div>
-                                    <div class="x_car_offer_heading float_left">
-                                        <ul>
-                                            <li>
-                                                <a href="#"><i class="fa fa-users"></i> &nbsp;`+value.kapasitas_mobil+`</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="fa fa-briefcase"></i> &nbsp;9</a>
-                                            </li>
-                                            <li>
-                                                <div class="nice-select" tabindex="0">
-                                                    <span class="current"><i class="fa fa-bars"></i></span>
-                                                    <ul class="list">
-                                                        <li class="dpopy_li">
-                                                            <a href="#"><i class="fa fa-snowflake-o"></i> Air Conditioning</a>
-                                                        </li>
-                                                        <li class="dpopy_li">
-                                                            <a href="#"><i class="fa fa-code-fork"></i>Manual Transmission</a>
-                                                        </li>
-                                                        <li class="dpopy_li">
-                                                            <a href="#"><i class="fa fa-user-circle-o"></i> Minimum age</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="x_car_offer_bottom_btn float_left">
-                                        <ul class="">
-                                            <li><a href="#">NEW</a></li>
-                                            <li><a href="http://127.0.0.1:8000/1/detail">Details</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        `)
-
-
+                                `)
                     }else{
                         // console.log('tidak ada')
                     }
