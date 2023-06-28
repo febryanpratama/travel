@@ -40,7 +40,7 @@
     
         {{-- <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
     <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/jquery-datetimepicker@2.5.20/build/jquery.datetimepicker.min.css" rel="stylesheet"/>
 
 
     <link rel="stylesheet" href="{{ asset('') }}assets/back/css/style.css">
@@ -48,6 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
 
 
     <style>
@@ -147,7 +148,9 @@
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script> --}}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"></script>
-  <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+  {{-- <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script> --}}
+<script src="https://unpkg.com/jquery-datetimepicker"></script>
+
 
 
     <script>

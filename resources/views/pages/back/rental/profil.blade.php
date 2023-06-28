@@ -67,13 +67,13 @@
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Jam Operasional Mulai</label>
-                        <input type="time" class="form-control " name="jam_mulai" value="{{ $data->jam_mulai }}" placeholder="Enter your last Name">
+                        <input type="text" class="form-control date" id="date" name="jam_mulai" value="{{ $data->jam_mulai }}" placeholder="Jam Operasional Mulai">
                      </div>
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Jam Operasional Selesai</label>
-                        <input type="time" class="form-control " name="jam_selesai" value="{{ $data->jam_selesai }}" placeholder="Enter your last Name">
+                        <input type="text" class="form-control date" name="jam_selesai" value="{{ $data->jam_selesai }}" placeholder="Jam Operasional Selesai">
                      </div>
                   </div>
                   <div class="col-lg-6">
@@ -166,16 +166,10 @@
 //   evt.element.value = value;
 
 // });
-$('.timepicker').timepicker({
-    timeFormat: 'HH:mm',
-    interval: 60,
-    minTime: '10',
-    maxTime: '6:00pm',
-    defaultTime: '11',
-    startTime: '10:00',
-    dynamic: false,
-    dropdown: true,
-    scrollbar: true
+$(".date").datetimepicker({
+  datepicker: false,
+  step: 15,
+  format: 'H:i'
 });
     </script>
 @endsection
