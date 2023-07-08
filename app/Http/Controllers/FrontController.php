@@ -11,6 +11,7 @@ use App\Services\FrontService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -30,7 +31,9 @@ class FrontController extends Controller
 
         if (Auth::user()) {
             // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
-            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+            // $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+            $pelanggan = DB::table('pelanggans')->where('user_id', Auth::user()->id)->first();
+
 
             if ($pelanggan) {
                 $latitude = $pelanggan->latitude;
@@ -63,7 +66,8 @@ class FrontController extends Controller
 
         if (Auth::user()) {
             // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
-            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+            // $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+            $pelanggan = DB::table('pelanggans')->where('user_id', Auth::user()->id)->first();
 
             if ($pelanggan) {
                 $latitude = $pelanggan->latitude;
