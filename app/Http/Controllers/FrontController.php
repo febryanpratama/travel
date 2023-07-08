@@ -64,8 +64,14 @@ class FrontController extends Controller
         if (Auth::user()) {
             // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
             $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
-            $latitude = $pelanggan->latitude;
-            $longitude = $pelanggan->longitude;
+
+            if ($pelanggan) {
+                $latitude = $pelanggan->latitude;
+                $longitude = $pelanggan->longitude;
+            } else {
+                $latitude = null;
+                $longitude = null;
+            }
         } else {
             $latitude = null;
             $longitude = null;
