@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mobil;
+use App\Models\Pelanggan;
 use App\Models\Penyewaan;
 use App\Models\Rental;
 use App\Models\User;
@@ -25,15 +26,57 @@ class FrontController extends Controller
     {
         $response = $this->frontService->getMobil();
 
+        // $auth = Auth::user();
+
+        if (Auth::user()) {
+            // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
+            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+
+            if ($pelanggan) {
+                $latitude = $pelanggan->latitude;
+                $longitude = $pelanggan->longitude;
+            } else {
+                $latitude = null;
+                $longitude = null;
+            }
+        } else {
+            $latitude = null;
+            $longitude = null;
+        }
+        // if ($auth == null) {
+        //     # code...
+        // } else {
+        //     $auth = true;
+        //     $latitude = Auth::user()->Pelanggan->latitude;
+        //     $longitude = Auth::user()->Pelanggan->longitude;
+        // }
         // dd($response);
         return view('pages.front.landing', [
             'data' => $response['data'],
+            'latitude' => $latitude,
+            'longitude' => $longitude,
         ]);
     }
 
     public function cariMobil()
     {
-        return view('pages.front.carimobil');
+
+        if (Auth::user()) {
+            // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
+            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+            $latitude = $pelanggan->latitude;
+            $longitude = $pelanggan->longitude;
+        } else {
+            $latitude = null;
+            $longitude = null;
+        }
+
+        // dd($pelanggan);
+
+        return view('pages.front.carimobil', [
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ]);
     }
     public function tentangkami()
     {

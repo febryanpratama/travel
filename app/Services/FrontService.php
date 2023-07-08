@@ -46,7 +46,7 @@ class FrontService
 
         $latitude = $data['latitude'];
         $longitude = $data['longitude'];
-        $radius = 10;
+        $radius = 12;
         // $data = DetailUsers::where('latitude', 'like', '%' . '-6.3126432' . '%')->where('longitude', 'like', '%' . '106.8990464' . '%')->get();
 
         $data = Rental::with('mobil')->selectRaw("id, user_id, nama_rental, nama_pemilik, latitude, longitude,
