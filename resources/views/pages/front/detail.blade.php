@@ -276,6 +276,7 @@
 			</div>
 		</div>
 	</div>
+	{{-- {{ dd($latitude) }} --}}
 
 @endsection
 @section('script')
@@ -284,8 +285,15 @@
 
 	<script>
 
-    const lat = localStorage.getItem('latitude');
-    const long = localStorage.getItem('longitude');
+		if("{{ $latitude }}" == null){
+			 lat = localStorage.getItem('latitude');
+			 long = localStorage.getItem('longitude');
+		}else{
+			 lat = "{{ $latitude }}";
+			 long = "{{ $longitude }}";
+			// pointA = new google.maps.LatLng("{{ $latitude }}","{{ $longitude }}")
+		}
+
 
 
     $.ajax({
@@ -304,9 +312,16 @@
     })
     function initMap() {
 
-    console.log(lat+' - '+long);
+    // console.log(lat+' - '+long);
 
-        var pointA = new google.maps.LatLng(localStorage.getItem('latitude'), localStorage.getItem('longitude')),
+	// console.log(localStorage.getItem('latitude'))
+	// console.log("{{ $latitude }}")
+			if("{{ $latitude }}" == null){
+				pointA = new google.maps.LatLng(localStorage.getItem('latitude'), localStorage.getItem('longitude'))
+			}else{
+				pointA = new google.maps.LatLng("{{ $latitude }}","{{ $longitude }}")
+			}
+	
             pointB = new google.maps.LatLng({{ $data->rental->latitude }},{{ $data->rental->longitude }}),
             myOptions = {
             zoom: 20,

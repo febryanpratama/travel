@@ -11,7 +11,6 @@ use App\Services\FrontService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -31,9 +30,7 @@ class FrontController extends Controller
 
         if (Auth::user()) {
             // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
-            // $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
-            $pelanggan = DB::table('pelanggans')->where('user_id', Auth::user()->id)->first();
-
+            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
 
             if ($pelanggan) {
                 $latitude = $pelanggan->latitude;
@@ -66,8 +63,7 @@ class FrontController extends Controller
 
         if (Auth::user()) {
             // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
-            // $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
-            $pelanggan = DB::table('pelanggans')->where('user_id', Auth::user()->id)->first();
+            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
 
             if ($pelanggan) {
                 $latitude = $pelanggan->latitude;
@@ -132,11 +128,28 @@ class FrontController extends Controller
     {
         $response = $this->frontService->getDetailMobil($id);
 
+        if (Auth::user()) {
+            // return redirect('/login')->withErrors('Silahkan Login Sebagai User');
+            $pelanggan = Pelanggan::where('user_id', Auth::user()->id)->first();
+
+            if ($pelanggan) {
+                $latitude = $pelanggan->latitude;
+                $longitude = $pelanggan->longitude;
+            } else {
+                $latitude = null;
+                $longitude = null;
+            }
+        } else {
+            $latitude = null;
+            $longitude = null;
+        }
         if (!$response['status']) {
             return back()->withErrors($response['message']);
         } else {
             return view('pages.front.detail', [
                 'data' => $response['data'],
+                'latitude' => $latitude,
+                'longitude' => $longitude,
             ]);
         }
     }
