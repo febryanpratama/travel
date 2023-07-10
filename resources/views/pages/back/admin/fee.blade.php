@@ -56,6 +56,11 @@
                                         <td>{{  $item->rental->nama_rental }}</td>
                                         <td>Rp. {{ number_format($item->nominal_pembayaran,0) }}</td>
                                         <td>
+                                            <a href="{{ asset('images/fee/'.$item->bukti_pembayaran) }}" class="text-info" target="_blank">
+                                                Lihat
+                                            </a>
+                                        </td>
+                                        <td>
                                             @switch($item->status)
                                                 @case(1)
                                                     <button class="btn btn-outline-success"> Diterima </button>
@@ -68,11 +73,6 @@
                                                     <button class="btn btn-outline-info"> Sedang Diverifikasi </button>
                                                 
                                             @endswitch
-                                        </td>
-                                        <td>
-                                            <a href="{{ asset('images/fee/'.$item->bukti_pembayaran) }}" class="text-info" target="_blank">
-                                                Lihat
-                                            </a>
                                         </td>
                                         <td>
                                             {{-- <svg xmlns="http://www.w3.org/2000/svg" title="Detail" fill="none"style="width: 20px;height:20px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

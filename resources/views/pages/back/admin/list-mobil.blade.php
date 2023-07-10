@@ -18,7 +18,7 @@
             <div style="text-align: right">
                 {{-- <button id="exportButton" class="" style="text-align: right">Export to PDF</button> --}}
 
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Mobil</button>
+                {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Mobil</button> --}}
             </div>
             <div class="col-lg-6">
                 <div class="show-filter add-course-info">
