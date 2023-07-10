@@ -88,6 +88,12 @@
                                                     
                                             @endswitch
                                         </td>
+                                        
+                                        <td>
+                                            <span class="btn btn-outline-info">
+                                                {{ $item->is_status }}
+                                            </span>
+                                        </td>
                                         <td>
                                             @if ($item->bukti_pembayaran != null)
                                                     <div><a href="{{ asset('images/bukti_pembayaran/'.$item->bukti_pembayaran) }}"   target="_blank">Lihat Bukti</a></div>
@@ -95,11 +101,6 @@
                                                 @else
                                                 <a href="#"  data-bs-toggle="modal" data-bs-target="#buktiPembayaran{{ $item->id }}">Upload Bukti</a>
                                             @endif
-                                        </td>
-                                        <td>
-                                            <span class="btn btn-outline-info">
-                                                {{ $item->is_status }}
-                                            </span>
                                         </td>
                                         <td>
                                             <a href="{{ url('user/orders/'.$item->id) }}">
