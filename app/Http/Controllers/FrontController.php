@@ -82,6 +82,7 @@ class FrontController extends Controller
         return view('pages.front.carimobil', [
             'latitude' => $latitude,
             'longitude' => $longitude,
+            'data' => null
         ]);
     }
 
