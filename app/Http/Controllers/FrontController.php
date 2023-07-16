@@ -84,6 +84,21 @@ class FrontController extends Controller
             'longitude' => $longitude,
         ]);
     }
+
+    public function postMobil(Request $request)
+    {
+        // dd($request->all());
+
+        $nama_mobil = $request->nama_mobil;
+        // dd()
+        $data = Mobil::where('nama_mobil', 'like', "%{$nama_mobil}%")->where('status_mobil', 'tersedia')->get();
+        // dd($data);
+
+        return view('pages.front.carimobil', [
+            'data' => $data,
+        ]);
+        // dd($data);
+    }
     public function tentangkami()
     {
         return view('pages.front.tentangkami');

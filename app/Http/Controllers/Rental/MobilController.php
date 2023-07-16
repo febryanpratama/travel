@@ -343,6 +343,12 @@ class MobilController extends Controller
                     'tanggal_pengembalian' => Carbon::now(),
                 ]);
 
+                $mobil = Mobil::where('id', $data->mobil_id)->update([
+                    'status_mobil' => 'tidak tersedia'
+                ]);
+
+                // dd($mobil);
+
                 Notifikasi::create([
                     'pengirim_id' => Auth::user()->id,
                     'penerima_id' => $data->customer->user_id,
@@ -487,6 +493,35 @@ class MobilController extends Controller
 
 
         return back()->withSuccess('Berhasil menghapus mobil');
+    }
+
+    public function setTidak($mobil_id)
+    {
+        $mobil = Mobil::where('id', $mobil_id)->first();
+
+        if (!$mobil) {
+            return back()->withErrors('Data Mobil tidak ditemukan');
+        }
+        // dd($mobil);
+        $mobil->update([
+            'status_mobil' => 'tidak tersedia'
+        ]);
+
+        return back()->withSuccess('Berhasil mengubah status mobil');
+    }
+    public function setTersedia($mobil_id)
+    {
+        $mobil = Mobil::where('id', $mobil_id)->first();
+
+        if (!$mobil) {
+            return back()->withErrors('Data Mobil tidak ditemukan');
+        }
+        // dd($mobil);
+        $mobil->update([
+            'status_mobil' => 'tersedia'
+        ]);
+
+        return back()->withSuccess('Berhasil mengubah status mobil');
     }
 
     public function indexFee()

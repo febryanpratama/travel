@@ -94,7 +94,17 @@
                                     </div>
                                 </div>
                                 <div class="course-share d-flex align-items-center justify-content-center">
-                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">Pengemudi</button>
+                                    {{-- <button>{{ $item->status_mobil }}</button> --}}
+                                    @if ($item->status_mobil == 'tersedia')
+                                        <a href="{{ url('rental/mobil/'.$item->id.'/tidak') }}">
+                                            <button class="btn btn-outline-success mx-2" >Tersedia</button>
+                                        </a>
+                                        @else
+                                        <a href="{{ url('rental/mobil/'.$item->id.'/tersedia') }}">
+                                            <button class="btn btn-outline-danger mx-2" >Tidak Tersedia</button>
+                                        </a>
+                                    @endif
+                                    <button class="btn btn-outline-info " data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">Pengemudi</button>
                                     {{-- <a href="#rate"><i class="fa-regular fa-heart"></i></a> --}}
                                 </div>
                             </div>

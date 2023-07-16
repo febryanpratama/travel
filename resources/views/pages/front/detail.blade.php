@@ -128,6 +128,12 @@
 											</li>
 											<li> <a href="#"><i class="fa fa-snowflake-o"></i>&nbsp;2 AC: Yes</a>
 											</li>
+											<li> <a href="#">&nbsp;Warna {{ $data->warna_mobil }}</a>
+											</li>
+											<li> <a href="#">&nbsp;Bahan Bakar : {{ $data->jenis_bbm }}</a>
+											</li>
+											<li> <a href="#">&nbsp;Plat Mobil : {{ $data->plat_mobil }}</a>
+											</li>
 										</ul>
 									</div>
 									{{-- <div class="x_avanticar_btn float_left">
@@ -137,6 +143,11 @@
 										</ul>
 									</div> --}}
 								</div>
+								{{-- <div class="row mt-2">
+									<div class="col-md-12">
+										<p>Fasilitas Mobil : {{ $data->fasilitas_mobil }}</p>
+									</div>
+								</div> --}}
 								<div class="x_car_detail_slider_bottom_cont float_left">
 									<div class="card">
 										<div class="card-header">

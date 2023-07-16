@@ -5,6 +5,7 @@ namespace App\helpers;
 use App\Models\Notifikasi;
 use App\Models\Penyewaan;
 use App\Models\Rating;
+use App\Models\Rental;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
@@ -108,5 +109,34 @@ class Format
             'status' => true,
             'message' => 'Berhasil mengirim pesan'
         ];
+    }
+
+    static function getalgoritma($rental_id)
+    {
+        // Konversi ke radian
+        // dd(Auth::user()->pelanggan->latitude);
+
+        $rental = Rental::where('id', $rental_id)->first();
+
+
+        $lat1 = deg2rad($rental->latitude);
+        $lon1 = deg2rad($rental->longitude);
+        $lat2 = deg2rad(Auth::user()->pelanggan->latitude);
+        $lon2 = deg2rad(Auth::user()->pelanggan->longitude);
+
+        // Jari-jari bumi dalam kilometer (default)
+        $radius = 6371;
+
+        // Selisih latitud dan longitud
+        $deltaLat = $lat2 - $lat1;
+        $deltaLon = $lon2 - $lon1;
+
+        // Rumus Haversine
+        $a = sin($deltaLat / 2) * sin($deltaLat / 2) + cos($lat1) * cos($lat2) * sin($deltaLon / 2) * sin($deltaLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $distance = $radius * $c;
+
+        // dd();
+        return substr($distance, 0, 4);
     }
 }

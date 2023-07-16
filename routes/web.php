@@ -40,6 +40,7 @@ Route::group([
     Route::get('/cart/{id}', 'detailCart');
     Route::get('/cart/{id}/hapus', 'hapusCart');
     Route::get('/cari-mobil', 'cariMobil');
+    Route::post('/cari-mobil', 'postMobil');
 
     Route::post('/checkout', 'checkout');
     // Route::group([
@@ -155,6 +156,8 @@ Route::group([
         Route::get('/', 'index');
         Route::post('/', 'store');
         Route::get('/{id}/hapus', 'hapusMobil');
+        Route::get('/{mobil_id}/tidak', 'setTidak');
+        Route::get('/{mobil_id}/tersedia', 'setTersedia');
         Route::post('/edit', 'editMobil');
         Route::post('/{id}/supir', 'addSupir');
     });

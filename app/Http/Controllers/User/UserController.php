@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\helpers\Format;
 use App\Http\Controllers\Controller;
+use App\Models\Mobil;
 use App\Models\Notifikasi;
 use App\Models\Pelanggan;
 use App\Models\Pengantaran;
@@ -80,6 +81,13 @@ class UserController extends Controller
                 //     'rating' => $request->rating,
                 //     'review' => $request->review,
                 // ]);
+
+                // $mobil = Mobil::where('id', $data->mobil_id)->update([
+                //     'status_mobil' => 'tidak tersedia'
+                // ]);
+
+                // dd($mobil);
+
                 Format::whatsappMessage($data->customer->no_telp, 'Mobil telah selesai digunakan, mohon untuk melakukan pengembalian mobil');
 
                 Notifikasi::create([
