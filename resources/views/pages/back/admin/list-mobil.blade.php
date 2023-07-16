@@ -93,7 +93,13 @@
                                     </div>
                                 </div>
                                 <div class="course-share d-flex align-items-center justify-content-center">
-                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">Pengemudi</button>
+                                    @if ($item->supir_id != NULL)
+                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">{{ $item->supir->nama_supir }}</button>
+                                    
+                                    @else
+                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahPengemudi{{ $item->id }}">Tidak Ada Supir</button>
+                                        
+                                    @endif
                                     {{-- <a href="#rate"><i class="fa-regular fa-heart"></i></a> --}}
                                 </div>
                             </div>

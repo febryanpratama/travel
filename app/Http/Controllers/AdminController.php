@@ -15,7 +15,7 @@ class AdminController extends Controller
     //
     public function indexMobil()
     {
-        $data = Mobil::with('rental')->get();
+        $data = Mobil::with('rental', 'supir')->get();
 
         $rental = Rental::with('auth')->whereRelation('auth', 'is_active', '1')->get();
 
