@@ -131,12 +131,12 @@
                                         <input type="file" class="form-control" name="foto" placeholder="Foto Rental ..">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Foto Selfie KTP</label>
                                         <input type="file" class="form-control" name="ktp" placeholder="Foto Selfie Ktp ..">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Email</label>

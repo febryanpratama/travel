@@ -24,7 +24,7 @@ class UserController extends Controller
     public function indexOrders()
     {
 
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->get();
+        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('customer_id', Auth::user()->Pelanggan->id)->whereNotIn('is_status', ['Keranjang'])->orderBy('created_at', 'DESC')->get();
 
         // dd($data);
         return view('pages.back.user.order', [

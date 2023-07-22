@@ -38,6 +38,7 @@
                                  
                                  <th>No</th>
                                  <th>Kode Invoice</th>
+                                 <th>Nama Penyewa</th>
                                  <th>Tanggal Penyewaan</th>
                                  <th>Jasa Rental</th>
                                  <th>Mobil</th>
@@ -48,9 +49,11 @@
                            </thead>
                            <tbody class="text-center">
                                 @foreach ($data as $key=>$item)
+                                {{-- {{ dd($item) }} --}}
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $item->kd_invoice }}</td>
+                                        <td>{{ $item->customer->nama_lengkap }}</td>
                                         <td>{{ $item->tanggal_mulai }}
                                             <br>
                                             -

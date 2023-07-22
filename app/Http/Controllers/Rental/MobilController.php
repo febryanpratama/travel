@@ -44,9 +44,11 @@ class MobilController extends Controller
         ]);
     }
 
-    public function getCars()
+    public function getCars(Request $request)
     {
-        $response = Mobil::with('rental', 'rental.auth')->whereRelation('rental.auth', 'is_active', '1')->get();
+        // dd($request->all());
+        $nama_mobil = $request->nama_mobil;
+        $response = Mobil::with('rental', 'rental.auth')->where('nama_mobil', 'like', "%{$nama_mobil}%")->whereRelation('rental.auth', 'is_active', '1')->get();
 
         // dd($response);
         return response()->json([

@@ -180,7 +180,7 @@ class FrontService
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'ktp' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -202,13 +202,13 @@ class FrontService
                 $image->move($destinationPath, $name);
                 $data['foto'] = $name;
             }
-            if ($data['ktp']) {
-                $image = $data['ktp'];
-                $name = time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('/images/pelanggan/ktp');
-                $image->move($destinationPath, $name);
-                $data['ktp'] = $name;
-            }
+            // if ($data['ktp']) {
+            //     $image = $data['ktp'];
+            //     $name = time() . '.' . $image->getClientOriginalExtension();
+            //     $destinationPath = public_path('/images/pelanggan/ktp');
+            //     $image->move($destinationPath, $name);
+            //     $data['ktp'] = $name;
+            // }
 
             $user = User::create([
                 'name' => $data['nama_lengkap'],
@@ -228,7 +228,7 @@ class FrontService
                 'latitude' => $data['latitude'],
                 'longitude' => $data['longitude'],
                 'foto' => $data['foto'],
-                'ktp' => $data['ktp']
+                // 'ktp' => $data['ktp']
             ]);
 
             DB::commit();

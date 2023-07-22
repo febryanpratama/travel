@@ -39,8 +39,8 @@
                                  
                                  <th>No</th>
                                  <th>Kode Invoice</th>
+                                 <th>Nama Penyewa</th>
                                  <th>Tanggal Penyewaan</th>
-                                 <th>Jasa Rental</th>
                                  <th>Mobil</th>
                                  <th>Status Pembayaran</th>
                                  <th>Status Order</th>
@@ -52,12 +52,12 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $item->kd_invoice }}</td>
+                                        <td>{{ $item->customer->nama_lengkap }}</td>
                                         <td>{{ $item->tanggal_mulai }}
                                             <br>
                                             -
                                             <br>
                                             {{ $item->tanggal_selesai }}</td>
-                                        <td>{{ $item->rental->nama_rental }}</td>
                                         <td>{{ $item->mobil->nama_mobil }}</td>
                                         <td>
                                             @switch($item->is_pembayaran)

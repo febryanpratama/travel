@@ -120,7 +120,7 @@ class AdminController extends Controller
 
     public function indexOrder()
     {
-        $data = Penyewaan::with('rental', 'customer')->whereNotIn('is_status', ['Keranjang'])->get();
+        $data = Penyewaan::with('rental', 'customer')->whereNotIn('is_status', ['Keranjang'])->orderBy('created_at', 'DESC')->get();
 
         return view('pages.back.admin.list-order', [
             'data' => $data

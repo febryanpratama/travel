@@ -218,7 +218,7 @@ class MobilService
     static function getOrders()
     {
 
-        $orders = Penyewaan::with('mobil', 'rental', 'customer')->where('rental_id', Auth::user()->rental->id)->whereNotIn('is_status', ['Keranjang'])->get();
+        $orders = Penyewaan::with('mobil', 'rental', 'customer')->where('rental_id', Auth::user()->rental->id)->whereNotIn('is_status', ['Keranjang'])->orderBy('created_at', 'DESC')->get();
         return [
             'status' => true,
             'message' => 'Data Order berhasil diambil',
