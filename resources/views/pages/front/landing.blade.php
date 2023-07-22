@@ -424,7 +424,7 @@
 {{-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap" type="text/javascript"></script>  --}}
 {{-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script> --}}
 {{-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap&libraries=geometry&v=weekly" defer></script> --}}
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBH7IiezL4t3TbDikGVKzFlQM2kQoLkGcw&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA_uzYqo6LL446KGB4FQWynZnzjvhXc6D8&callback=initMap"></script>
 
 {{-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc" defer></script> --}}
 {{-- <script type="text/javascript"> 

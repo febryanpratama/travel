@@ -2,7 +2,7 @@
     <div class="settings-widget dash-profile">
         <div class="settings-menu p-0">
             <div class="profile-bg">
-                <h5>Beginner</h5>
+                {{-- <h5>Beginner</h5> --}}
                 
                 <img src="{{ asset('') }}assets/back/img/instructor-profile-bg.jpg" alt="">
                 <div class="profile-img">

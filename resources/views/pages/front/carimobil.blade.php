@@ -187,7 +187,7 @@
                     </div>
                 </div>
             </div>
-
+            {{-- {{ $latitude }} --}}
             {{-- <div class="row">
                 <div class="card">
                     <div class="col-md-12"></div>
@@ -200,7 +200,7 @@
 
 
 @section('script')
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBH7IiezL4t3TbDikGVKzFlQM2kQoLkGcw&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA_uzYqo6LL446KGB4FQWynZnzjvhXc6D8&callback=initMap"></script>
     <script>
         function initializeAutocomplete(){
             var input = document.getElementById('locality');
@@ -249,7 +249,7 @@
         
         function initMap(){
                 var map;
-                var radius = 1500
+                var radius = 3000
                 var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
                 var bounds = new google.maps.LatLngBounds();
                 var mapOptions = {
@@ -360,7 +360,7 @@
                                 //             </div>
                                 //             <div class="x_car_offer_price float_left">
                                 //                 <div class="x_car_offer_price_inner">
-                                //                     <h3 style="font-size: 20px;">Rp. 1500</h3>
+                                //                     <h3 style="font-size: 20px;">Rp. 3000</h3>
                                 //                     <p>
                                 //                         <span>K</span> <br />
                                 //                         / hari
@@ -481,10 +481,17 @@
             var nama_mobil = $('#nama_mobil').val();
                 // window.initMap = initMap();/
 
+
+
             function initMap(){
                 var map;
-                var radius = 1500
-                var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
+                var radius = 3000;
+                 if ("{{ $latitude }}" ==  null) {
+                    var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
+                }else{
+                    var myCenter=new google.maps.LatLng("{{ $latitude }}", "{{ $longitude }}");
+                }
+                // var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
                 var bounds = new google.maps.LatLngBounds();
                 var mapOptions = {
                     center: myCenter,
@@ -537,7 +544,7 @@
                 
                 ];
 
-                let url = "{{ url('api/cars') }}?nama_mobil="+nama_mobil;
+                let url = "{{ url('api/cars') }}?nama_mobil="+nama_mobil+"&latitude={{ $latitude }}&longitude={{ $longitude }}";
                 console.log(url);
                 $.ajax({
                     url: url,
@@ -598,6 +605,9 @@
                                             <div class="x_car_offer_heading float_left">
                                                 <h2><a href="#">`+listData[index].nama_mobil+`</a></h2>
                                                 <p>`+listData[index].tipe_mobil+`</p>
+                                            </div>
+                                            <div class="x_car_offer_heading float_left">
+                                                <p>`+listData[index].haversine+` km</p>
                                             </div>
                                             <div class="x_car_offer_heading float_left">
                                                 <ul>
@@ -695,7 +705,7 @@
 
         function initialMap() {
             var map;
-            var radius = 1500
+            var radius = 3000
             if("{{ $latitude }}" == null){
                 var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
             }else{
@@ -769,16 +779,11 @@
                         // let myData = new google.maps.LatLng(parseFloat(value.latitude), parseFloat(value.longitude));
                         let myData = [value.rental.latitude, value.rental.longitude]
 
-                        // console.log("myData"+myData[1])
-                        // console.log("myCenter"+myCenter)
                         if("{{ $latitude }}" == null){
                             let centerLocation = [localStorage.getItem("latitude"),localStorage.getItem("longitude")]
                                                     let check = checkCircleInMarker(centerLocation, myData, radius)
-                        // console.log("check"+check)
 
                         if(check){
-                            // console.log('ada')
-                            // console.log(mark)
         
                             markers.push(mark);
         
@@ -794,65 +799,7 @@
                             ]
                             infoWindowContent.push(content);
 
-                            // $('#gridhome').append(`
-                            //     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                            //         <div class="x_car_offer_main_boxes_wrapper float_left">
-                            //             <div class="x_car_offer_img float_left">
-                            //                 <img src="http://127.0.0.1:8000/images/mobil/1684997863fortuner.png" class="img-fluid" style="max-height: 150px;" alt="img" />
-                            //             </div>
-                            //             <div class="x_car_offer_price float_left">
-                            //                 <div class="x_car_offer_price_inner">
-                            //                     <h3 style="font-size: 20px;">Rp. 1500</h3>
-                            //                     <p>
-                            //                         <span>K</span> <br />
-                            //                         / hari
-                            //                     </p>
-                            //                 </div>
-                            //             </div>
-                            //             <div class="x_car_offer_heading float_left">
-                            //                 <h2><a href="#">`+value.nama_mobil+`</a></h2>
-                            //                 <p>SUV</p>
-                            //             </div>
-                            //             <div class="x_car_offer_heading float_left">
-                            //                 <ul>
-                            //                     <li>
-                            //                         <a href="#"><i class="fa fa-users"></i> &nbsp;`+value.kapasitas_mobil+`</a>
-                            //                     </li>
-                            //                     <li>
-                            //                         <a href="#"><i class="fa fa-clone"></i> &nbsp;2</a>
-                            //                     </li>
-                            //                     <li>
-                            //                         <a href="#"><i class="fa fa-briefcase"></i> &nbsp;9</a>
-                            //                     </li>
-                            //                     <li>
-                            //                         <div class="nice-select" tabindex="0">
-                            //                             <span class="current"><i class="fa fa-bars"></i></span>
-                            //                             <ul class="list">
-                            //                                 <li class="dpopy_li">
-                            //                                     <a href="#"><i class="fa fa-snowflake-o"></i> Air Conditioning</a>
-                            //                                 </li>
-                            //                                 <li class="dpopy_li">
-                            //                                     <a href="#"><i class="fa fa-code-fork"></i>Manual Transmission</a>
-                            //                                 </li>
-                            //                                 <li class="dpopy_li">
-                            //                                     <a href="#"><i class="fa fa-user-circle-o"></i> Minimum age</a>
-                            //                                 </li>
-                            //                             </ul>
-                            //                         </div>
-                            //                     </li>
-                            //                 </ul>
-                            //             </div>
-                            //             <div class="x_car_offer_bottom_btn float_left">
-                            //                 <ul class="">
-                            //                     <li><a href="#">NEW</a></li>
-                            //                     <li><a href="http://127.0.0.1:8000/1/detail">Details</a></li>
-                            //                 </ul>
-                            //             </div>
-                            //         </div>
-                            //     </div>
-                            // `)
-
-
+                            // console.log(haversine+"haversine")
                             $('#gridhome').append(`
                                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="x_car_offer_main_boxes_wrapper float_left">
@@ -867,6 +814,9 @@
                                                 </div>
                                                 <div class="x_car_offer_heading float_left">
                                                     <h2><a href="#">`+value.nama_mobil+`</a></h2>
+                                                    <p>`+value.tipe_mobil+`</p>
+                                                </div>
+                                                <div class="x_car_offer_heading float_left">
                                                     <p>`+value.tipe_mobil+`</p>
                                                 </div>
                                                 <div class="x_car_offer_heading float_left">
@@ -927,7 +877,7 @@
                             //             </div>
                             //             <div class="x_car_offer_price float_left">
                             //                 <div class="x_car_offer_price_inner">
-                            //                     <h3 style="font-size: 20px;">Rp. 1500</h3>
+                            //                     <h3 style="font-size: 20px;">Rp. 3000</h3>
                             //                     <p>
                             //                         <span>K</span> <br />
                             //                         / hari

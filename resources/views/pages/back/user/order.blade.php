@@ -37,7 +37,7 @@
                            <thead class="text-center">
                               <tr class="text-center">
                                  
-                                 <th>#</th>
+                                 <th>No</th>
                                  <th>Kode Invoice</th>
                                  <th>Tanggal Penyewaan</th>
                                  <th>Jasa Rental</th>

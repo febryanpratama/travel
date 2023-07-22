@@ -52,13 +52,13 @@
                         <input type="number" class="form-control" name="no_telpon" value="{{ $data->no_telp }}" placeholder="Enter your last Name">
                      </div>
                   </div>
-                  <div class="col-lg-6">
+                  {{-- <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Foto Profil / <span><a href="{{ asset('images/pelanggan/'.$data->foto) }}" target="_blank">Lihat Foto</a></span></label>
                         
                         <input type="file" class="form-control" name="foto" value="{{ $data->ktp }}" placeholder="Enter your last Name">
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Identitas Pribadi (ktp) / <span><a href="{{ asset('images/pelanggan/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>

@@ -35,7 +35,7 @@
                            <thead class="text-center">
                               <tr class="text-center">
                                  
-                                 <th class="text-center">#</th>
+                                 <th class="text-center">No</th>
                                  {{-- <th class="text-center">Nama fee</th> --}}
                                  <th class="text-center">Fee Bulan</th>
                                  <th>Nominal Telah Dibayar</th>

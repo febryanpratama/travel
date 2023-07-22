@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="col-md-6" style="text-align: right">
-                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+                            {{-- <button id="exportButton" class="" style="text-align: right">Export to PDF</button> --}}
 
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Pengemudi
@@ -37,7 +37,7 @@
                            <thead class="text-center">
                               <tr class="text-center">
                                  
-                                 <th>#</th>
+                                 <th>No</th>
                                  <th>Nama Pengemudi</th>
                                  <th>No Hp</th>
                                  <th>Alamat</th>

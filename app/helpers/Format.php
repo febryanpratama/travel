@@ -139,4 +139,27 @@ class Format
         // dd();
         return substr($distance, 0, 4);
     }
+    static function haversine($latitudeu, $longitudeu, $latituder, $longituder)
+    {
+
+        $lat1 = deg2rad($latituder);
+        $lon1 = deg2rad($longituder);
+        $lat2 = deg2rad($latitudeu);
+        $lon2 = deg2rad($longitudeu);
+
+        // Jari-jari bumi dalam kilometer (default)
+        $radius = 6371;
+
+        // Selisih latitud dan longitud
+        $deltaLat = $lat2 - $lat1;
+        $deltaLon = $lon2 - $lon1;
+
+        // Rumus Haversine
+        $a = sin($deltaLat / 2) * sin($deltaLat / 2) + cos($lat1) * cos($lat2) * sin($deltaLon / 2) * sin($deltaLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $distance = $radius * $c;
+
+        // dd();
+        return substr($distance, 0, 4);
+    }
 }

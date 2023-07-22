@@ -27,8 +27,9 @@ class MobilController extends Controller
     //
 
     protected $mobilService;
+    protected $format;
 
-    public function __construct(MobilService $mobilService)
+    public function __construct(MobilService $mobilService, Format $format)
     {
         $this->mobilService = $mobilService;
     }
@@ -50,6 +51,12 @@ class MobilController extends Controller
         $nama_mobil = $request->nama_mobil;
         $response = Mobil::with('rental', 'rental.auth')->where('nama_mobil', 'like', "%{$nama_mobil}%")->whereRelation('rental.auth', 'is_active', '1')->get();
 
+        $data = [];
+
+        foreach ($response as $k => $i) {
+            $response[$k]['haversine'] = Format::haversine($request->latitude, $request->longitude, $i->rental->latitude, $i->rental->longitude);
+            // dd($response['haversine']);
+        }
         // dd($response);
         return response()->json([
             'status' => true,

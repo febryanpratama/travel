@@ -28,7 +28,7 @@
                            <thead class="text-center">
                               <tr>
                                  
-                                 <th>#</th>
+                                 <th>No</th>
                                  <th>Nama Pelanggan</th>
                                  <th>NIK</th>
                                  <th>Nomor Telepon</th>
