@@ -2,13 +2,13 @@
 <html lang="en">
 
 <!-- Mirrored from dreamslms.dreamguystech.com/laravel/public/register by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jan 2023 17:00:43 GMT -->
-<!-- Added by HTTrack -->
+<!-- Added by HTTrapreck -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Dreams LMS</title>
+    <title>RENTALIN</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('') }}assets/back/img/favicon.svg">
 
