@@ -26,40 +26,73 @@
                <button type="button" class="btn btn-outline-primary m-2" id="print">
                    Print Detail
                </button>
+
+               @if ($data->is_location == 'Ambil Sendiri')
+               @switch($data->is_status)
+                   @case('Dalam Pengantaran')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengambilan">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Sedang Digunakan')
+                       <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Selesai Digunakan')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Sudah Dikembalikan')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
+                           Order Telah Selesai
+                       </button>
+                       @break
+                    @default
+                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                           Ditolak
+                       </button>
+                       
+               @endswitch
+                   
+               @else
+                   
+               @switch($data->is_status)
+                   @case('Dalam Persiapan')
+                       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dalampersiapan">
+                           {{ $data->is_status }}
+                       </button>
+                       
+                       @break
+                   @case('Dalam Pengantaran')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengantaran">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Sedang Digunakan')
+                       <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Selesai Digunakan')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
+                           {{ $data->is_status }}
+                       </button>
+                       @break
+                   @case('Sudah Dikembalikan')
+                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
+                           Order Telah Selesai
+                       </button>
+                       @break
+                    @default
+                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                           Ditolak
+                       </button>
+                       
+               @endswitch
+               @endif
                
-                @switch($data->is_status)
-                    @case('Dalam Persiapan')
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dalampersiapan">
-                            {{ $data->is_status }}
-                        </button>
-                        
-                        @break
-                    @case('Dalam Pengantaran')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengantaran">
-                            {{ $data->is_status }}
-                        </button>
-                        @break
-                    @case('Sedang Digunakan')
-                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
-                            {{ $data->is_status }}
-                        </button>
-                        @break
-                    @case('Selesai Digunakan')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
-                            {{ $data->is_status }}
-                        </button>
-                        @break
-                    @case('Sudah Dikembalikan')
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
-                            Order Telah Selesai
-                        </button>
-                        @break
-                     @default
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
-                            Ditolak
-                        </button>
-                        
-                @endswitch
                {{-- <a href="javascript:;" class="btn btn-danger">Delete</a> --}}
             </div>
          </div>
@@ -211,6 +244,44 @@
         @csrf
         <div class="modal-body">
             Apakah Mobil sudah diantar? , jika sudah silahkan konfirmasi
+            <hr>
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="" class="control-label">Status</label>
+                  <select name="is_status" class="form-control" id="">
+                     <option value="" selected disabled required> == Pilih == </option>
+                     <option value="Disetujui">Disetujui</option>
+                     <option value="Ditolak">Ditolak</option>
+                  </select>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="" class="control-label">Keterangan Pengantaran*</label>
+                  <textarea name="keterangan" id="" cols="30" rows="5" class="form-control"></textarea>
+                  <small class="text-danger">*optional</small>
+               </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="dalampengambilan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{{ url('rental/orders/'.$data->id.'/pengantaran') }}" method="POST">
+        @csrf
+        <div class="modal-body">
+            Apakah Mobil sudah diambil? , jika sudah silahkan konfirmasi
             <hr>
             <div class="row">
                <div class="col-md-12">
