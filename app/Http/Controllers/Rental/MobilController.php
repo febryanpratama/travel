@@ -36,7 +36,7 @@ class MobilController extends Controller
 
     public function getRent()
     {
-        $response = Rental::with('auth')->whereRelation('auth', 'is_active', '1')->get();
+        $response = Rental::with('auth', 'mobil')->whereRelation('auth', 'is_active', '1')->whereRelation('mobil', 'status_mobil', 'tersedia')->get();
 
         return response()->json([
             'status' => true,

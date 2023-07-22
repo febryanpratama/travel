@@ -20,7 +20,7 @@ class FrontService
 
     public static function getMobil()
     {
-        $data = Mobil::with('rental')->where('deleted_at', null)->limit(8)->get();
+        $data = Mobil::with('rental')->where('deleted_at', null)->where('status_mobil', 'tersedia')->limit(8)->get();
 
         return [
             'status' => true,
