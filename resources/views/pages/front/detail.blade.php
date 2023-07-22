@@ -291,7 +291,7 @@
 
 @endsection
 @section('script')
-<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyA_uzYqo6LL446KGB4FQWynZnzjvhXc6D8"></script>
 {{-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script> --}}
 
 	<script>
