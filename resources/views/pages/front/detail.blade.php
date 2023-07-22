@@ -83,7 +83,7 @@
 						<div class="col-md-12">
 							<div class="x_car_detail_main_wrapper float_left">
 								<div class="lr_bc_slider_first_wrapper">
-									<div class="owl-carousel owl-theme">
+									<div class="">
 										<div class="item">
 											<div class="lr_bc_slider_img_wrapper">
 												<img src="{{ asset('images/mobil/'.$data->foto_mobil) }}" alt="fresh_food_img">
@@ -96,7 +96,8 @@
 										<h3>Nama Rental : <span>{{ $data->rental->nama_rental }} </span></h3>
 										<h3>{{ $data->nama_mobil }} /<span>TIpe {{ $data->rental->tipe }} </span></h3>
 										
-										<span>Jarak / Waktu : </span><span id="rev"></span><br>
+										{{-- <span>Jarak / Waktu : </span><span id="rev"></span><br> --}}
+										<span>Haversine : {{ App\helpers\Format::getalgoritma($data->rental->id) }} Km</span><span id="rev"></span><br>
 									{{-- {{ dd($data) }} --}}
 										<span>buka - selesai : </span><span id="rev">{{ $data->rental->jam_mulai }} - {{ $data->rental->jam_selesai }}</span>
 									</div>
