@@ -50,6 +50,7 @@
                            <tbody class="text-center">
                                 @foreach ($data as $key=>$item)
                                     <tr>
+                                        {{-- {{ dd($item) }} --}}
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $item->kd_invoice }}</td>
                                         <td>{{ $item->customer->nama_lengkap }}</td>
@@ -72,8 +73,71 @@
                                             @endswitch
                                         </td>
                                         <td>
-                                            <span class="btn btn-sm btn-outline-success text-black">
-                                                {{ $item->is_status }}
+                                            <span >
+                                                {{-- {{ $item->is_location }} --}}
+                                                @if ($item->is_location == 'Ambil Sendiri')
+                                                @switch($item->is_status)
+                                                    @case('Dalam Persiapan')
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengambilan">
+                                                            Dalam Pengambilan
+                                                        </button>
+                                                        @break
+                                                    @case('Sedang Digunakan')
+                                                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
+                                                            {{ $item->is_status }}
+                                                        </button>
+                                                        @break
+                                                    @case('Selesai Digunakan')
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
+                                                            {{ $item->is_status }}
+                                                        </button>
+                                                        @break
+                                                    @case('Sudah Dikembalikan')
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
+                                                            Order Telah Selesai
+                                                        </button>
+                                                        @break
+                                                        @default
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                                                            Ditolak
+                                                        </button>
+                                                        
+                                                @endswitch
+                                                @else
+                                                    @switch($item->is_status)
+                                                            @case('Dalam Persiapan')
+                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dalampersiapan">
+                                                                    {{ $item->is_status }}
+                                                                </button>
+                                                                
+                                                                @break
+                                                            @case('Dalam Pengantaran')
+                                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengantaran">
+                                                                    {{ $item->is_status }}
+                                                                </button>
+                                                                @break
+                                                            @case('Sedang Digunakan')
+                                                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#sedangdigunakan">
+                                                                    {{ $item->is_status }}
+                                                                </button>
+                                                                @break
+                                                            @case('Selesai Digunakan')
+                                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#selesaidigunakan">
+                                                                    {{ $item->is_status }}
+                                                                </button>
+                                                                @break
+                                                            @case('Sudah Dikembalikan')
+                                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#">
+                                                                    Order Telah Selesai
+                                                                </button>
+                                                                @break
+                                                                @default
+                                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#">
+                                                                    Ditolak
+                                                                </button>
+                                                                
+                                                        @endswitch
+                                                @endif
                                             </span>
                                         </td>
                                         <td>

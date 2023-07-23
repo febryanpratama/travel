@@ -28,10 +28,12 @@
                </button>
 
                @if ($data->is_location == 'Ambil Sendiri')
+
+               {{-- {{ $data->is_status }} --}}
                @switch($data->is_status)
-                   @case('Dalam Pengantaran')
+                   @case('Dalam Persiapan')
                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dalampengambilan">
-                           {{ $data->is_status }}
+                           Dalam Pengambilan
                        </button>
                        @break
                    @case('Sedang Digunakan')
