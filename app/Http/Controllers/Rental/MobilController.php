@@ -280,7 +280,7 @@ class MobilController extends Controller
     public function detailOrderPengantaran(Request $request, $order_id)
     {
         // dd($request->all());
-        $data = Penyewaan::with('mobil', 'rental', 'customer')->whereNotIn('is_status', ['Keranjang'])->where('id', $order_id)->first();
+        $data = Penyewaan::with('mobil', 'rental', 'customer')->where('id', $order_id)->first();
 
         if (!$data) {
             # code...
