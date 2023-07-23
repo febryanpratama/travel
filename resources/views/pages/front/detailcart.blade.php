@@ -91,7 +91,7 @@
                         <hr>
                         <!-- Resources -->
                         <div class="x_car_access_filer_top_img">
-                           <img src="{{ asset('images/cars/'.$data->mobil->foto_mobil) }}" alt="car_img" class="img-fluid">
+                           <img src="{{ asset('images/mobil/'.$data->mobil->foto_mobil) }}" alt="car_img" class="img-fluid">
                            <h3>{{ $data->mobil->nama_mobil }}</h3>
                            <p>{{ number_format($data->mobil->harga_sewa_mobil) }} (1 day)</p>
                         </div>

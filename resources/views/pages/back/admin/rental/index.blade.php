@@ -40,12 +40,12 @@
                            <thead class="text-center">
                               <tr>
                                  
-                                 <th>#</th>
+                                 <th>No</th>
                                  <th>Nama Rental</th>
                                  <th>Nama Pemilik</th>
                                  <th>No Ijin Usaha</th>
                                  <th>Tanggal Pendaftaran</th>
-                                 <th>Tipe</th>
+                                 <th>Tipe Rental</th>
                                  <th>Status</th>
                                  <th>Aksi</th>
                               </tr>

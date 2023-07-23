@@ -110,7 +110,7 @@
                    <thead class="text-center">
                        <tr class="text-center">
                            
-                           <th>#</th>
+                           <th>No</th>
                            <th>Nama Pengemudi</th>
                            <th>No Hp</th>
                            <th>Alamat</th>
