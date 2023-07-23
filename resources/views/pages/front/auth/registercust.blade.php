@@ -216,7 +216,7 @@
 
 
     <script src="{{ asset('') }}assets/back/js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA_uzYqo6LL446KGB4FQWynZnzjvhXc6D8"></script>
 
 
     <script>

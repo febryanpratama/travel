@@ -174,7 +174,7 @@
 
     <script src="{{ asset('') }}assets/back/js/script.js"></script>
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc&callback=initMap" async></script> --}}
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDbOpBHYiou-5YwdLAN6yLg554NwQ8ciSc"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA_uzYqo6LL446KGB4FQWynZnzjvhXc6D8"></script>
 
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk"></script> --}}
 
