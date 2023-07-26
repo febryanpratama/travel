@@ -440,7 +440,7 @@
         var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
         var mapOptions = {
             center: myCenter,
-            zoom: 12,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
         };
         
@@ -539,7 +539,7 @@ $('#carirental').on('click',function(){
         var bounds = new google.maps.LatLngBounds();
         var mapOptions = {
             center: myCenter,
-            zoom: 12,
+            zoom: 13,
             mapTypeId: 'roadmap'
         };
 
@@ -773,7 +773,7 @@ $('#carirental').on('click',function(){
             // Set zoom level
             var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                 this.setCenter(myCenter);
-                this.setZoom(12);
+                this.setZoom(13);
                 google.maps.event.removeListener(boundsListener);
             });
             
@@ -807,7 +807,7 @@ $('#carirental').on('click',function(){
         var bounds = new google.maps.LatLngBounds();
         var mapOptions = {
             center: myCenter,
-            zoom: 12,
+            zoom: 13,
             mapTypeId: 'roadmap'
         };
 
@@ -973,7 +973,7 @@ $('#carirental').on('click',function(){
             // Set zoom level
             var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                 this.setCenter(myCenter);
-                this.setZoom(12);
+                this.setZoom(13);
                 google.maps.event.removeListener(boundsListener);
             });
             
