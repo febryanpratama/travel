@@ -686,7 +686,7 @@ $('#carirental').on('click',function(){
             type: "GET",
             dataType: "JSON",
             success: function(data) {
-                console.log(data);
+                console.log("data"+data);
                 $.each(data.data, function(key, value) {
                     let mark = [
                         value.nama_rental,
