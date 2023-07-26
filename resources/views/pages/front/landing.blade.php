@@ -233,7 +233,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="x_slider_form_input_wrapper float_left">
-                                            <h3>Lokasi Penjemputan</h3>
+                                            <h3>Lokasi Rental</h3>
                                             <textarea placeholder="Pilih tempat yang anda inginkan" class="form-control" name="alamat" onFocus="initializeAutocomplete()" id="locality" autocomplete></textarea>
                                         </div>
                                     </div>
@@ -534,7 +534,7 @@ $('#carirental').on('click',function(){
 
     function initMap(){
         var map;
-        var radius = 1500
+        var radius = 3500
         var myCenter=new google.maps.LatLng(localStorage.getItem("latitude"),localStorage.getItem("longitude"));
         var bounds = new google.maps.LatLngBounds();
         var mapOptions = {
@@ -686,7 +686,7 @@ $('#carirental').on('click',function(){
             type: "GET",
             dataType: "JSON",
             success: function(data) {
-                // console.log(data);
+                console.log(data);
                 $.each(data.data, function(key, value) {
                     let mark = [
                         value.nama_rental,
@@ -704,7 +704,8 @@ $('#carirental').on('click',function(){
                         
                     
                     let check = checkCircleInMarker(centerLocation, myData, radius)
-                    console.log("check"+check)
+
+                    console.log("check false"+check)
 
                     if(check){
                         console.log('ada')
@@ -868,6 +869,7 @@ $('#carirental').on('click',function(){
                         parseFloat(value.longitude)
                     ];
 
+                    console.log("mark"+mark)
                     // let myData = new google.maps.LatLng(parseFloat(value.latitude), parseFloat(value.longitude));
                     let myData = [value.latitude, value.longitude]
 
@@ -876,7 +878,7 @@ $('#carirental').on('click',function(){
                     if("{{ $latitude }}" == null){
                         let centerLocation = [localStorage.getItem("latitude"),localStorage.getItem("longitude")]
                         let check = checkCircleInMarker(centerLocation, myData, radius)
-                    console.log("check"+check)
+                    console.log("check test"+check)
 
                     if(check){
                         console.log('ada')

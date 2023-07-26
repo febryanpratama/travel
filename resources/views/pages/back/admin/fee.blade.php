@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 text-right" style="text-align: right">
-                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+                            {{-- <button id="exportButton" class="" style="text-align: right">Export to PDF</button> --}}
 
                             {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Pembayaran Fee
