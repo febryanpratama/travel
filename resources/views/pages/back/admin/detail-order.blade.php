@@ -16,7 +16,7 @@
                   <p>{{ $data->mobil->nama_mobil }}</p>
                </div>
             </div>
-            <div class="profile-share d-flex align-items-center justify-content-center">
+            <div class="profile-share" style="text-align: right">
                <button type="button" class="btn btn-outline-primary m-2" id="print">
                    Print Detail
                </button>
@@ -60,7 +60,7 @@
          </div>
          <div class="checkout-form personal-address add-course-info ">
             <div class="personal-info-head">
-               <h4>Details</h4>
+               <h4>Details Orderan</h4>
                <p>Berikut merupakan detail penyewaan Mobil untuk anda</p>
             </div>
             <form action="#">
@@ -118,6 +118,35 @@
                         </div>
                      </div>
                   @endif
+               </div>
+               <hr>
+               <div class="row">
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                     {{-- {{ dd($data)}} --}}
+                        <label class="form-control-label">Nama Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->nama_lengkap }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Alamat Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->alamat }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">NIK Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->nik }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">No Telp Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->no_telp }}" readonly>
+                     </div>
+                  </div>
+                  
                </div>
             </form>
          </div>

@@ -107,14 +107,27 @@
                <div class="row">
                   <div class="col-lg-6">
                      <div class="form-group">
-                        <label class="form-control-label">Nama Rental</label>
-                        <input type="text" class="form-control" value="{{ $data->rental->nama_rental }}" readonly>
+                     {{-- {{ dd($data)}} --}}
+                        <label class="form-control-label">Nama Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->nama_lengkap }}" readonly>
                      </div>
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
-                        <label class="form-control-label">Alamat Rental</label>
-                        <input type="text" class="form-control" value="{{ $data->rental->alamat }}" readonly>
+                        <label class="form-control-label">Alamat Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->alamat }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">NIK Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->nik }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">No Telp Costumer</label>
+                        <input type="text" class="form-control" value="{{ $data->customer->no_telp }}" readonly>
                      </div>
                   </div>
                   <div class="col-lg-6">
