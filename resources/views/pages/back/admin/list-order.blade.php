@@ -22,8 +22,8 @@
                                <h3>List Order</h3>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <button id="exportButton" class="" style="text-align: right">Export to PDF</button>
+                        <div class="col-md-6"  style="text-align: right">
+                            <button id="exportButton" class="btn btn-outline-primary">Export to PDF</button>
                             {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                                 + Mobil
                             </button> --}}
