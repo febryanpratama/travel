@@ -254,7 +254,7 @@
                 var bounds = new google.maps.LatLngBounds();
                 var mapOptions = {
                     center: myCenter,
-                    zoom: 14,
+                    zoom: 12,
                     mapTypeId: 'roadmap'
                 };
 
@@ -457,7 +457,7 @@
                     // Set zoom level
                     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                         this.setCenter(myCenter);
-                        this.setZoom(14);
+                        this.setZoom(12);
                         google.maps.event.removeListener(boundsListener);
                     });
                     
@@ -495,7 +495,7 @@
                 var bounds = new google.maps.LatLngBounds();
                 var mapOptions = {
                     center: myCenter,
-                    zoom: 14,
+                    zoom: 12,
                     mapTypeId: 'roadmap'
                 };
 
@@ -679,7 +679,7 @@
                     // Set zoom level
                     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                         this.setCenter(myCenter);
-                        this.setZoom(14);
+                        this.setZoom(12);
                         google.maps.event.removeListener(boundsListener);
                     });
                     
@@ -714,7 +714,7 @@
             var bounds = new google.maps.LatLngBounds();
             var mapOptions = {
                 center: myCenter,
-                zoom: 14,
+                zoom: 12,
                 mapTypeId: 'roadmap'
             };
 
@@ -1016,7 +1016,7 @@
                 // Set zoom level
                 var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
                     this.setCenter(myCenter);
-                    this.setZoom(14);
+                    this.setZoom(12);
                     google.maps.event.removeListener(boundsListener);
                 });
                 
