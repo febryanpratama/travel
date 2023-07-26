@@ -782,7 +782,7 @@ $('#carirental').on('click',function(){
         function checkCircleInMarker(markerPosition, circlePosition, radius) {
             // console.log("circle"+circlePosition[1])
             // console.log("marker"+markerPosition)
-            var km = radius/3500;
+            var km = radius/1000;
             var kx = Math.cos(Math.PI * circlePosition[0] / 180) * 111;
             var dx = Math.abs(circlePosition[1] - markerPosition[1]) * kx;
             var dy = Math.abs(circlePosition[0] - markerPosition[0]) * 111;
@@ -982,7 +982,7 @@ $('#carirental').on('click',function(){
         function checkCircleInMarker(markerPosition, circlePosition, radius) {
             console.log("circle"+circlePosition[1])
             console.log("marker"+markerPosition)
-            var km = radius/3500;
+            var km = radius/1000;
             var kx = Math.cos(Math.PI * circlePosition[0] / 180) * 111;
             var dx = Math.abs(circlePosition[1] - markerPosition[1]) * kx;
             var dy = Math.abs(circlePosition[0] - markerPosition[0]) * 111;
