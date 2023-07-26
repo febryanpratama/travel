@@ -86,7 +86,7 @@
 									<div class="">
 										<div class="item">
 											<div class="lr_bc_slider_img_wrapper">
-												<img src="{{ asset('images/mobil/'.$data->foto_mobil) }}" alt="fresh_food_img">
+												<img src="{{ asset('images/mobil/'.$data->foto_mobil) }}" class="img-fluid" alt="fresh_food_img">
 											</div>
 										</div>
 									</div>

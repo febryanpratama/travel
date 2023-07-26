@@ -52,6 +52,17 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4 d-flex">
+            <div class="card instructor-card w-100">
+                <div class="card-body">
+                    <div class="instructor-inner">
+                        <h6>Jumlah Order yang Belum Diproses</h6>
+                        <h4 class="instructor-text-success">{{ $orderblmdiproses }}</h4>
+                        <p>Rating this month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         @endrole
         <div class="col-md-4 d-flex">
             <div class="card instructor-card w-100">
