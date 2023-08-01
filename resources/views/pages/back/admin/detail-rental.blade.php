@@ -55,7 +55,7 @@
                   </div>
                   <div class="col-lg-6">
                      <div class="form-group">
-                        <label class="form-control-label">Identitas Pribadi / <span><a href="{{ asset('images/rental/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
+                        <label class="form-control-label">Foto Surat Izin / <span><a href="{{ asset('images/rental/ktp/'.$data->ktp) }}" target="_blank">Lihat Foto</a></span></label>
                         
                         <input type="file" class="form-control" name="ktp" value="{{ $data->ktp }}" placeholder="Enter your last Name">
                     </div>
