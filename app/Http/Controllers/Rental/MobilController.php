@@ -49,9 +49,13 @@ class MobilController extends Controller
     {
         // dd($request->all());
         $nama_mobil = $request->nama_mobil;
-        $response = Mobil::with('rental', 'rental.auth')->where('nama_mobil', 'like', "%{$nama_mobil}%")->whereRelation('rental.auth', 'is_active', '1')->get();
 
-        $data = [];
+        if ($nama_mobil) {
+            $response = Mobil::with('rental', 'rental.auth')->where('nama_mobil', 'like', "%{$nama_mobil}%")->whereRelation('rental.auth', 'is_active', '1')->get();
+        } else {
+            $response = Mobil::with('rental', 'rental.auth')->whereRelation('rental.auth', 'is_active', '1')->get();
+        }
+
 
         foreach ($response as $k => $i) {
             $response[$k]['haversine'] = Format::haversine($request->latitude, $request->longitude, $i->rental->latitude, $i->rental->longitude);

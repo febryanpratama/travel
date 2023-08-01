@@ -91,8 +91,14 @@ class FrontController extends Controller
         // dd($request->all());
 
         $nama_mobil = $request->nama_mobil;
+
+        if ($nama_mobil) {
+
+            $data = Mobil::where('nama_mobil', 'like', "%{$nama_mobil}%")->where('status_mobil', 'tersedia')->get();
+        } else {
+            $data = Mobil::where('nama_mobil', 'like', "%{$nama_mobil}%")->where('status_mobil', 'tersedia')->get();
+        }
         // dd()
-        $data = Mobil::where('nama_mobil', 'like', "%{$nama_mobil}%")->where('status_mobil', 'tersedia')->get();
         // dd($data);
 
         return view('pages.front.carimobil', [
