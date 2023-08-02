@@ -573,8 +573,8 @@
                             // console.log("check"+check)
     
                             if(check){
-                                // console.log('ada')
-                                // console.log(mark)
+                                console.log('ada')
+                                console.log(mark)
             
                                 markers.push(mark);
             
