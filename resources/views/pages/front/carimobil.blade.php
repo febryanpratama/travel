@@ -572,7 +572,7 @@
                             let check = checkCircleInMarker(centerLocation, myData, radius)
                             // console.log("check"+check)
     
-                            if(check){
+                            if(!check){
                                 console.log('ada')
                                 console.log(mark) 
                                 //  xx //
