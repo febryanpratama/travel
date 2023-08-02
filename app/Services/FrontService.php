@@ -5,7 +5,7 @@ namespace App\Services;
 use App\helpers\Format;
 use App\Models\Mobil;
 use App\Models\Notifikasi;
-use App\Models\pelanggan;
+use App\Models\Pelanggan;
 use App\Models\Penyewaan;
 use App\Models\Rental;
 use App\Models\User;
