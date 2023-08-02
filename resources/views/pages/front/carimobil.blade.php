@@ -574,7 +574,8 @@
     
                             if(check){
                                 console.log('ada')
-                                console.log(mark)
+                                console.log(mark) 
+                                //  xx //
             
                                 markers.push(mark);
             
@@ -634,7 +635,7 @@
                                 `)
     
                             }else{
-                                // console.log('tidak ada')
+                                console.log('tidak ada')
                             }
 
                         }
