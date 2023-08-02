@@ -107,7 +107,49 @@
                         <input type="text" class="form-control" value="{{ number_format(($data->total_harga+$data->hargasopir), 0) }}" readonly>
                      </div>
                   </div>
-               <div class="col-lg-6">
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Nama Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->nama_mobil }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Transmisi Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->transmisi_mobil }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Merk Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->merk_mobil }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Kapasitas Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->kapasitas_mobil }} Penumpang" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Warna Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->warna_mobil }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Fasilitas Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->fasilitas_mobil }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-group">
+                        <label class="form-control-label">Jenis BBM Mobil</label>
+                        <input type="text" class="form-control" value="{{ $data->mobil->jenis_bbm }}" readonly>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
                      <div class="form-group">
                         <label class="form-control-label">Plat Nomor</label>
                         <input type="text" class="form-control" value="{{ $data->mobil->plat_mobil }}" readonly>
